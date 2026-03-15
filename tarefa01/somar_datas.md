@@ -35,7 +35,7 @@ Relação: A saída será a nova data gerada pelo acréscimo de N dias sucessivo
 **INÍCIO**
 (1) Receba os valores:\\
     - dd (dia)\\
-    - mm (mês)\\
+    - mm (mês)\
     - aa (ano)
     - n (quantidade de dias a somar)
 (2) Enquanto n > 0, faça:
