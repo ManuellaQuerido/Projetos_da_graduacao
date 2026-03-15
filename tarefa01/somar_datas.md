@@ -24,4 +24,11 @@ Relação: A saída será a nova data gerada pelo acréscimo de N dias sucessivo
 
 ## **Exercício 1.b**
 
+### Instruções elementares:
+- Ler os valores colocados na entrada
+- Realizar a operação de soma com números inteiros
+- Fazer comparações de valores
+- Repetir as intruções, se necessário
+
+### Algoritmo:
 ## **Exercício 1.c**
