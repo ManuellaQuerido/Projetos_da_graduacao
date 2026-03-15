@@ -33,25 +33,25 @@ Relação: A saída será a nova data gerada pelo acréscimo de N dias sucessivo
 ### Algoritmo:
 
 **INÍCIO**
-(1) Receba os valores:\\
-    - dd (dia)\\
-    - mm (mês)\
+1. Receba os valores:
+    - dd (dia)
+    - mm (mês)
     - aa (ano)
     - n (quantidade de dias a somar)
-(2) Enquanto n > 0, faça:
-    (2.1) Determine **Nl**:
-        (2.1.1) Se mm = 02, então Nl = 28
-        (2.1.2) Se mm = 4, 6, 9 ou 11, então Nl = 30
-        (2.1.3) Caso contrário Nl = 31
-    (2.2) Some **n** ao dia:
+2.  Enquanto n > 0, faça:
+   2.1 Determine **Nl**:
+        2.1.1 Se mm = 02, então Nl = 28
+        2.1.2 Se mm = 4, 6, 9 ou 11, então Nl = 30
+        2.1.3 Caso contrário Nl = 31
+    2.2 Some **n** ao dia:
     dd = dd + n
-    (2.3) Se dd > Nl, então:
+    2.3 Se dd > Nl, então:
     dd = dd - Nl
     mm = mm + 1
-    (2.4) Se mm > 12, então:
+    2.4 Se mm > 12, então:
     mm = 1
     aa = aa + 1
-(3) A nova data será **dd/mm/aa**
+3. A nova data será **dd/mm/aa**
 
 **FIM**
 
