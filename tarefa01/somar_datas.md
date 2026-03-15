@@ -31,4 +31,16 @@ Relação: A saída será a nova data gerada pelo acréscimo de N dias sucessivo
 - Repetir as intruções, se necessário
 
 ### Algoritmo:
+Início
+- Entrada de dados
+    (1) Escreva ("Digite o dia da data escolhida:")
+        (1.1) Leia o valor em dd
+    (2) Escreva ("Digite o mês da data escolhida:")
+        (2.1) Leia o valor em mm
+    (3) Escreva ("Digite o ano da data escolhida:")
+        (3.1) Leia o valor em aa
+    (4) Escreva dd/mm/aa
+    (5) Escreva ("Digite o número para somar a data escolhida":)
+        (5.1) Leia o valor em n
+    
 ## **Exercício 1.c**
