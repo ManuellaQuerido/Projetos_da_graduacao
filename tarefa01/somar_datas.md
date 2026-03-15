@@ -33,10 +33,9 @@ Relação: A saída será a nova data gerada pelo acréscimo de N dias sucessivo
 ### Algoritmo:
 
 **INÍCIO**
-
-(1) Receba os valores:
-    - dd (dia)
-    - mm (mês)
+(1) Receba os valores:\\
+    - dd (dia)\\
+    - mm (mês)\\
     - aa (ano)
     - n (quantidade de dias a somar)
 (2) Enquanto n > 0, faça:
