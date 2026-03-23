@@ -10,4 +10,4 @@ Segundo programa:
 + senha_digitada -> tipo str
 + tentativas -> tipo int
 
-## Exercício 2.b
+## Exercício 2
