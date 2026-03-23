@@ -1,4 +1,5 @@
 # O problema 3*n + 1
+
 ## Algoritmo - Sequência de Collatz
 
 1. Receba um número inteiro positivo N
