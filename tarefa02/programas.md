@@ -5,6 +5,7 @@ Primeiro programa:
 + lista: tipo list (lista de inteiros)
 + mínimo: tipo int
 + valor: tipo int (variável do laço *for*)
+
 Segundo programa:
 + senha: tipo str
 + senha_digitada: tipo str
