@@ -1,0 +1,6 @@
+tb = str(input("Insira o tipo de bactéria: "))
+    print(tb)
+T = float(input("Insira a temperatura do ambiente em graus celsios: "))
+    print(T)
+Topt = float(input("Insira a temperatura ideal em graus celsios: "))
+    print(Topt)
