@@ -13,3 +13,12 @@
     - Some 1 à variável x
 6. Retorne para o comando 3, (verificação N = 1)
 7. Repita o processo até que N = 1
+
+# Estruturas de controle utilizadas
+
+- Estrutura de repetição (interação condicional)
+    - O algoritmo repete o processo enquanto N for diferente de 0
+
+- Estrutura condicional
+    - Há uma verificação para saber se N = 1
+    - Há também uma estrutura condicional para verificar se N é par ou não.
