@@ -26,9 +26,13 @@ Segundo Programa:
       - while (interação condicional)
       - if/else (execução condicional)
     + **Sintaxe**
-        - for <variável> in <lista>:
+        - while <condição>
               <comandos>
         - if <condição>:
              <comandos>
           else:
              <comandos>
+
+## Exercício 2.c
+- Apenas no segundo programa (rotina de verificação de senha) foi utilizada interação condicional, porque não tem como saber quantas vezes o usuário vai tentar inserir a senha até acertar.
+- É possivel reescrever p primeiro programa utilizando o comando *while* para percorrer a lista, mas o comando *for* é melhor por percorrer todos os elementos. Já o segundo programa poderia ser reescrito com o comando *for* apenas se tivesse um limite de tentativas pré-definidas, porém haveria uma modificação do programa, uma vez que o comando *while* executa a repetição até que a senha correta seja digitada.
