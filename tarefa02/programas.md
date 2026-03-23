@@ -23,7 +23,7 @@ Primeiro programa:
          <comandos>
 
         
-Segundo Programa:
+Segundo Program
 + **Estruturas identificadas**
     - while (interação condicional)
     - if/else (execução condicional)
