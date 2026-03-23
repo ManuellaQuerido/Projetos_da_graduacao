@@ -14,7 +14,7 @@
 6. Retorne para o comando 3, (verificação N = 1)
 7. Repita o processo até que N = 1
 
-# Estruturas de controle utilizadas
+## Estruturas de controle utilizadas
 
 - Estrutura de repetição (interação condicional)
     - O algoritmo repete o processo enquanto N for diferente de 0
