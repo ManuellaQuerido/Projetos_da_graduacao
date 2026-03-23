@@ -13,25 +13,27 @@ Segundo programa:
 ## Exercício 2.b
 ### Estruturas identificadas:
 Primeiro programa:
-    + **Estruturas identificadas**
-      - for (interação limitada)
-      - if (execução condicional)
-    + **Sintaxe**
-        - for <variável> in <lista>:
-              <comandos>
-        - if <condição>:
-             <comandos>
++ **Estruturas identificadas**
+    - for (interação limitada)
+    - if (execução condicional)
++ **Sintaxe**
+    - for <variável> in <lista>:
+         <comandos>
+    - if <condição>:
+         <comandos>
+
+        
 Segundo Programa:
-    + **Estruturas identificadas**
-      - while (interação condicional)
-      - if/else (execução condicional)
-    + **Sintaxe**
-        - while <condição>
-              <comandos>
-        - if <condição>:
-             <comandos>
-          else:
-             <comandos>
++ **Estruturas identificadas**
+    - while (interação condicional)
+    - if/else (execução condicional)
++ **Sintaxe**
+    - while <condição>
+            <comandos>
+    - if <condição>:
+         <comandos>
+    else
+         <comandos>
 
 ## Exercício 2.c
 - Apenas no segundo programa (rotina de verificação de senha) foi utilizada interação condicional, porque não tem como saber quantas vezes o usuário vai tentar inserir a senha até acertar.
