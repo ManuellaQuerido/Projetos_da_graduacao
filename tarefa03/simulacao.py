@@ -1,16 +1,16 @@
 import math
 
-tb = str(input("Tipo de bactéria: "))
-t = int(input("Tempo de duração do experimento em minutos: "))
-T = float(input("Temperatura do ambiente: "))
-w = float(input("Saturação inicial: "))
-p = int(input("População inicial: "))
+tb = input()
+t = int(input())
+T = float(input())
+w = float(input())
+p = int(input())
 
 a = 0.97
 b = 1.6*((10**-10))
 print(f"Após 0 minutos: {p}")
 
-if tb == "psicrófilos":
+if tb == "Psicrófilos":
     Tidp = 10
     rp = 1.03526 * math.exp(-((T - Tidp)**2) / (Tidp**2))
 
@@ -35,7 +35,7 @@ if tb == "psicrófilos":
         print(f"Após {tf} minutos: {p}")
         tf += 1
 
-if tb == "mesófilos":
+if tb == "Mesófilos":
     Tidm = 35
     rm = 1.03526 * math.exp(-((T - Tidm)**2) / (Tidm**2))
 
@@ -60,7 +60,7 @@ if tb == "mesófilos":
         print(f"Após {tf} minutos: {p}")
         tf += 1
 
-if tb == "termófilo":
+if tb == "Termófilo":
     Tidt = 75
     rt = 1.03526 * math.exp(-((T - Tidt)**2) / (Tidt**2))
    

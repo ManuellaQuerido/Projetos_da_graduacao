@@ -1,8 +1,8 @@
 import math # Importa funções de matemática
 
 # Entrada do tipo de bactéria e da temperatura ambiente
-tb = input("Tipo de bacteria: ")
-T = float(input("Temperatura ambiente: "))
+tb = input()
+T = float(input())
 
 # Temperaturas mínimas (Tm), máximas (TM) e a ideal (Topt)
 if tb == "Psicrófilos":
