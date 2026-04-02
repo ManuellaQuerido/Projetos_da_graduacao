@@ -14,12 +14,11 @@ elif tb == "Mesófilos":
 elif tb == "Psicrófilos":
     Tm, TM, Topt = 0, 20, 10
 
-print("Tipo de bactéria: Temperatura ambiente:")
 # Se a temperatura for maior ou menor que TM e Tm, respectivamente. Senão, execute a função para encontrar a taxa de crescimento por minuto.
 if T < Tm:
-    print("Temperatura muito baixa, aqueça a incubadora.")
+    print("Tipo de bactéria: Temperatura ambiente: Temperatura muito baixa, aqueça a incubadora.")
 elif T > TM:
-    print("Temperatura muito alta, resfrie a incubadora.")
+    print("Tipo de bactéria: Temperatura ambiente: Temperatura muito alta, resfrie a incubadora.")
 else:
     rmax = 1.03526
     r = rmax * math.exp(-((T - Topt) ** 2) / (Topt ** 2))
