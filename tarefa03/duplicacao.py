@@ -28,7 +28,7 @@ else:
     print(f"{lista1} Taxa de crescimento por minuto: {r:.4f}")
 
     if r <= 1:
-        print("Não há crescimento exponecial, ajuste a temperatura.")
+        print("Não há crescimento exponencial, ajuste a temperatura.")
     else:
         tempo = math.log(2) / math.log(r)
         print(f"Tempo de duplicação: {tempo:.1f} minutos")
