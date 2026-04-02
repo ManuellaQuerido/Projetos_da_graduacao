@@ -5,6 +5,9 @@ tb = input()
 T = float(input())
 
 Tm, TM, Topt = 0, 0, 0
+lista1 = 'Tipo de bactéria: Temperatura ambiente:'
+lista2 = 'Temperatura muito baixa, aqueça a incubadora.'
+lista3 = 'Temperatura muito alta, resfrie a incubadora.'
 
 # Temperaturas mínimas (Tm), máximas (TM) e a ideal (Topt)
 if tb == "Termófilo":
@@ -16,16 +19,16 @@ elif tb == "Psicrófilos":
 
 # Se a temperatura for maior ou menor que TM e Tm, respectivamente. Senão, execute a função para encontrar a taxa de crescimento por minuto.
 if T < Tm:
-    print("Tipo de bactéria: Temperatura ambiente: Temperatura muito baixa, aqueça a incubadora.")
+    print(f"{lista1} {lista2}")
 elif T > TM:
-    print("Tipo de bactéria: Temperatura ambiente: Temperatura muito alta, resfrie a incubadora.")
+    print(f"{lista1} {lista3}")
 else:
     rmax = 1.03526
     r = rmax * math.exp(-((T - Topt) ** 2) / (Topt ** 2))
-    print(f"Taxa de crescimento por minuto: {r:.4f}")
+    print(f"{lista1} Taxa de crescimento por minuto: {r:.4f}")
 
     if r <= 1:
         print("Não há crescimento exponecial, ajuste a temperatura.")
     else:
         tempo = math.log(2) / math.log(r)
-        print(f"Tempo de duplicação:{tempo:.1f} minutos")
+        print(f"Tempo de duplicação: {tempo:.1f} minutos")
