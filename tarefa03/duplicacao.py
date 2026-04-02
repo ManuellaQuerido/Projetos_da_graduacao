@@ -4,15 +4,16 @@ import math # Importa funções de matemática
 tb = input()
 T = float(input())
 
-tb = tb.lower()
 Tm, TM, Topt = 0, 0, 0
+
 # Temperaturas mínimas (Tm), máximas (TM) e a ideal (Topt)
-if tb == "Psicrófilos":
+if tb == "Termófilo":
+    Tm, TM, Topt = 50, 100, 75
+elif tb == "Psicrófilos":
     Tm, TM, Topt = 0, 20, 10
 elif tb == "Mesófilos":
     Tm, TM, Topt = 20, 50, 35
-elif tb == "Termófilo":
-    Tm, TM, Topt = 50, 100, 75
+
 print("Tipo de bactéria: Temperatura ambiente:")
 # Se a temperatura for maior ou menor que TM e Tm, respectivamente. Senão, execute a função para encontrar a taxa de crescimento por minuto.
 if T < Tm:
