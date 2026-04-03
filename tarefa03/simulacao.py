@@ -22,6 +22,10 @@ r = rmax * math.exp(-((T - Topt) ** 2) / (Topt ** 2))
 tempo = 0
 while tempo <= tempo_final:
     print(f"Após {tempo} minutos: {n}")
+    if n == 0:
+        print("População extinta.")
+        break
+    
     if w >= 1:                      #calculo para o n_novo, ou seja, a nova população de bactérias
         n_novo = int(n * r)
     else:
@@ -34,11 +38,5 @@ while tempo <= tempo_final:
         
     n = n_novo
     w = w_novo
-
-    if n == 0:
-        print("População extinta.")
-        if n != 0 and tempo == tempo_final:
-            print(" ")
-            break
 
     tempo += 1
