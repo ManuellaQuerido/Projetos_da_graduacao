@@ -1,85 +1,42 @@
 import math
 
 tb = input()
-t = int(input())
+tempo = int(input())
 T = float(input())
 w = float(input())
-p = int(input())
+n = int(input())
 
 a = 0.97
 b = 1.6*((10**-10))
 print(f"Após 0 minutos: {p}")
 
-if tb == "Psicrófilos":
-    Tidp = 10
-    rp = 1.03526 * math.exp(-((T - Tidp)**2) / (Tidp**2))
-
-    r = rp
-    ti = 0
-    tf = ti + 1
-
-    while ti <= t:
-        if w >= 1:
-            p = int(p * r)
-        else:
-            p = int(p * w * r)
-
-        if a * w >= b * p:
-            w = (a * w) - (b * p)
-        else:
-            w = 0
-        
-        if p <= 0:
-            print("População extinta")
-            break
-        print(f"Após {tf} minutos: {p}")
-        tf += 1
-
-if tb == "Mesófilos":
-    Tidm = 35
-    rm = 1.03526 * math.exp(-((T - Tidm)**2) / (Tidm**2))
-
-    r = rm
-    ti = 0
-    tf = ti + 1
-
-    while ti <= t:
-        if w >= 1:
-            p = int(p * r)
-        else:
-            p = int(p * w * r)
-
-        if a * w >= b * p:
-            w = (a * w) - (b * p)
-        else:
-            w = 0
-        
-        if p <= 0:
-            print("População extinta")
-            break
-        print(f"Após {tf} minutos: {p}")
-        tf += 1
-
 if tb == "Termófilo":
-    Tidt = 75
-    rt = 1.03526 * math.exp(-((T - Tidt)**2) / (Tidt**2))
-   
-    r = rt
-    ti = 0
-    tf = ti + 1
+    Topt = 75
+elif tb == "Mesófilos":
+    Topt = 35
+elif tb == "Psicrófilos":
+    Topt = 10
 
-    while ti <= t:
-        if w >= 1:
-            p = int(p * r)
-        else:
-            p = int(p * w * r)
+rmax = 1.03526
+a = 0.97
+b = 1.6*((10**(-10)))
+    
+r = rmax * math.exp(-((T - Topt) ** 2) / (Topt ** 2))
 
-        if a * w >= b * p:
-            w = (a * w) - (b * p)
-        else:
-            w = 0
+t = 0
+while t <= 0:
+    print(f"Após {t} minutos: {n}")
+    if w >= 1:
+        n_novo = int(n * r)
+    else:
+        n_novo = int(n * w * r)
+
+    if a * w >= b * n:
+        w_novo = (a * w) - (b * n)
+    else:
+        w_novo = 0
         
-        if p <= 0:
+        if n == 0:
             print("População extinta")
             break
         print(f"Após {tf} minutos: {p}")

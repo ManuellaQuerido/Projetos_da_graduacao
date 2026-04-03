@@ -15,7 +15,7 @@ if tb == "Termófilo":
 elif tb == "Mesófilos":
     Tm, TM, Topt = 20, 50, 35
 elif tb == "Psicrófilos":
-    Tm, TM, Topt = 0, 20, 10.
+    Tm, TM, Topt = 0, 20, 10
 
 # Se a temperatura for maior ou menor que TM e Tm, respectivamente. Senão, execute a função para encontrar a taxa de crescimento por minuto.
 if T < Tm:
