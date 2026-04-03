@@ -37,6 +37,8 @@ while tempo <= tempo_final:
 
     if n == 0:
         print("População extinta.")
-        break
+        if n != 0 and tempo == tempo_final:
+            print(" ")
+            break
 
     tempo += 1
