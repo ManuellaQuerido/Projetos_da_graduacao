@@ -30,4 +30,4 @@ for m in range(n):
                     melhor_meia = jogadores[m]
                     melhor_atacante = jogadores[a]
                     melhor_assistencia = assistencias[m]
-print(f"melhor dupla tem {melhor_meia} e {melhor_atacante} com {melhor_valor:.1f} gols esperados")
+print(f"Melhor dupla tem {melhor_meia} e {melhor_atacante} com {melhor_valor:.1f} gols esperados")
