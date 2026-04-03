@@ -8,7 +8,7 @@ n = int(input())
 
 a = 0.97
 b = 1.6*((10**-10))
-print(f"Após 0 minutos: {p}")
+print(f"Após 0 minutos: {n}")
 
 if tb == "Termófilo":
     Topt = 75
