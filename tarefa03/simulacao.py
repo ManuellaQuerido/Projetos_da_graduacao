@@ -8,7 +8,7 @@ n = int(input())
 
 a = 0.97
 b = 1.6*((10**-10))
-print(f"Após 0 minutos: {n}")
+lista1 = 'Após 0 minutos: {n}'
 
 if tb == "Termófilo":
     Topt = 75
@@ -39,5 +39,5 @@ while t <= 0:
         if n == 0:
             print("População extinta")
             break
-        print(f"Após {tf} minutos: {p}")
+        print(f"Após {tf} minutos: {n}")
         tf += 1
