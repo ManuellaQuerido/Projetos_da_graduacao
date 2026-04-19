@@ -1,4 +1,4 @@
-def ler_trajetoria():
+def ler_trajetoria(x1, y1, x2, y2):
     """
     Lê os dados de telemetria da entrada padrão.
     A entrada contém o número N de leituras, a velocidade máxima V_max
