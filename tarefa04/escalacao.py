@@ -63,4 +63,4 @@ for nome in escalados:
         gols_esperados += media
 
 print (f"Melhor placar recente: {melhor}")
-print(f"Número de gols esperados: {gols_esperados}")
+print(f"Número de gols esperados: {gols_esperados:.1}")
