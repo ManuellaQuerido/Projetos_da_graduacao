@@ -51,7 +51,7 @@ else:
     
 #Escalação
 escalados = input().split()
-gols_esperados = 
+gols_esperados = 0
 
 i = -1
 for nome in escalados:
