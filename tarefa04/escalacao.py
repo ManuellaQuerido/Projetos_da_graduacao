@@ -53,8 +53,8 @@ else:
 escalados = input().split()
 gols_esperados = 0
 
-i = -1
 for nome in escalados:
+    i = -1
     for a in range(len(jogadores)):
         if jogadores[a] == nome:
             i = a
