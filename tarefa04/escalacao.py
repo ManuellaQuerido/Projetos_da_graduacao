@@ -7,8 +7,6 @@ jogos = []
 datas = []
 gols_por_datas = []
 
-i = -1
-
 for j in range(n):
     linha = input().split()
 
@@ -17,6 +15,7 @@ for j in range(n):
     gols = int(linha[2])
 
 #Datas
+    i = -1
     for a in range(len(datas)):
         if datas[a] == data:
             i = a
@@ -28,6 +27,7 @@ for j in range(n):
         gols_por_datas.append(gols)
 
 #Jogadores
+    i = -1
     for a in range(len(jogadores)):
         if jogadores[a] == nome:
             i = a
@@ -51,8 +51,9 @@ else:
     
 #Escalação
 escalados = input().split()
-gols_esperados = 0
+gols_esperados = 
 
+i = -1
 for nome in escalados:
     for a in range(len(jogadores)):
         if jogadores[a] == nome:
