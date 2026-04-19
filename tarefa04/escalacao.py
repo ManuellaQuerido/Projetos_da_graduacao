@@ -13,9 +13,11 @@ for j in range(n):
     nome = linha[0]
     data = linha[1]
     gols = int(linha[2])
-
-    if data in datas:
-        i_data = datas.index(data)
+    
+    i_data = -1
+    for i in range(len(datas)):
+        if datas[i] == data:
+            i_data = i
         gols_por_datas[i_data] += gols
     else:
         datas.append(data)
