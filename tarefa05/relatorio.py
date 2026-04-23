@@ -53,7 +53,7 @@ def main():
     velocidades = calcular_velocidades(corrigidas)
 
     vmax_calc = max(velocidades)
-     var_max = telemetria.max_variacao(velocidades)
+    var_max = telemetria.max_variacao(velocidades)
 
     dist_destino = telemetria.distancia(xn, yn, xd, yd)
 
