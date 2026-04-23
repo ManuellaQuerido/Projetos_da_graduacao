@@ -1,5 +1,8 @@
-import telemetria.py
+n = []
+vmax = float(input())
+x0 = float(input())
+y0 = float(input())
+t = []
+x = []
+y = []
 
-Vmax, leituras = telemetria.ler_trajetoria()
-corrompidas = telemetria.detectar_corrompidas(leituras)
-distancia = telemetria.distancia()
