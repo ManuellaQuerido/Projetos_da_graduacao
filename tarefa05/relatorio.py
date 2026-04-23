@@ -37,8 +37,8 @@ def main():
     v_max, leituras = telemetria.ler_trajetoria()
 
     dados = input().split()
-    x = float(dados[0])
-    y = float(dados[1])
+    xd = float(dados[0])
+    yd = float(dados[1])
 
     corrompidas = telemetria.detectar_corrompidas(leituras, v_max)
     corrigidas = telemetria.reconstruir(leituras, corrompidas)
