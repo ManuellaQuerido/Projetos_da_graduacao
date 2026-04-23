@@ -42,4 +42,26 @@ def main():
 
     corrompidas = telemetria.detectar_corrompidas(leituras, v_max)
     corrigidas = telemetria.reconstruir(leituras, corrompidas)
-    
+
+    total = calcular_distancia_total(corrigidas)
+
+    x0, y0 = corrigidas[0][1], corrigidas[0][2]
+    xn, yn = corrigidas[-1][1], corrigidas[-1][2]
+
+    dist_inicio = telemetria.distancia(x0, y0, xn, yn)
+
+    velocidades = calcular_velocidades(corrigidas)
+
+    vmax_calc = max(velocidades)
+     var_max = telemetria.max_variacao(velocidades)
+
+    dist_destino = telemetria.distancia(xn, yn, xd, yd)
+
+    x_prev, y_prev = corrigidas[-2][1], corrigidas[-2][2]
+    prox_x = xn + (xn - x_prev)
+    prox_y = yn + (yn - y_prev)
+
+    imprimir_relatorio(total, dist_inicio, vmax_calc, var_max, dist_destino, prox_x, prox_y)
+
+if __name__ == "__main__":
+    main()
