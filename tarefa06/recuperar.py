@@ -33,30 +33,28 @@ def eh_engracado(codigo):
     if n % 2 != 0:
         return False
     metade = n // 2
-    parte1 = s[:metade]
-    parte2 = s[metade:]
-    if parte1 == parte2:
-        return True
-    return False
+    p1 = s[:metade]
+    p2 = s[metade:]
+    return p1 == p2
 
 nome_vendas = input()
 nome_logs = input()
 
-vendas_existentes = []
-f_v = open(nome_vendas, "r")
-for linha in f_v:
+vendas_conhecidas = []
+f = open(nome_vendas, "r")
+for linha in f:
     if linha[-1] == "\n": linha = linha[:-1]
     if linha:
-        vendas_existentes.append(linha.split(","))
-f_v.close()
+        vendas_conhecidas.append(linha.split(","))
+f.close()
 
 idx_v = 0
 total_acumulado = 0.0
 ultimo_cod = -1
 est_dino_ant = -1
 
-f_l = open(nome_logs, "r")
-for linha in f_l:
+f = open(nome_logs, "r")
+for linha in f:
     if linha[-1] == "\n": linha = linha[:-1]
     if not linha: continue
     
@@ -68,25 +66,24 @@ for linha in f_l:
     if total_log > total_acumulado:
         valor_venda = total_log - total_acumulado
         
-        # Verifica se é venda conhecida (hora e valor batem)
         eh_conhecida = False
-        if idx_v < len(vendas_existentes):
-            if vendas_existentes[idx_v][0] == hora_log:
-                if abs(float(vendas_existentes[idx_v][3]) - valor_venda) < 0.01:
-                    ultimo_cod = int(vendas_existentes[idx_v][1])
+        if idx_v < len(vendas_conhecidas):
+            if vendas_conhecidas[idx_v][0] == hora_log:
+                valor_v_conhecida = float(vendas_conhecidas[idx_v][3])
+                if abs(valor_v_conhecida - valor_venda) < 0.01:
+                    ultimo_cod = int(vendas_conhecidas[idx_v][1])
                     idx_v += 1
                     eh_conhecida = True
         
         if not eh_conhecida:
-            # Venda deletada
             if est_dino_ant != -1 and est_dino < est_dino_ant:
                 categoria = "dinossauro"
             else:
                 categoria = "carro"
             
             sup = 2147483647
-            if idx_v < len(vendas_existentes):
-                sup = int(vendas_existentes[idx_v][1])
+            if idx_v < len(vendas_conhecidas):
+                sup = int(vendas_conhecidas[idx_v][1])
             
             cod_rec = ultimo_cod + 1
             while cod_rec < sup:
@@ -101,4 +98,4 @@ for linha in f_l:
 
     est_dino_ant = est_dino
 
-f_l.close()
+f.close()
