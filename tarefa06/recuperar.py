@@ -27,7 +27,7 @@
                         # VENDA NÃO DELETADA
 
 # 4.Imprimir "hora, código, categoria, valor"
-ddef eh_engracado(codigo):
+def eh_engracado(codigo):
     s = str(codigo)
     n = len(s)
     for tam in range(1, n // 2 + 1):
