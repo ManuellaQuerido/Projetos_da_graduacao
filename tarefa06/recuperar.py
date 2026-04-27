@@ -1,10 +1,10 @@
-# Ler arquivo vendas.csv e logs.csv
+# 1.Ler arquivo vendas.csv e logs.csv
 
-# Para cada log a partir da segunda linha:
+# 2.Para cada log a partir da segunda linha:
     # O valor total acumulado das vendas é a diferença entre 
     # o valor total atual e o valor total anterior computados
 
-# Em vendas.csv, existe uma venda com mesma hora e valor?
+# 3.Em vendas.csv, existe uma venda com mesma hora e valor?
     # Se for verdadeiro:
         # a venda não foi deletadas
     # Senão:
@@ -26,15 +26,14 @@
                     # Se o código não for enrgraçado
                         # VENDA NÃO DELETADA
 
-# Imprimir "hora, código, categoria, valor"
-
+# 4.Imprimir "hora, código, categoria, valor"
 vendas = []
 logs = []
 
 nome_vendas = input()
 nome_logs = input()
 
-#ler arquivos logs e vendas
+# 1.ler arquivos logs e vendas
 with open(nome_logs) as arquivo:
     for linha in arquivo:
         hora_venda,estoque_dinossauros,estoque_carros,valor_total = linha.split(",")
@@ -43,4 +42,31 @@ with open(nome_logs) as arquivo:
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
         hora_venda,código_vendas,categoria,valor = linha.split(",")
-        vendas = ((hora_venda, int(código_vendas), categoria, float(valor)))
+        vendas.append((hora_venda, int(código_vendas), categoria, float(valor)))
+
+#variáveis iniciais
+total_anterior = logs[0][3]
+estoque_dinossauros_anterior = [0][1]
+estoque_carros_anterior = [0][2]
+
+# 2.Percorrer cada log a partir da 2º linha
+for i in range(1, len(logs)):
+    hora_venda = logs[i][0]
+    estoque_dinossauros = logs[i][1]
+    estoque_carros = logs[i][2]
+    valor_total = logs[i][3]
+
+    valor_da_venda = valor_total - total_anterior   # Valor total acumulado da venda
+
+# Verificar se existe uma venda com a mesma hora e valor
+    existe = False
+    for venda in vendas:
+        if venda[0] == hora and venda[3] == valor_venda:
+            existe = True
+        else:
+            if estoque_dinossauros < estoque_dinossauros_anterior:
+                categoria = "dinossauro"
+            else:
+                categoria = "carros"
+    
+        
