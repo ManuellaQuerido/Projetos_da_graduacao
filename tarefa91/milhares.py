@@ -7,4 +7,4 @@ def milhar_decrescente():
         if mil > 0:
             print(f"{numero} é um milhar-decrescente")
         else:
-            print(f"{numero} é um milhar-decrescente")
+            print(f"{numero}não é um milhar-decrescente")
