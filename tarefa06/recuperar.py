@@ -83,7 +83,7 @@ for i in range(1, len(logs)):
                             break
                 if codigo_encontrado != 0:
                     break
-            print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_venda:.2f})
+            print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_venda:.2f}")
 
         total_anterior = valor_total
         estoque_dinossauros_anterior = estoque_dinossauros
