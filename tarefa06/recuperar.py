@@ -83,7 +83,7 @@ for i in range(1, len(logs)):
             if codigo2 - codigo1 > 1:
 
                 # gerar códigos engraçados pequenos (rápido!)
-                for a in range(1, 1000):
+                for a in range(1, 1000000):
                     s = str(a)
                     codigo = int(s + s)
 
