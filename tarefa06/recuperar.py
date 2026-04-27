@@ -45,7 +45,7 @@ with open(nome_vendas) as arquivo:
         partes = linha.split(",")
         vendas.append((partes[0], int(partes[1]), partes[2], float(partes[3])))
 
-# ordenar vendas (bubble sort simples)
+# ordenar vendas (simples)
 for i in range(len(vendas)):
     for j in range(i+1, len(vendas)):
         if vendas[j][1] < vendas[i][1]:
@@ -76,19 +76,19 @@ for i in range(1, len(logs)):
         else:
             categoria = "carro"
 
-        # procurar TODOS códigos possíveis
         for j in range(len(vendas) - 1):
             codigo1 = vendas[j][1]
             codigo2 = vendas[j+1][1]
 
             if codigo2 - codigo1 > 1:
-                for k in range(codigo1 + 1, codigo2):
 
-                    s = str(k)
-                    metade = len(s) // 2
+                # gerar códigos engraçados pequenos (rápido!)
+                for a in range(1, 1000):
+                    s = str(a)
+                    codigo = int(s + s)
 
-                    if len(s) % 2 == 0 and s[:metade] == s[metade:]:
-                        print(hora_venda + "," + str(k) + "," + categoria + "," + format(valor_da_venda, ".2f"))
+                    if codigo > codigo1 and codigo < codigo2:
+                        print(hora_venda + "," + str(codigo) + "," + categoria + "," + format(valor_da_venda, ".2f"))
 
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
