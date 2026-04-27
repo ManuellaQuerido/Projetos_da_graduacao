@@ -95,6 +95,10 @@ for i in range(1, len(logs)):
         print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
 
         vendas.append((hora_venda, codigo_encontrado, categoria, valor_da_venda))
+            for m in range(len(vendas)):
+                for n in range(m + 1, len(vendas)):
+                    if vendas[m][1] > vendas[n][1]:
+                        vendas[], vendas[n] = vendas[n], vendas[a]
 
     # Atualizar valores
     total_anterior = valor_total
