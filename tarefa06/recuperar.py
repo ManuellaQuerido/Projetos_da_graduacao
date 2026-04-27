@@ -46,8 +46,8 @@ with open(nome_vendas) as arquivo:
 
 #variáveis iniciais
 total_anterior = logs[0][3]
-estoque_dinossauros_anterior = [0][1]
-estoque_carros_anterior = [0][2]
+estoque_dinossauros_anterior = logs[0][1]
+estoque_carros_anterior = logs[0][2]
 
 # 2.Percorrer cada log a partir da 2º linha
 for i in range(1, len(logs)):
@@ -63,6 +63,7 @@ for i in range(1, len(logs)):
     for venda in vendas:
         if venda[0] == hora and venda[3] == valor_venda:
             existe = True
+        # Senão, verificar a categoria
         else:
             if estoque_dinossauros < estoque_dinossauros_anterior:
                 categoria = "dinossauro"
