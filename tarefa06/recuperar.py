@@ -33,49 +33,47 @@ logs = []
 nome_vendas = input()
 nome_logs = input()
 
-# ler logs
+# 1. ler arquivos
 with open(nome_logs) as arquivo:
     for linha in arquivo:
         hora_venda, estoque_dinossauros, estoque_carros, valor_total = linha.strip().split(",")
         logs.append((hora_venda, int(estoque_dinossauros), int(estoque_carros), float(valor_total)))
 
-# ler vendas
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
         hora_venda, codigo_vendas, categoria, valor = linha.strip().split(",")
         vendas.append((hora_venda, int(codigo_vendas), categoria, float(valor)))
 
-# ordenar vendas (bubble sort simples)
+# ordenar vendas pelo código (sem lambda)
 for i in range(len(vendas)):
-    for j in range(i + 1, len(vendas)):
-        if vendas[i][1] > vendas[j][1]:
-            aux = vendas[i]
+    for j in range(i+1, len(vendas)):
+        if vendas[j][1] < vendas[i][1]:
+            temp = vendas[i]
             vendas[i] = vendas[j]
-            vendas[j] = aux
+            vendas[j] = temp
 
+# GERAR códigos engraçados (uma vez só)
 codigos_engracados = []
 
-for tamanho in [1, 2, 3, 4]:  # controla tamanho (ajustável)
-    inicio = 10**(tamanho - 1)
-    fim = 10**tamanho
+for j in range(len(vendas) - 1):
+    codigo1 = vendas[j][1]
+    codigo2 = vendas[j+1][1]
 
-    for i in range(inicio, fim):
-        s = str(i)
-        codigo = int(s + s)
-        codigos_engracados.append(codigo)
+    if codigo2 - codigo1 > 1:
+        for k in range(codigo1 + 1, codigo2):
+            s = str(k)
+            if len(s) % 2 == 0:
+                if s[:len(s)//2] == s[len(s)//2:]:
+                    codigos_engracados.append(k)
 
-# ordenar (garantir ordem)
-for i in range(len(codigos_engracados)):
-    for j in range(i + 1, len(codigos_engracados)):
-        if codigos_engracados[i] > codigos_engracados[j]:
-            aux = codigos_engracados[i]
-            codigos_engracados[i] = codigos_engracados[j]
-            codigos_engracados[j] = aux
+indice_codigo = 0
 
+# variáveis iniciais
 total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
 estoque_carros_anterior = logs[0][2]
 
+# percorrer logs
 for i in range(1, len(logs)):
     hora_venda = logs[i][0]
     estoque_dinossauros = logs[i][1]
@@ -84,28 +82,27 @@ for i in range(1, len(logs)):
 
     valor_da_venda = valor_total - total_anterior
 
+    # verificar se existe
     existe = False
     for venda in vendas:
-        if venda[0] == hora_venda and venda[3] == valor_da_venda:
+        if venda[0] == hora_venda and abs(venda[3] - valor_da_venda) < 0.001:
             existe = True
             break
 
     if not existe:
-
+        # descobrir categoria
         if estoque_dinossauros < estoque_dinossauros_anterior:
             categoria = "dinossauro"
         else:
             categoria = "carro"
 
-        for j in range(len(vendas) - 1):
-            codigo1 = vendas[j][1]
-            codigo2 = vendas[j + 1][1]
+        # pegar código na ordem correta
+        codigo_encontrado = codigos_engracados[indice_codigo]
+        indice_codigo += 1
 
-            if codigo2 - codigo1 > 1:
-                for k in codigos_engracados:
-                    if codigo1 < k < codigo2:
-                        print(f"{hora_venda},{k},{categoria},{valor_da_venda:.2f}")
+        print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
 
+    # atualizar
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
     estoque_carros_anterior = estoque_carros
