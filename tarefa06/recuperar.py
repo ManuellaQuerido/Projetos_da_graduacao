@@ -33,24 +33,32 @@ logs = []
 nome_vendas = input()
 nome_logs = input()
 
-# Ler logs
+# ler logs
 with open(nome_logs) as arquivo:
     for linha in arquivo:
         hora_venda, estoque_dinossauros, estoque_carros, valor_total = linha.strip().split(",")
         logs.append((hora_venda, int(estoque_dinossauros), int(estoque_carros), float(valor_total)))
 
-# Ler vendas
+# ler vendas
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
-        hora_venda, código_vendas, categoria, valor = linha.strip().split(",")
-        vendas.append((hora_venda, int(código_vendas), categoria, float(valor)))
+        hora_venda, codigo_vendas, categoria, valor = linha.strip().split(",")
+        vendas.append((hora_venda, int(codigo_vendas), categoria, float(valor)))
 
-# Variáveis iniciais
+# ORDENAR vendas por código (sem lambda)
+for i in range(len(vendas)):
+    for j in range(i + 1, len(vendas)):
+        if vendas[i][1] > vendas[j][1]:
+            aux = vendas[i]
+            vendas[i] = vendas[j]
+            vendas[j] = aux
+
+# valores iniciais
 total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
 estoque_carros_anterior = logs[0][2]
 
-# Percorrer logs
+# percorrer logs
 for i in range(1, len(logs)):
     hora_venda = logs[i][0]
     estoque_dinossauros = logs[i][1]
@@ -59,16 +67,17 @@ for i in range(1, len(logs)):
 
     valor_da_venda = valor_total - total_anterior
 
-    # Verificar se existe
+    # verificar se existe
     existe = False
     for venda in vendas:
         if venda[0] == hora_venda and venda[3] == valor_da_venda:
             existe = True
             break
 
-    # Se não existe, encontrar categoria
+    # se NÃO existe → venda deletada
     if not existe:
 
+        # descobrir categoria
         if estoque_dinossauros < estoque_dinossauros_anterior:
             categoria = "dinossauro"
         else:
@@ -76,31 +85,27 @@ for i in range(1, len(logs)):
 
         codigo_encontrado = 0
 
-        # Procurar código faltando
+        # procurar código no intervalo correto
         for j in range(len(vendas) - 1):
-            código1 = vendas[j][1]
-            código2 = vendas[j+1][1]
+            codigo1 = vendas[j][1]
+            codigo2 = vendas[j + 1][1]
 
-            if código2 - código1 > 1:
-                for k in range(código1 + 1, código2):
+            if codigo2 - codigo1 > 1:
+                for k in range(codigo1 + 1, codigo2):
                     s = str(k)
 
-                    if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
-                        codigo_encontrado = k
-                        break
+                    if len(s) % 2 == 0:
+                        meio = len(s) // 2
+                        if s[:meio] == s[meio:]:
+                            codigo_encontrado = k
+                            break
 
             if codigo_encontrado != 0:
                 break
 
         print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
 
-        vendas.append((hora_venda, codigo_encontrado, categoria, valor_da_venda))
-        for m in range(len(vendas)):
-            for n in range(m + 1, len(vendas)):
-                if vendas[m][1] > vendas[n][1]:
-                    vendas[], vendas[n] = vendas[n], vendas[a]
-
-    # Atualizar valores
+    # atualizar
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
     estoque_carros_anterior = estoque_carros
