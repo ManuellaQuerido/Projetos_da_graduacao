@@ -30,78 +30,56 @@
 def eh_engracado(codigo):
     s = str(codigo)
     n = len(s)
-    if n % 2 != 0:
-        return False
+    if n % 2 != 0: return False
     metade = n // 2
-    p1 = s[:metade]
-    p2 = s[metade:]
-    if p1 == p2:
-        return True
-    return False
+    return s[:metade] == s[metade:]
 
 nome_vendas = input()
 nome_logs = input()
 
-vendas_existentes = []
-f_v = open(nome_vendas, "r")
-for linha in f_v:
-    if linha[-1] == "\n":
-        linha = linha[:-1]
-    if linha:
-        vendas_existentes.append(linha.split(","))
-f_v.close()
+vendas_conhecidas = []
+f = open(nome_vendas, "r")
+for linha in f:
+    if linha[-1] == "\n": linha = linha[:-1]
+    if linha: vendas_conhecidas.append(linha.split(","))
+f.close()
 
 idx_v = 0
 total_acumulado = 0.0
-ultimo_cod = -1
+ultimo_cod = 0
 est_dino_ant = -1
 
-f_l = open(nome_logs, "r")
-for linha in f_l:
-    if linha[-1] == "\n":
-        linha = linha[:-1]
-    if not linha:
-        continue
+f = open(nome_logs, "r")
+for linha in f:
+    if linha[-1] == "\n": linha = linha[:-1]
+    if not linha: continue
     
     dados = linha.split(",")
-    hora_log = dados[0]
-    est_dino = int(dados[1])
-    total_log = float(dados[3])
+    hora_log, est_dino, total_log = dados[0], int(dados[1]), float(dados[3])
 
     if total_log > total_acumulado + 0.001:
         valor_venda = total_log - total_acumulado
         
-        eh_conhecida = False
-        if idx_v < len(vendas_existentes):
-            if vendas_existentes[idx_v][0] == hora_log:
-                valor_v_arq = float(vendas_existentes[idx_v][3])
-                if abs(valor_v_arq - valor_venda) < 0.01:
-                    ultimo_cod = int(vendas_existentes[idx_v][1])
-                    idx_v += 1
-                    eh_conhecida = True
+        # Procura o próximo número engraçado possível
+        prox_engracado = ultimo_cod + 1
+        while not eh_engracado(prox_engracado):
+            prox_engracado += 1
+            
+        eh_deletada = True
+        # Se existe uma venda conhecida e o código dela é MENOR que o próximo engraçado,
+        # significa que a venda atual do log É a venda conhecida.
+        if idx_v < len(vendas_conhecidas):
+            cod_conhecida = int(vendas_conhecidas[idx_v][1])
+            if cod_conhecida < prox_engracado:
+                ultimo_cod = cod_conhecida
+                idx_v += 1
+                eh_deletada = False
         
-        if not eh_conhecida:
-            if est_dino_ant != -1 and est_dino < est_dino_ant:
-                categoria = "dinossauro"
-            else:
-                categoria = "carro"
-            
-            sup = 2147483647
-            if idx_v < len(vendas_existentes):
-                sup = int(vendas_existentes[idx_v][1])
-            
-            cod_rec = ultimo_cod + 1
-            while cod_rec < sup:
-                if eh_engracado(cod_rec):
-                    break
-                cod_rec = cod_rec + 1
-            
-            saida = hora_log + "," + str(cod_rec) + "," + categoria + "," + "{:.2f}".format(valor_venda)
-            print(saida)
-            ultimo_cod = cod_rec
+        if eh_deletada:
+            categoria = "dinossauro" if (est_dino_ant != -1 and est_dino < est_dino_ant) else "carro"
+            print(hora_log + "," + str(prox_engracado) + "," + categoria + "," + "{:.2f}".format(valor_venda))
+            ultimo_cod = prox_engracado
             
         total_acumulado = total_log
-
     est_dino_ant = est_dino
-
-f_l.close()
+f.close()
