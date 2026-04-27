@@ -63,12 +63,14 @@ for i in range(1, len(logs)):
     for venda in vendas:
         if venda[0] == hora_venda and venda[3] == valor_da_venda:
             existe = True
+            break
+
         # Se não existir, verificar a categoria
         if not existe:
             if estoque_dinossauros < estoque_dinossauros_anterior:
                 categoria = "dinossauro"
             else:
-                categoria = "carros"
+                categoria = "carro"
 
             codigo_encontrado = 0
             for j in range(len(vendas) - 1):
@@ -84,7 +86,7 @@ for i in range(1, len(logs)):
                 if codigo_encontrado != 0:
                     break
             print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
-
+#atualiza valores
         total_anterior = valor_total
         estoque_dinossauros_anterior = estoque_dinossauros
         estoque_carros_anterior = estoque_carros
