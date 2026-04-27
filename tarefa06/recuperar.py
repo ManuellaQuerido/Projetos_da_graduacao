@@ -27,7 +27,7 @@
                         # VENDA NÃO DELETADA
 
 # 4.Imprimir "hora, código, categoria, valor"
-def eh_engracado(codigo):
+ddef eh_engracado(codigo):
     s = str(codigo)
     n = len(s)
     for tam in range(1, n // 2 + 1):
@@ -38,7 +38,6 @@ def eh_engracado(codigo):
                 return True
     return False
 
-
 nome_vendas = input()
 nome_logs = input()
 
@@ -47,12 +46,13 @@ f_v = open(nome_vendas, "r")
 for linha in f_v:
     if linha[-1] == "\n":
         linha = linha[:-1]
-    vendas_conhecidas.append(linha.split(","))
+    if linha != "":
+        vendas_conhecidas.append(linha.split(","))
 f_v.close()
 
 idx_v = 0
 total_acumulado = 0.0
-ultimo_cod = 0
+ultimo_cod = -1
 est_dino_ant = -1
 est_carro_ant = -1
 
@@ -60,6 +60,8 @@ f_l = open(nome_logs, "r")
 for linha in f_l:
     if linha[-1] == "\n":
         linha = linha[:-1]
+    if linha == "":
+        continue
     
     dados = linha.split(",")
     hora_log = dados[0]
@@ -74,17 +76,22 @@ for linha in f_l:
             ultimo_cod = int(vendas_conhecidas[idx_v][1])
             idx_v += 1
         else:
-            if est_dino_ant != -1 and est_dino < est_dino_ant:
-                categoria = "dinossauro"
+            if est_dino_ant != -1:
+                if est_dino < est_dino_ant:
+                    categoria = "dinossauro"
+                else:
+                    categoria = "carro"
             else:
-                categoria = "carro"
+                if est_dino < 100: # Valor base arbitrário para o primeiro log
+                    categoria = "dinossauro"
+                else:
+                    categoria = "carro"
 
             limite_sup = 2147483647
             if idx_v < len(vendas_conhecidas):
                 limite_sup = int(vendas_conhecidas[idx_v][1])
 
             cod_rec = ultimo_cod + 1
-
             while cod_rec < limite_sup:
                 if eh_engracado(cod_rec):
                     break
