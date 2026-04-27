@@ -40,7 +40,7 @@ with open(nome_logs) as arquivo:
         hora_venda,estoque_dinossauros,estoque_carros,valor_total = linha.split(",")
         logs.append((hora_venda, int(estoque_dinossauros), int(estoque_carros), float(valor_total)))
 
-with open("dados/vendas.csv") as arquivo:
+with open(nome_vendas) as arquivo:
     for linha in arquivo:
         hora_venda,código_vendas,categoria,valor = linha.split(",")
         vendas = ((hora, int(código_vendas), categoria, float(valor)))
