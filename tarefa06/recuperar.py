@@ -49,6 +49,8 @@ total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
 estoque_carros_anterior = logs[0][2]
 
+posição = 0 #controle posição nas vendas
+
 # 2.Percorrer cada log a partir da 2º linha
 for i in range(1, len(logs)):
     hora_venda = logs[i][0]
@@ -65,28 +67,25 @@ for i in range(1, len(logs)):
             existe = True
             break
 
-        # Se não existir, verificar a categoria
-    if not existe:
+    if existe:
+        posição += 1 #avançar nas vendas
+
+        # Senão, verificar a categoria
+    else:
         if estoque_dinossauros < estoque_dinossauros_anterior:
             categoria = "dinossauro"
         else:
             categoria = "carro"
         
-        codigos_usados = []
-        codigo_encontrado = 0
-        for j in range(len(vendas) - 1):
-            código1 = vendas[j][1]
-            código2 = vendas[j+1][1]
+        codigo1 = vendas[posição][1]
+        codigo2 = vendas[posição + 1][1]
 
-            if código2 - código1 > 1:
-                for k in range(código1 + 1, código2):
-                    if k in codigos_usados:
-                        continue
-                        
-                    s = str(k)
-                    if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
-                        codigo_encontrado = k
-                        break
+        codigo_encontrado = 0
+        for j in range(código1 + 1, código2):
+                s = str(k)
+                if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
+                    codigo_encontrado = k
+                    break
             if codigo_encontrado != 0:
                 break
         print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
