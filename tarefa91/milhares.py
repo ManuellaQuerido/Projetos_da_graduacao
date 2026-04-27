@@ -4,12 +4,13 @@ def milhar_decrescente():
     for numero in range(m):
         numero = int(input())
 
-        if numero > 1000:
+        if numero > 0:
+            dezena = numero / 10
+            centena = numero / 100
             mil = numero / 1000
-            if mil > 0:
-                centena = numero / 100
-                if centena < mil:
-                    print(f"{numero} é um milhar-decrescente")
-                else:
-                    print(f"{numero}não é um milhar-decrescente")
+
+            if mil > centena and mil > dezena:
+                print(f"{numero} é um milhar-decrescente")
+            elif mil > centena and mil < dezena:
+                print(f"{numero}não é um milhar-decrescente")
             
