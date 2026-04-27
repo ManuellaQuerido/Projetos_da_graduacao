@@ -30,78 +30,66 @@
 def eh_engracado(codigo):
     s = str(codigo)
     n = len(s)
-    if n % 2 != 0:
-        return False
-    metade = n // 2
-    p1 = s[:metade]
-    p2 = s[metade:]
-    if p1 == p2:
-        return True
-    return False
+    if n % 2 != 0: return False
+    return s[:n//2] == s[n//2:]
 
 nome_vendas = input()
 nome_logs = input()
 
-vendas_existentes = []
-f_v = open(nome_vendas, "r")
-for linha in f_v:
-    if linha[-1] == "\n":
-        linha = linha[:-1]
-    if linha:
-        vendas_existentes.append(linha.split(","))
-f_v.close()
+vendas_conhecidas = []
+f = open(nome_vendas, "r")
+for linha in f:
+    if linha[-1] == "\n": linha = linha[:-1]
+    if linha: vendas_conhecidas.append(linha.split(","))
+f.close()
 
 idx_v = 0
-total_acumulado = 0.0
-ultimo_cod = -1
-est_dino_ant = -1
+total_acum = 0.0
+ultimo_cod = 0
+d_ant, c_ant = -1, -1
 
-f_l = open(nome_logs, "r")
-for linha in f_l:
-    if linha[-1] == "\n":
-        linha = linha[:-1]
-    if not linha:
-        continue
+f = open(nome_logs, "r")
+for linha in f:
+    if linha[-1] == "\n": linha = linha[:-1]
+    if not linha: continue
     
     dados = linha.split(",")
-    hora_log = dados[0]
-    est_dino = int(dados[1])
-    total_log = float(dados[3])
+    hora, d_atual, c_atual, t_atual = dados[0], int(dados[1]), int(dados[2]), float(dados[3])
 
-    if total_log > total_acumulado + 0.001:
-        valor_venda = total_log - total_acumulado
+    if t_atual > total_acum + 0.001:
+        valor = t_atual - total_acum
         
-        eh_conhecida = False
-        if idx_v < len(vendas_existentes):
-            if vendas_existentes[idx_v][0] == hora_log:
-                valor_v_arq = float(vendas_existentes[idx_v][3])
-                if abs(valor_v_arq - valor_venda) < 0.01:
-                    ultimo_cod = int(vendas_existentes[idx_v][1])
-                    idx_v += 1
-                    eh_conhecida = True
-        
-        if not eh_conhecida:
-            if est_dino_ant != -1 and est_dino < est_dino_ant:
-                categoria = "dinossauro"
+        # Identifica categoria pela mudança de estoque
+        if d_ant != -1:
+            cat = "dinossauro" if d_atual < d_ant else "carro"
+        else:
+            # Para a primeira linha, se não houver anterior, 
+            # checamos qual estoque é menor ou se bate com a venda conhecida
+            if idx_v < len(vendas_conhecidas) and abs(float(vendas_conhecidas[idx_v][3]) - valor) < 0.01:
+                cat = vendas_conhecidas[idx_v][2]
             else:
-                categoria = "carro"
-            
-            sup = 2147483647
-            if idx_v < len(vendas_existentes):
-                sup = int(vendas_existentes[idx_v][1])
-            
-            cod_rec = ultimo_cod + 1
-            while cod_rec < sup:
-                if eh_engracado(cod_rec):
-                    break
-                cod_rec = cod_rec + 1
-            
-            saida = hora_log + "," + str(cod_rec) + "," + categoria + "," + "{:.2f}".format(valor_venda)
-            print(saida)
-            ultimo_cod = cod_rec
-            
-        total_acumulado = total_log
+                # Se não temos base, assumimos dino se o estoque dino for menor que o de carros
+                cat = "dinossauro" if d_atual < c_atual else "carro"
 
-    est_dino_ant = est_dino
+        # Tenta casar com a venda conhecida
+        match = False
+        if idx_v < len(vendas_conhecidas):
+            v_hora, v_cod, v_cat, v_val = vendas_conhecidas[idx_v]
+            if v_hora == hora and abs(float(v_val) - valor) < 0.01 and v_cat == cat:
+                ultimo_cod = int(v_cod)
+                idx_v += 1
+                match = True
+        
+        if not match:
+            # Recupera código engraçado
+            cod = ultimo_cod + 1
+            while not eh_engracado(cod):
+                cod += 1
+            # Se o próximo conhecido for menor que este, algo está errado na sequência
+            # mas o enunciado diz que códigos são crescentes.
+            print(f"{hora},{cod},{cat},{valor:.2f}")
+            ultimo_cod = cod
 
-f_l.close()
+        total_acum = t_atual
+    d_ant, c_ant = d_atual, c_atual
+f.close()
