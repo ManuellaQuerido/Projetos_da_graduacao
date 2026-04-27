@@ -37,25 +37,17 @@ nome_logs = input()
 with open(nome_logs) as arquivo:
     for linha in arquivo:
         partes = linha.split(",")
-        hora = partes[0]
-        estoque_dinossauros = int(partes[1])
-        estoque_carros = int(partes[2])
-        valor_total = float(partes[3])
-        logs.append((hora, estoque_dinossauros, estoque_carros, valor_total))
+        logs.append((partes[0], int(partes[1]), int(partes[2]), float(partes[3])))
 
 # ler vendas
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
         partes = linha.split(",")
-        hora = partes[0]
-        codigo = int(partes[1])
-        categoria = partes[2]
-        valor = float(partes[3])
-        vendas.append((hora, codigo, categoria, valor))
+        vendas.append((partes[0], int(partes[1]), partes[2], float(partes[3])))
 
-# ordenar vendas pelo código (jeito iniciante)
+# ordenar vendas (bubble sort simples)
 for i in range(len(vendas)):
-    for j in range(i + 1, len(vendas)):
+    for j in range(i+1, len(vendas)):
         if vendas[j][1] < vendas[i][1]:
             temp = vendas[i]
             vendas[i] = vendas[j]
@@ -84,27 +76,19 @@ for i in range(1, len(logs)):
         else:
             categoria = "carro"
 
-        codigo_encontrado = 0
-
+        # procurar TODOS códigos possíveis
         for j in range(len(vendas) - 1):
             codigo1 = vendas[j][1]
-            codigo2 = vendas[j + 1][1]
+            codigo2 = vendas[j+1][1]
 
             if codigo2 - codigo1 > 1:
-                k = codigo1 + 1
+                for k in range(codigo1 + 1, codigo2):
 
-                # só testa UM candidato (evita timeout)
-                s = str(k)
+                    s = str(k)
+                    metade = len(s) // 2
 
-                metade = len(s) // 2
-                if len(s) % 2 == 0 and s[:metade] == s[metade:]:
-                    codigo_encontrado = k
-                else:
-                    codigo_encontrado = k
-
-                break
-
-        print(hora_venda + "," + str(codigo_encontrado) + "," + categoria + "," + format(valor_da_venda, ".2f"))
+                    if len(s) % 2 == 0 and s[:metade] == s[metade:]:
+                        print(hora_venda + "," + str(k) + "," + categoria + "," + format(valor_da_venda, ".2f"))
 
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
