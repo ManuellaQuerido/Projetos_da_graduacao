@@ -58,20 +58,16 @@ for linha in f:
 
     if t_atual > total_acum + 0.001:
         valor = t_atual - total_acum
-        
-        # Identifica categoria pela mudança de estoque
+
         if d_ant != -1:
             cat = "dinossauro" if d_atual < d_ant else "carro"
         else:
-            # Para a primeira linha, se não houver anterior, 
-            # checamos qual estoque é menor ou se bate com a venda conhecida
+ 
             if idx_v < len(vendas_conhecidas) and abs(float(vendas_conhecidas[idx_v][3]) - valor) < 0.01:
                 cat = vendas_conhecidas[idx_v][2]
             else:
-                # Se não temos base, assumimos dino se o estoque dino for menor que o de carros
                 cat = "dinossauro" if d_atual < c_atual else "carro"
 
-        # Tenta casar com a venda conhecida
         match = False
         if idx_v < len(vendas_conhecidas):
             v_hora, v_cod, v_cat, v_val = vendas_conhecidas[idx_v]
@@ -81,12 +77,9 @@ for linha in f:
                 match = True
         
         if not match:
-            # Recupera código engraçado
             cod = ultimo_cod + 1
             while not eh_engracado(cod):
                 cod += 1
-            # Se o próximo conhecido for menor que este, algo está errado na sequência
-            # mas o enunciado diz que códigos são crescentes.
             print(f"{hora},{cod},{cat},{valor:.2f}")
             ultimo_cod = cod
 
