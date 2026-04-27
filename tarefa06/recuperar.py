@@ -33,64 +33,70 @@ logs = []
 nome_vendas = input()
 nome_logs = input()
 
-# 1.ler arquivos logs e vendas
+# Ler logs
 with open(nome_logs) as arquivo:
     for linha in arquivo:
-        hora_venda,estoque_dinossauros,estoque_carros,valor_total = linha.split(",")
+        hora_venda, estoque_dinossauros, estoque_carros, valor_total = linha.strip().split(",")
         logs.append((hora_venda, int(estoque_dinossauros), int(estoque_carros), float(valor_total)))
 
+# Ler vendas
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
-        hora_venda,código_vendas,categoria,valor = linha.split(",")
+        hora_venda, código_vendas, categoria, valor = linha.strip().split(",")
         vendas.append((hora_venda, int(código_vendas), categoria, float(valor)))
 
-#variáveis iniciais
+# Variáveis iniciais
 total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
 estoque_carros_anterior = logs[0][2]
 
-posição = 0 #controle posição nas vendas
-
-# 2.Percorrer cada log a partir da 2º linha
+# Percorrer logs
 for i in range(1, len(logs)):
     hora_venda = logs[i][0]
     estoque_dinossauros = logs[i][1]
     estoque_carros = logs[i][2]
     valor_total = logs[i][3]
 
-    valor_da_venda = valor_total - total_anterior   # Valor total acumulado da venda
+    valor_da_venda = valor_total - total_anterior
 
-# Verificar se existe uma venda com a mesma hora e valor
+    # Verificar se existe
     existe = False
     for venda in vendas:
         if venda[0] == hora_venda and venda[3] == valor_da_venda:
             existe = True
             break
 
-    if existe:
-        posição += 1 #avançar nas vendas
+    # Se não existe, encontrar categoria
+    if not existe:
 
-        # Senão, verificar a categoria
-    else:
         if estoque_dinossauros < estoque_dinossauros_anterior:
             categoria = "dinossauro"
         else:
             categoria = "carro"
-        
-        codigo1 = vendas[posição][1]
-        codigo2 = vendas[posição + 1][1]
 
         codigo_encontrado = 0
-        for j in range(código1 + 1, código2):
-                s = str(k)
-                if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
-                    codigo_encontrado = k
-                    break
+
+        # Procurar código faltando
+        for j in range(len(vendas) - 1):
+            código1 = vendas[j][1]
+            código2 = vendas[j+1][1]
+
+            if código2 - código1 > 1:
+                for k in range(código1 + 1, código2):
+                    s = str(k)
+
+                    if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
+                        codigo_encontrado = k
+                        break
+
             if codigo_encontrado != 0:
                 break
-        print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
-#atualiza valores
 
+        print(f"{hora_venda},{codigo_encontrado},{categoria},{valor_da_venda:.2f}")
+
+        vendas.append((hora_venda, codigo_encontrado, categoria, valor_da_venda))
+
+    # Atualizar valores
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
     estoque_carros_anterior = estoque_carros
