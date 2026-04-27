@@ -45,13 +45,22 @@ with open(nome_vendas) as arquivo:
         hora_venda, codigo_vendas, categoria, valor = linha.strip().split(",")
         vendas.append((hora_venda, int(codigo_vendas), categoria, float(valor)))
 
-# ordenar vendas (sem lambda)
+# ordenar vendas (bubble sort simples)
 for i in range(len(vendas)):
     for j in range(i + 1, len(vendas)):
         if vendas[i][1] > vendas[j][1]:
             aux = vendas[i]
             vendas[i] = vendas[j]
             vendas[j] = aux
+
+# 🔥 GERAR CÓDIGOS ENGRAÇADOS UMA VEZ
+codigos_engracados = []
+for k in range(1, 100000000):  # limite alto suficiente
+    s = str(k)
+    if len(s) % 2 == 0:
+        meio = len(s) // 2
+        if s[:meio] == s[meio:]:
+            codigos_engracados.append(k)
 
 total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
@@ -78,18 +87,15 @@ for i in range(1, len(logs)):
         else:
             categoria = "carro"
 
+        # 🔥 agora só percorre lista pronta
         for j in range(len(vendas) - 1):
             codigo1 = vendas[j][1]
             codigo2 = vendas[j + 1][1]
 
             if codigo2 - codigo1 > 1:
-                for k in range(codigo1 + 1, codigo2):
-                    s = str(k)
-
-                    if len(s) % 2 == 0:
-                        meio = len(s) // 2
-                        if s[:meio] == s[meio:]:
-                            print(f"{hora_venda},{k},{categoria},{valor_da_venda:.2f}")
+                for k in codigos_engracados:
+                    if codigo1 < k < codigo2:
+                        print(f"{hora_venda},{k},{categoria},{valor_da_venda:.2f}")
 
     total_anterior = valor_total
     estoque_dinossauros_anterior = estoque_dinossauros
