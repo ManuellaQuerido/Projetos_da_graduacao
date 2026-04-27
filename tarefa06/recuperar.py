@@ -38,6 +38,7 @@ def eh_engracado(codigo):
                 return True
     return False
 
+
 nome_vendas = input()
 nome_logs = input()
 
@@ -68,7 +69,7 @@ for linha in f_l:
 
     if total_log > total_acumulado:
         valor_venda = total_log - total_acumulado
-        
+
         if idx_v < len(vendas_conhecidas) and vendas_conhecidas[idx_v][0] == hora_log:
             ultimo_cod = int(vendas_conhecidas[idx_v][1])
             idx_v += 1
@@ -77,20 +78,21 @@ for linha in f_l:
                 categoria = "dinossauro"
             else:
                 categoria = "carro"
-            
+
             limite_sup = 2147483647
             if idx_v < len(vendas_conhecidas):
                 limite_sup = int(vendas_conhecidas[idx_v][1])
-            
-            cod_rec = -1
-            for c in range(ultimo_cod + 1, limite_sup):
-                if eh_engracado(c):
-                    cod_rec = c
+
+            cod_rec = ultimo_cod + 1
+
+            while cod_rec < limite_sup:
+                if eh_engracado(cod_rec):
                     break
-            
-            print(f"{hora_log},{cod_rec},{categoria},{valor_venda:.2f}")
+                cod_rec = cod_rec + 1
+
+            print(hora_log + "," + str(cod_rec) + "," + categoria + "," + "{:.2f}".format(valor_venda))
             ultimo_cod = cod_rec
-            
+
         total_acumulado = total_log
 
     est_dino_ant = est_dino
