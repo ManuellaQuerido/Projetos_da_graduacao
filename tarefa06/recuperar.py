@@ -53,14 +53,24 @@ for i in range(len(vendas)):
             vendas[i] = vendas[j]
             vendas[j] = aux
 
-# 🔥 GERAR CÓDIGOS ENGRAÇADOS UMA VEZ
 codigos_engracados = []
-for k in range(1, 100000000):  # limite alto suficiente
-    s = str(k)
-    if len(s) % 2 == 0:
-        meio = len(s) // 2
-        if s[:meio] == s[meio:]:
-            codigos_engracados.append(k)
+
+for tamanho in [1, 2, 3, 4]:  # controla tamanho (ajustável)
+    inicio = 10**(tamanho - 1)
+    fim = 10**tamanho
+
+    for i in range(inicio, fim):
+        s = str(i)
+        codigo = int(s + s)
+        codigos_engracados.append(codigo)
+
+# ordenar (garantir ordem)
+for i in range(len(codigos_engracados)):
+    for j in range(i + 1, len(codigos_engracados)):
+        if codigos_engracados[i] > codigos_engracados[j]:
+            aux = codigos_engracados[i]
+            codigos_engracados[i] = codigos_engracados[j]
+            codigos_engracados[j] = aux
 
 total_anterior = logs[0][3]
 estoque_dinossauros_anterior = logs[0][1]
@@ -87,7 +97,6 @@ for i in range(1, len(logs)):
         else:
             categoria = "carro"
 
-        # 🔥 agora só percorre lista pronta
         for j in range(len(vendas) - 1):
             codigo1 = vendas[j][1]
             codigo2 = vendas[j + 1][1]
