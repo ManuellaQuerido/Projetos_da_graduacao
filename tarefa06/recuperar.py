@@ -43,4 +43,4 @@ with open(nome_logs) as arquivo:
 with open(nome_vendas) as arquivo:
     for linha in arquivo:
         hora_venda,código_vendas,categoria,valor = linha.split(",")
-        vendas = ((hora, int(código_vendas), categoria, float(valor)))
+        vendas = ((hora_venda, int(código_vendas), categoria, float(valor)))
