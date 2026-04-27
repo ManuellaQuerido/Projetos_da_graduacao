@@ -71,7 +71,8 @@ for i in range(1, len(logs)):
             categoria = "dinossauro"
         else:
             categoria = "carro"
-
+        
+        codigos_usados = []
         codigo_encontrado = 0
         for j in range(len(vendas) - 1):
             código1 = vendas[j][1]
@@ -79,6 +80,9 @@ for i in range(1, len(logs)):
 
             if código2 - código1 > 1:
                 for k in range(código1 + 1, código2):
+                    if k in codigos_usados:
+                        continue
+                        
                     s = str(k)
                     if len(s) % 2 == 0 and s[:len(s)//2] == s[len(s)//2:]:
                         codigo_encontrado = k
