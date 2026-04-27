@@ -30,7 +30,6 @@
 def eh_engracado(codigo):
     s = str(codigo)
     n = len(s)
-    # Tenta encontrar qualquer repetição consecutiva
     for tam in range(1, n // 2 + 1):
         for i in range(n - 2 * tam + 1):
             sub = s[i : i + tam]
@@ -39,78 +38,62 @@ def eh_engracado(codigo):
                 return True
     return False
 
-# Nomes dos arquivos
 nome_vendas = input()
 nome_logs = input()
 
-# Lendo vendas existentes
-vendas_existentes = []
-arquivo_v = open(nome_vendas, "r")
-for linha in arquivo_v:
-    # Removendo o \n manualmente se ele existir
+vendas_conhecidas = []
+f_v = open(nome_vendas, "r")
+for linha in f_v:
     if linha[-1] == "\n":
         linha = linha[:-1]
-    vendas_existentes.append(linha.split(","))
-arquivo_v.close()
+    vendas_conhecidas.append(linha.split(","))
+f_v.close()
 
-total_vendas_conhecidas = 0.0
 idx_v = 0
-ultimo_codigo = 0
-estoque_dino_ant = -1
-estoque_carro_ant = -1
+total_acumulado = 0.0
+ultimo_cod = 0
+est_dino_ant = -1
+est_carro_ant = -1
 
-arquivo_l = open(nome_logs, "r")
-for linha in arquivo_l:
+f_l = open(nome_logs, "r")
+for linha in f_l:
     if linha[-1] == "\n":
         linha = linha[:-1]
     
-    dados_log = linha.split(",")
-    hora_log = dados_log[0]
-    est_dino = int(dados_log[1])
-    est_carro = int(dados_log[2])
-    total_log = float(dados_log[3])
+    dados = linha.split(",")
+    hora_log = dados[0]
+    est_dino = int(dados[1])
+    est_carro = int(dados[2])
+    total_log = float(dados[3])
 
-    # Verifica se a venda do log é uma que já temos no arquivo de vendas
-    venda_ja_existe = False
-    if idx_v < len(vendas_existentes):
-        if vendas_existentes[idx_v][0] == hora_log:
-            venda_ja_existe = True
-    
-    if venda_ja_existe:
-        total_vendas_conhecidas += float(vendas_existentes[idx_v][3])
-        ultimo_codigo = int(vendas_existentes[idx_v][1])
-        idx_v += 1
-    else:
-        # Se não existe, Tim deletou! Precisamos recuperar.
-        valor_deletado = total_log - total_vendas_conhecidas
+    if total_log > total_acumulado:
+        valor_venda = total_log - total_acumulado
         
-        # Descobre a categoria vendo qual estoque diminuiu
-        categoria = ""
-        if est_dino < estoque_dino_ant:
-            categoria = "dinossauro"
+        if idx_v < len(vendas_conhecidas) and vendas_conhecidas[idx_v][0] == hora_log:
+            ultimo_cod = int(vendas_conhecidas[idx_v][1])
+            idx_v += 1
         else:
-            categoria = "carro"
+            if est_dino_ant != -1 and est_dino < est_dino_ant:
+                categoria = "dinossauro"
+            else:
+                categoria = "carro"
             
-        # Define o limite para busca do código
-        limite_superior = 2000000000 # Um número bem grande
-        if idx_v < len(vendas_existentes):
-            limite_superior = int(vendas_existentes[idx_v][1])
+            limite_sup = 2147483647
+            if idx_v < len(vendas_conhecidas):
+                limite_sup = int(vendas_conhecidas[idx_v][1])
             
-        # Busca o código engraçado
-        codigo_recuperado = 0
-        for c in range(ultimo_codigo + 1, limite_superior):
-            if eh_engracado(c):
-                codigo_recuperado = c
-                break
-        
-        print(f"{hora_log},{codigo_recuperado},{categoria},{valor_deletado:.2f}")
-        
-        # Atualiza o total e o último código para a próxima volta
-        total_vendas_conhecidas = total_log
-        ultimo_codigo = codigo_recuperado
+            cod_rec = -1
+            for c in range(ultimo_cod + 1, limite_sup):
+                if eh_engracado(c):
+                    cod_rec = c
+                    break
+            
+            print(f"{hora_log},{cod_rec},{categoria},{valor_venda:.2f}")
+            ultimo_cod = cod_rec
+            
+        total_acumulado = total_log
 
-    # Guarda os estoques para comparar na próxima linha
-    estoque_dino_ant = est_dino
-    estoque_carro_ant = est_carro
+    est_dino_ant = est_dino
+    est_carro_ant = est_carro
 
-arquivo_l.close()
+f_l.close()
