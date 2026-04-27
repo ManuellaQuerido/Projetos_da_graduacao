@@ -61,7 +61,7 @@ for i in range(1, len(logs)):
 # Verificar se existe uma venda com a mesma hora e valor
     existe = False
     for venda in vendas:
-        if venda[0] == hora_venda and venda[3] == valor_venda:
+        if venda[0] == hora_venda and venda[3] == valor_da_venda:
             existe = True
         # Senão, verificar a categoria
         else:
