@@ -1,9 +1,17 @@
 def milhar_decrescente():
     n_atual = n % 1000
-    n //= 100
+    n //= 1000
 
-    while n > 0
-    for numero in range(m):
+    while n > 0:
+        n_proximo = n % 1000
+
+
+
+
+def main():
+    m = int(input())
+
+    for i in range(m):
         numero = int(input())
 
         if numero > 0:
@@ -15,4 +23,4 @@ def milhar_decrescente():
                 print(f"{numero} é um milhar-decrescente")
             elif mil > centena and mil < dezena:
                 print(f"{numero}não é um milhar-decrescente")
-            
+main
