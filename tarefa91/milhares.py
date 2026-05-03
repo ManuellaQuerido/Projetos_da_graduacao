@@ -1,6 +1,8 @@
 def milhar_decrescente():
-    m = int(input())
+    n_atual = n % 1000
+    n //= 100
 
+    while n > 0
     for numero in range(m):
         numero = int(input())
 
