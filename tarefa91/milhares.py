@@ -1,4 +1,4 @@
-def milhar_decrescente():
+def milhar_decrescente(n):
     n_atual = n % 1000
     n = n // 1000
 
@@ -8,8 +8,9 @@ def milhar_decrescente():
         if n_proximo >= n_atual:
             return False
         
-        n_proximo == n_atual
-            n = n // 1000
+        n_proximo = n_atual
+        n = n // 1000
+
     return True
 
 def main():
@@ -19,9 +20,9 @@ def main():
         numero = int(input())
 
         if milhar_decrescente(numero):
-            print(f"{numero} é um milhar-decrescente")
+            print(f"{numero} é um milhar-decrescente ")
         else:
-            print(f"{numero} não é um milhar-decrescente")
+            print(f"{numero} não é um milhar-decrescente ")
         
 if __name__ == "__main__":
     main()
