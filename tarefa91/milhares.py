@@ -19,9 +19,9 @@ def main():
         numero = int(input())
 
         if milhar_decrescente(numero):
-            print(f"{numero} é um milhar-decrescente ")
+            print(f"{numero} é um milhar-decrescente")
         else:
-            print(f"{numero} não é um milhar-decrescente ")
+            print(f"{numero} não é um milhar-decrescente")
         
 if __name__ == "__main__":
     main()
