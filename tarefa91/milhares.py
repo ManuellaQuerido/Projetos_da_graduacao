@@ -1,6 +1,6 @@
 def milhar_decrescente():
     n_atual = n % 1000
-    n //= 1000
+    n = n // 1000
 
     while n > 0:
         n_proximo = n % 1000
@@ -9,7 +9,7 @@ def milhar_decrescente():
             return False
         
         n_proximo == n_atual
-            n //= 1000
+            n = n // 1000
     return True
 
 def main():
