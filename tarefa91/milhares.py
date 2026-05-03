@@ -8,7 +8,7 @@ def milhar_decrescente(n):
         if n_proximo >= n_atual:
             return False
         
-        n_proximo = n_atual
+        n_atual = n_proximo
         n = n // 1000
 
     return True
