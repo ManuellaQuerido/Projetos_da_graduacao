@@ -5,8 +5,12 @@ def milhar_decrescente():
     while n > 0:
         n_proximo = n % 1000
 
-
-
+        if n_proximo >= n_atual:
+            return False
+        
+        n_proximo == n_atual:
+            n //= 1000
+    return True
 
 def main():
     m = int(input())
