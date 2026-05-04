@@ -10,10 +10,10 @@ linhas = []
 linha_atual = ""
 
 for palavra in palavras:
-    if linha_atual == "":
+    if linha_atual == " ":
         novo = palavra
     else:
-        novo = linha_atual + "" + palavra
+        novo = linha_atual + " " + palavra
 
     if len(novo) <= tamanho:
         linha_atual = novo
@@ -21,7 +21,7 @@ for palavra in palavras:
         linhas.append(linha_atual)
         linha_atual = palavra
 
-if linha_atual != "":
+if linha_atual != " ":
     linhas.append(linha_atual)
 
 for linha in linhas:
