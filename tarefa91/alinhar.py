@@ -23,7 +23,7 @@ with open(nome_arquivo) as f:
                     linha_atual = novo
                 else:
                     espacos = tamanho - len(linha_atual)
-                    print(" " * espacos + linha atual)
+                    print(" " * espacos + linha_atual)
                     linha_atual = palavra
 
 if linha_atual != " ":
