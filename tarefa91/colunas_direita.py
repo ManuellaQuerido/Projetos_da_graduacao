@@ -47,4 +47,16 @@ while i < len(linhas_formatadas):
     coluna_1 = pagina[:meio]
     coluna_2 = pagina[meio:]
 
+    while len(coluna_1) < meio:
+        coluna_1.append(" ")
+    while len(coluna_2) < meio:
+        coluna_2.append(" ")
+
+    for j in range(meio):
+        esquerda = coluna_1[j]
+        direita = coluna_2[j]
+
+        espacos = maximo_caracteres - len(esquerda) - len(direita)
+        print(esquerda + " " * espacos + direita)
     
+    print("\n---//---\n")
