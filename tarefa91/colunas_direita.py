@@ -12,12 +12,12 @@ with open(nome_arquivo) as f:
   linha_atual = ""
 
   for linha in f:
-    if linha == "\n": #fim do parágrafo
+    if linha == "\n": #fim do parágrafo 
         if linha_atual != " ":
-          espacos = tamanho - len(linha_atual)
-          linhas_formatadas.append(" " * espacos + linha_atual)
-          linha_atual = " "
-        linhas_formatadas
+            espacos = tamanho - len(linha_atual)
+            linhas_formatadas.append(" " * espacos + linha_atual)
+            linha_atual = " "
+            linhas_formatadas.append()
         else:
             palavras = linha.split()
             for palavra in palavras:
@@ -25,10 +25,3 @@ with open(nome_arquivo) as f:
                     novo = palavra
                 else:
                     novo = linha_atual + " " + palavra
-
-                if len(novo) <= tamanho:
-                    linha_atual = novo
-                else:
-                    espacos = tamanho - len(linha_atual)
-                    print(" " * espacos + linha_atual)
-                    linha_atual = palavra
