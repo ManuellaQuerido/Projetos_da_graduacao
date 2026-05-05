@@ -17,7 +17,7 @@ with open(nome_arquivo) as f:
             espacos = tamanho - len(linha_atual)
             linhas_formatadas.append(" " * espacos + linha_atual)
             linha_atual = " "
-            linhas_formatadas.append()
+            linhas_formatadas.append(" ")
         else:
             palavras = linha.split()
             for palavra in palavras:
