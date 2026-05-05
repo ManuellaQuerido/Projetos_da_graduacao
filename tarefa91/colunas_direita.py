@@ -25,3 +25,9 @@ with open(nome_arquivo) as f:
                     novo = palavra
                 else:
                     novo = linha_atual + " " + palavra
+                
+                if len(novo) <= tamanho:
+                    linha_atual = novo
+                else:
+                    espacos = tamanho - len(linha_atual)
+                    linhas_formatadas.append(" " * espacos + linha_atual)
