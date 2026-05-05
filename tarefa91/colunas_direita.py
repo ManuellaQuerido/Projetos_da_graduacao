@@ -36,3 +36,15 @@ with open(nome_arquivo) as f:
     if linha_atual != " ":
         espacos = tamanho - len(linha_atual)
         linhas_formatadas.append(" " * espacos + linha_atual)
+
+i = 0
+
+while i < len(linhas_formatadas):
+    pagina = linhas_formatadas[i:i + maximo_linhas]
+    i += maximo_linhas
+
+    meio = (len(pagina)+ 1)//2
+    coluna_1 = pagina[:meio]
+    coluna_2 = pagina[meio:]
+
+    
