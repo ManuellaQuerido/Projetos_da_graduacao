@@ -9,7 +9,7 @@ tamanho = int(input())
 linhas_formatadas = []
 
 with open(nome_arquivo) as f:
-  linha_atual = ""
+    linha_atual = ""
 
     for linha in f:
         if linha == "\n": #fim do parágrafo 
