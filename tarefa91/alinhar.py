@@ -16,3 +16,16 @@ with open(nome_arquivo) as f:
             for palavra in palavras:
                 if linha_atual == " ":
                     novo = palavra
+                else:
+                    novo = linha_atual + " " + palavra
+
+                if len(novo) <= tamanho:
+                    linha_atual = novo
+                else:
+                    espacos = tamanho - len(linha_atual)
+                    print(" " * espacos + linha atual)
+                    linha_atual = palavra
+
+if linha_atual != " ":
+    espacos = tamanho - len(linha_atual)
+    print(" " * espacos + linha_atual)
