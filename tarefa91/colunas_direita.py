@@ -5,3 +5,30 @@ maximo_caracteres = int(valores[0])
 maximo_linhas = int(valores [1])
 
 largura = int(input())
+
+linhas_formatadas = []
+
+with open(nome_arquivo) as f:
+  linha_atual = ""
+
+  for linha in f:
+    if linha == "\n": #fim do parágrafo
+        if linha_atual != " ":
+          espacos = tamanho - len(linha_atual)
+          linhas_formatadas.append(" " * espacos + linha_atual)
+          linha_atual = " "
+        linhas_formatadas
+        else:
+            palavras = linha.split()
+            for palavra in palavras:
+                if linha_atual == " ":
+                    novo = palavra
+                else:
+                    novo = linha_atual + " " + palavra
+
+                if len(novo) <= tamanho:
+                    linha_atual = novo
+                else:
+                    espacos = tamanho - len(linha_atual)
+                    print(" " * espacos + linha_atual)
+                    linha_atual = palavra
