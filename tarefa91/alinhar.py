@@ -2,28 +2,10 @@ nome_arquivo = input()
 tamanho = int(input())
 
 with open(nome_arquivo) as f:
-    texto = ""
+    linha_atual = ""
 
-palavras = texto.split()
-
-linhas = []
-linha_atual = ""
-
-for palavra in palavras:
-    if linha_atual == " ":
-        novo = palavra
-    else:
-        novo = linha_atual + " " + palavra
-
-    if len(novo) <= tamanho:
-        linha_atual = novo
-    else:
-        linhas.append(linha_atual)
-        linha_atual = palavra
-
-if linha_atual != " ":
-    linhas.append(linha_atual)
-
-for linha in linhas:
-    espacos = tamanho - len(linha)
-    print(" " * espacos + linha)
+    for linha in f:
+        if linha == "\n": #fim do parágrafo
+            if linha_atual != " ":
+                espacos = tamanho - len(linha_atual)
+                
