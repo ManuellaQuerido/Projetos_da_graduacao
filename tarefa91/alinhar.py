@@ -8,4 +8,11 @@ with open(nome_arquivo) as f:
         if linha == "\n": #fim do parágrafo
             if linha_atual != " ":
                 espacos = tamanho - len(linha_atual)
-                
+                print(" " * espacos + linha_atual)
+                linha_atual = " "
+            print()
+        else:
+            palavras = linha.split()
+            for palavra in palavras:
+                if linha_atual == " ":
+                    novo = palavra
