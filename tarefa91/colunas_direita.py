@@ -50,3 +50,12 @@ while i < len(linhas_formatadas):
         coluna_1.append("")
     while len(coluna_2) < maximo_linhas:
         coluna_2.append("")
+
+    for j in range(maximo_linhas):
+        esquerda = coluna_1[j]
+        direita = coluna_2[j]
+
+        print(esquerda + " " * (tamanho - len(esquerda)) + direita)
+
+    if i < len(linhas_formatadas):
+        print("--- // ---")
