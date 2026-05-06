@@ -58,4 +58,4 @@ while i < len(linhas_formatadas):
 
         print(esquerda + " " * espacos + direita)
     
-    print("\n---//---\n")
+    print("\n--- // ---\n")
