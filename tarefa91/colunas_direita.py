@@ -56,7 +56,7 @@ while i < len(linhas_formatadas):
         direita = coluna_2[j]
 
         espacos = maximo_caracteres - len(esquerda) - len(direita)
-        print(esquerda + " " * (tamanho - len(esquerda)) + direita)
+        print(esquerda + " " * espacos + direita)
 
     if i < len(linhas_formatadas):
         print("--- // ---")
