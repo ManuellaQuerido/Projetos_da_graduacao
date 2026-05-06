@@ -40,8 +40,8 @@ linha_por_pagina = 2 * maximo_linhas
 i = 0
 
 while i < len(linhas_formatadas):
-    pagina = linhas_formatadas[i:i + linha_por_pagina]
-    i += linha_por_pagina
+    proximo_i = i + linha_por_pagina
+    pagina = linhas_formatadas[i:proximo_i]
 
     coluna_1 = pagina[:maximo_linhas]
     coluna_2 = pagina[maximo_linhas:]
@@ -60,3 +60,5 @@ while i < len(linhas_formatadas):
 
     if i < len(linhas_formatadas):
         print("--- // ---")
+    
+    i = proximo_i
