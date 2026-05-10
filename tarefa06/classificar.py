@@ -38,7 +38,7 @@ with open(nome_arquivo) as arquivo:
                 horas_dinossauro.append(hora)
                 valores_dinossauro.append(valor)
     
-for i in range(len((float(valores_carro)))):
+for i in range(len(valores_carro)):
     maior = i
 
     for j in range(i+1, len(valores_carro)):
@@ -51,7 +51,7 @@ for i in range(len((float(valores_carro)))):
             
     temp = valores_carro[i]
     valores_carro[i] = valores_carro[maior]
-    valores_carro = temp
+    valores_carro[maior] = temp
 
     temp = horas_carro[i]
     horas_carro[i] = horas_carro[maior]
