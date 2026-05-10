@@ -36,4 +36,16 @@ with open(nome_arquivo) as arquivo:
             
             if achou == False:
                 horas_dinossauro.append(hora)
-                valores_dinossauro.append(valor)         
+                valores_dinossauro.append(valor)
+    
+    for i in range(len(valores_carro)):
+        maior = i
+
+        for j in range(i+1, len(valores_carro)):
+            if valores_carro[j] > valores_carro[maior]:
+                maior = j
+            
+            elif valores_carro[j] == valores_carro[maior]:
+                if horas_carro[j] < horas_carro[maior]:
+                    maior = j
+                      
