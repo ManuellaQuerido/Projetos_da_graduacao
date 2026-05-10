@@ -60,7 +60,7 @@ for i in range(len(valores_carro)):
 for i in range(len(valores_dinossauro)):
     maior = i
 
-    for j in range(len(valores_dinossauro)):
+    for j in range(i+1, len(valores_dinossauro)):
         if valores_dinossauro[j] > valores_dinossauro[maior]:
             maior = j
         elif valores_dinossauro[j] == valores_dinossauro[maior]:
