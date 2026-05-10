@@ -69,7 +69,7 @@ for i in range(len(valores_dinossauro)):
     
     temp = valores_dinossauro[i]
     valores_dinossauro[i] = valores_dinossauro[maior]
-    valores_dinossauro = temp
+    valores_dinossauro[maior] = temp
 
     temp = horas_dinossauro[i]
     horas_dinossauro[i] = horas_dinossauro[maior]
