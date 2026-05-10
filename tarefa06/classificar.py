@@ -25,4 +25,15 @@ with open(nome_arquivo) as arquivo:
             if achou == False:
                 horas_carro.append(hora)
                 valores_carro.append(valor)
-                
+        
+        else:
+            achou = False
+
+            for i in range(len(horas_dinossauro)):
+                if horas_dinossauro[i] == hora:
+                    valores_dinossauro[i] += valor
+                    achou = True
+            
+            if achou == False:
+                horas_dinossauro.append(hora)
+                valores_dinossauro.append(valor)         
