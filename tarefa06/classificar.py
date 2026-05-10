@@ -11,7 +11,7 @@ with open(nome_arquivo) as arquivo:
         dados = linha.split(",")
 
         hora = dados[0][:2] + "h"
-        catgoria = dados[2]
+        categoria = dados[2]
         valor = float(dados[3])
 
         if categoria == "carro":
@@ -57,3 +57,31 @@ for i in range(len(valores_carro)):
     horas_carro[i] = horas_carro[maior]
     horas_carro[maior] = temp
 
+for i in range(len(valores_dinossauro)):
+    maior = i
+
+    for j in range(len(valores_dinossauro)):
+        if valores_dinossauro[j] > valores_dinossauro[maior]:
+            maior = j
+        elif valores_dinossauro[j] == valores_dinossauro[maior]:
+            if horas_dinossauro[j] < horas_dinossauro[maior]:
+                maior[j]
+    
+    temp = valores_dinossauro[i]
+    valores_dinossauro[i] = valores_dinossauro[maior]
+    valores_dinossauro = temp
+
+    temp = horas_dinossauro[i]
+    horas_dinossauro[i] = horas_dinossauro[maior]
+    horas_dinossauro[maior] = temp
+
+print("Carros:")
+
+for i in range(len(horas_carro)):
+    print(f"{horas_carro[i]}: {valores_carro[i]:.2f}")
+print()
+
+print("Dinossauros:")
+
+for i in range(len(horas_dinossauro)):
+    print(f"{horas_dinossauro[i]}: {valores_dinossauro[i]:.2f}")
