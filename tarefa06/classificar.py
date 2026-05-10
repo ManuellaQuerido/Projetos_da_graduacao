@@ -20,7 +20,7 @@ with open(nome_arquivo) as arquivo:
             for i in range(len(horas_carro)):
                 if horas_carro[i] == hora:
                     valores_carro[i] += valor
-                    chou = True
+                    achou = True
             
             if achou == False:
                 horas_carro.append(hora)
@@ -65,7 +65,7 @@ for i in range(len(valores_dinossauro)):
             maior = j
         elif valores_dinossauro[j] == valores_dinossauro[maior]:
             if horas_dinossauro[j] < horas_dinossauro[maior]:
-                maior[j]
+                maior = j
     
     temp = valores_dinossauro[i]
     valores_dinossauro[i] = valores_dinossauro[maior]
