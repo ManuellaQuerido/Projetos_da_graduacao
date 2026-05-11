@@ -23,7 +23,7 @@
                     # Se o código for engraçado
                         # CÓDIGO DELETADO ENCONTRADO
                     # Parar a busca
-                    # Se o código não for enrgraçado
+                    # Se o código não for engraçado
                         # VENDA NÃO DELETADA
 
 # 4.Imprimir "hora, código, categoria, valor"
@@ -50,3 +50,36 @@ def carregar_vendas(arquivo):
             vendas.append(dados)
     
     return vendas
+
+
+def procurar_codigo(codigo):
+    while engraçado(codigo) == False:
+        codigo += 1
+    return codigo
+
+
+def main():
+    nome_vendas = input()
+    nome_logs = input()
+
+    vendas = carregar_vendas(nome_vendas)
+    indice = 0
+    total_anterior = 0
+    codigo_anterior = 0
+    estoque_carro_anterior = -1
+    estoque_dinossauro_anterior = -1
+
+    with open(nome_logs) as pasta:
+        for linha in pasta:
+            if linha[-1] == "\n":
+                linha = linha[-1]
+
+            dados = linha.split(",")
+            hora = dados[0]
+
+            estoque_dinossauro = int(dados[1])
+            estoque_carros = int(dados[2])
+
+            total = float(dados[3])
+
+            
