@@ -33,3 +33,20 @@ def ordenar(horas, valores):
         horas[maior] = temp
 
 
+def main():
+    arquivo = input()
+    horas_carro = []
+    valores_carro = []
+    horas_dinossauro = []
+    valores_dinossauro = []
+
+    with open(arquivo) as pasta:
+        for linha in pasta:
+            dados = linha.split(",")
+
+            hora = dados[0][:2] + "h"
+            categoria = dados[2]
+            valor = float(dados[3])
+
+            if categoria == "carro":
+                
