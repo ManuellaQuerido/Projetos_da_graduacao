@@ -38,3 +38,15 @@ def engraçado(codigo):
 
     if s[:metade] == s[metade:]:
         return True
+
+
+def carregar_vendas(arquivo):
+    vendas = []
+    with open(arquivo) as pasta:
+        for linha in pasta:
+            if linha[-1] == "\n":
+                linha = linha[:-1]
+            dados = linha.split(",")
+            vendas.append(dados)
+    
+    return vendas
