@@ -27,3 +27,14 @@
                         # VENDA NÃO DELETADA
 
 # 4.Imprimir "hora, código, categoria, valor"
+
+
+def engraçado(codigo):
+    s = str(codigo)
+    if len(s) % 2 != 0:
+        return False
+    
+    metade = len(s) // 2
+
+    if s[:metade] == s[metade:]:
+        return True
