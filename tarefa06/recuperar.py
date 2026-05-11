@@ -39,6 +39,8 @@ def engraçado(codigo):
     if s[:metade] == s[metade:]:
         return True
 
+    return False
+
 
 def carregar_vendas(arquivo):
     vendas = []
@@ -72,7 +74,7 @@ def main():
     with open(nome_logs) as pasta:
         for linha in pasta:
             if linha[-1] == "\n":
-                linha = linha[-1]
+                linha = linha[:-1]
 
             dados = linha.split(",")
             hora = dados[0]
