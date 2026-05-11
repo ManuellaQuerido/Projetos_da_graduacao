@@ -82,4 +82,37 @@ def main():
 
             total = float(dados[3])
 
-            
+            if total > total_anterior:
+                valor = total - total_anterior
+
+                if estoque_dinossauro_anterior != -1:
+                    if estoque_dinossauro < estoque_dinossauro_anterior:
+                        categoria = "dinossauro"
+                    
+                    else:
+                        categoria = "carro"
+                
+                else:
+                    if indice < len(vendas):
+                        categoria = vendas[indice][2]
+                    else:
+                        if estoque_dinossauro < estoque_carros:
+                            categoria = "dinossauro"
+                        else:
+                            categoria = "carro"
+                
+                encontrou = False
+
+                if indice < len(vendas):
+                    venda = vendas[indice]
+                    hora_venda = venda[0]
+                    codigo_venda = venda[1]
+                    categoria_venda = venda[2]
+                    valor_venda = float(venda[3])
+
+                    if hora == hora_venda:
+                        if categoria == categoria_venda:
+                            if valor == valor_venda:
+                                codigo_anterior = int(codigo_venda)
+                                indice += 1
+                                encontrou = True
