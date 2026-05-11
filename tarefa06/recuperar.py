@@ -116,3 +116,16 @@ def main():
                                 codigo_anterior = int(codigo_venda)
                                 indice += 1
                                 encontrou = True
+                
+                if encontrou == False:
+                    codigo = codigo_anterior + 1
+                    codigo = procurar_codigo(codigo)
+                    print(f"{hora},{codigo},{categoria},{valor:.2f}")
+                    codigo_anterior = codigo
+                
+                total_anterior = total
+            
+            estoque_dinossauro_anterior = estoque_dinossauro
+            estoque_carro_anterior = estoque_carros
+
+main()
