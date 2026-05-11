@@ -49,4 +49,21 @@ def main():
             valor = float(dados[3])
 
             if categoria == "carro":
-                
+                adicionar(horas_carro, valores_carro, hora, valor)
+            else:
+                adicionar(horas_dinossauro, valores_dinossauro, hora, valor)
+    
+    ordenar(horas_carro, valores_carro)
+    ordenar(horas_dinossauro, valores_dinossauro)
+
+    print("Carros:")
+    for i in range(len(horas_carro)):
+        print(f"{horas_carro[i]}: {valores_carro[i]:.2f}")
+    
+    print()
+
+    print ("Dinossauros:")
+    for i in range(len(horas_dinossauro)):
+        print(f"{horas_dinossauro[i]}: {valores_dinossauro[i]:.2f}")
+
+main()
