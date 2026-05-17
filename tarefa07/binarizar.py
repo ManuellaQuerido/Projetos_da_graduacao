@@ -43,3 +43,19 @@ def normalizar(pixels, menor, maior):
         novos.append(valor)
 
     return novos
+
+
+def contar(pixels):
+
+    pretos = 0
+    brancos = 0
+
+    for p in pixels:
+
+        if p == 0:
+            pretos += 1
+
+        if p == 255:
+            brancos += 1
+
+    return pretos, brancos
