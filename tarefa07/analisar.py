@@ -84,19 +84,22 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
 
 
 def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
-
     pretos = 0
-    raio2 = raio ** 2
+
+    raio2 = raio * raio
 
     for i in range(altura):
 
-        dy = altura - i - y
-
         for j in range(largura):
 
-            dx = j - x
+            px = j + 0.5
+            py = altura - i - 0.5
 
-            if dx ** 2 + dy ** 2 <= raio2:
+            dx = px - x
+            dy = py - y
+
+            if dx * dx + dy * dy <= raio2:
+
                 indice = i * largura + j
 
                 if imagem[indice] == 0:
