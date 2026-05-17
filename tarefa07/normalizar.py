@@ -59,3 +59,24 @@ def contar(pixels):
             brancos += 1
 
     return pretos, brancos
+
+
+entrada = input()
+saida = input()
+
+arq = open(entrada, "r")
+novo_arq = open(saida, "w")
+
+linhas = []
+
+for linha in arq:
+    linhas.append(linha)
+
+tipo = linhas[0]
+comentario = linhas[1]
+tamanho = linhas[2]
+
+partes = tamanho.split()
+
+largura = int(partes[0])
+altura = int(partes[1])
