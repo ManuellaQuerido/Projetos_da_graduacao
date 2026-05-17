@@ -59,3 +59,25 @@ def contar(pixels):
             brancos += 1
 
     return pretos, brancos
+
+
+def binarizar(pixels, largura, altura, janela, limiar, fator):
+
+    resultado = []
+
+    raio = janela // 2
+
+    for i in range(altura):
+
+        for j in range(largura):
+
+            contagem = 0
+
+            for di in range(-raio, raio + 1):
+
+                for dj in range(-raio, raio + 1):
+
+                    ni = i + di
+                    nj = j + dj
+
+                   
