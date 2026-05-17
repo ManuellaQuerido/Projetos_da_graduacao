@@ -10,19 +10,3 @@ def ler_pixels(linhas):
             pixels.append(int(v))
 
     return pixels
-
-
-def achar_menor_maior(pixels):
-
-    menor = pixels[0]
-    maior = pixels[0]
-
-    for p in pixels:
-
-        if p < menor:
-            menor = p
-
-        if p > maior:
-            maior = p
-
-    return menor, maior
