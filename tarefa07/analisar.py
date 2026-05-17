@@ -52,6 +52,9 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
 
     raio = janela // 2
 
+    total = janela ** 2
+    minimo = int(fator * total)
+
     for i in range(altura):
 
         for j in range(largura):
