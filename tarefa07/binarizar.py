@@ -26,3 +26,20 @@ def achar_menor_maior(pixels):
             maior = p
 
     return menor, maior
+
+
+def normalizar(pixels, menor, maior):
+
+    novos = []
+
+    for p in pixels:
+
+        if maior == menor:
+            valor = 0
+
+        else:
+            valor = ((p - menor) * 255) // (maior - menor)
+
+        novos.append(valor)
+
+    return novos
