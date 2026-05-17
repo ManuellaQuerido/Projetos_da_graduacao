@@ -164,7 +164,7 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 
 # estima colônias
 
-colonias = pixels_pretos // media
+colonias = (pixels_pretos + media // 2) // media
 
 # saída
 
