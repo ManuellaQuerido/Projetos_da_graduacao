@@ -80,5 +80,22 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
                     ni = i + di
                     nj = j + dj
                     
+                    if ni >= 0 and ni < altura and nj >= 0 and nj < largura:
+
+                        indice = ni * largura + nj
+
+                        if pixels[indice] <= limiar:
+                            contagem += 1
+
+            total = janela * janela
+
+            if contagem >= fator * total:
+                resultado.append(0)
+
+            else:
+                resultado.append(255)
+
+    return resultado
+
 
                    
