@@ -96,6 +96,5 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
                 resultado.append(255)
 
     return resultado
-
-
-                   
+    
+                       
