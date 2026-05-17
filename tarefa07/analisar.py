@@ -163,8 +163,13 @@ binaria = binarizar(normalizada, largura, altura, janela, limiar, fator)
 pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 
 # estima colônias
+quociente = pixels_pretos // media
+resto = pixels_pretos % media
 
-colonias = int(pixels_pretos // media)
+if resto >= (media/2):
+    colonias = quociente + 1
+else:
+    colonias = quociente
 
 # saída
 
