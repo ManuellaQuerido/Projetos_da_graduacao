@@ -72,9 +72,7 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
                         if pixels[indice] <= limiar:
                             contagem += 1
 
-            total = janela * janela
-
-            if contagem >= fator * total:
+            if contagem >= minimo:
                 resultado.append(0)
 
             else:
