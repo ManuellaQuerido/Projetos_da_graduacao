@@ -52,9 +52,6 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
 
     raio = janela // 2
 
-    total = janela ** 2
-    minimo = int(fator * total)
-
     for i in range(altura):
 
         for j in range(largura):
@@ -75,7 +72,9 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
                         if pixels[indice] <= limiar:
                             contagem += 1
 
-            if contagem >= minimo:
+            total = janela * janela
+
+            if contagem >= fator * total:
                 resultado.append(0)
 
             else:
@@ -85,21 +84,23 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
 
 
 def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
-    pretos = 0
 
-    raio2 = raio * raio
+    pretos = 0
 
     for i in range(altura):
 
         for j in range(largura):
 
+            # centro do pixel
             px = j + 0.5
             py = altura - i - 0.5
 
             dx = px - x
             dy = py - y
 
-            if dx * dx + dy * dy <= raio2:
+            distancia2 = dx * dx + dy * dy
+
+            if distancia2 <= raio * raio:
 
                 indice = i * largura + j
 
