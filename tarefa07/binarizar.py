@@ -79,5 +79,6 @@ def binarizar(pixels, largura, altura, janela, limiar, fator):
 
                     ni = i + di
                     nj = j + dj
+                    
 
                    
