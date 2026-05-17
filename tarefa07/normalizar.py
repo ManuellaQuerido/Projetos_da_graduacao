@@ -80,3 +80,19 @@ partes = tamanho.split()
 
 largura = int(partes[0])
 altura = int(partes[1])
+
+pixels = ler_pixels(linhas)
+
+menor, maior = achar_menor_maior(pixels)
+
+pretos1, brancos1 = contar(pixels)
+
+novos = normalizar(pixels, menor, maior)
+
+pretos2, brancos2 = contar(novos)
+
+# escreve arquivo
+print("P2", file=novo_arq)
+print(comentario, end="", file=novo_arq)
+print(tamanho, end="", file=novo_arq)
+print("255", file=novo_arq)
