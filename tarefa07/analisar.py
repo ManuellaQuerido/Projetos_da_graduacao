@@ -173,7 +173,7 @@ if resto < (media/2):
     if resto < (media/2):
         colonias = quociente + 1
         if resto >= (media/2):
-            colonias = quociente - 1
+            colonias = quociente - 2
 
 # saída
 
