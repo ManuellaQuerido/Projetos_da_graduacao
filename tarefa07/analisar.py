@@ -93,10 +93,6 @@ def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
         for j in range(largura):
             dx = j - x
 
-            distancia2 = dx * dx + dy * dy
-
-            if distancia2 <= raio * raio:
-
                 indice = i * largura + j
 
                 if imagem[indice] == 0:
