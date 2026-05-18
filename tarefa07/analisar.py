@@ -168,12 +168,12 @@ resto = pixels_pretos % media
 
 if resto >= (media/2):
     colonias = quociente
-
 if resto < (media/2):
-    if resto < (media/2):
-        colonias = quociente + 1
     if resto >= (media/2):
         colonias = quociente - 2
+if resto < (media/2):
+    colonias = quociente + 1
+
 
 # saída
 
