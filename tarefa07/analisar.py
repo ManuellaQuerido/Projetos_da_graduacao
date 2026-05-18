@@ -92,13 +92,8 @@ def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
 
         for j in range(largura):
             dx = j - x
-            # centro do pixel
-            px = j + 0.5
-            py = altura - i - 0.5
 
-            distancia2 = dx * dx + dy * dy
-
-            if distancia2 <= raio * raio:
+            if dx ** 2 + dy ** 2 <= raio * raio:
 
                 indice = i * largura + j
 
