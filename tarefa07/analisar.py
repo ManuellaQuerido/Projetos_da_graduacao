@@ -165,7 +165,7 @@ colonias = pixels_pretos // media
 
 if (colonias % media) != 0:
     colonias = colonias
-if (colonias % media) == 0
+if (colonias % media) == 0:
     colonias += 1 
 
 # saída
