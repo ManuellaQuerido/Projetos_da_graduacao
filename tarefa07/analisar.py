@@ -169,6 +169,8 @@ resto = pixels_pretos % media
 if resto < (media/2):
     quociente2 = quociente
     colonias = quociente + 1
+else:
+    colonias = quociente
 # saída
 
 print(f"Número de colônias estimado: {colonias}")
