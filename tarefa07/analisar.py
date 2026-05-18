@@ -98,7 +98,7 @@ def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
 
             distancia2 = dx * dx + dy * dy
 
-            if distancia2 <= raio * raio:
+            if distancia2 < raio * raio:
 
                 indice = i * largura + j
 
@@ -162,11 +162,6 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 
 # estima colônias
 colonias = pixels_pretos // media
-
-if (colonias % media) != 0:
-    colonias = colonias
-if (colonias % media) == 0:
-    colonias = colonias - 1
 
 # saída
 
