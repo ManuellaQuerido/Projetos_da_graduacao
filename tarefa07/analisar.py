@@ -166,14 +166,14 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 quociente = pixels_pretos // media
 resto = pixels_pretos % media
 
-if resto > (media/2):
+if resto >= (media/2):
     colonias = quociente
-else:
+
+if resto < (media/2):
     if resto < (media/2):
-        if resto < (media/2):
-            colonias = quociente + 1
-        if resto >= (media/2):
-            colonias = quociente
+        colonias = quociente + 1
+    if resto >= (media/2):
+        colonias = quociente
 
 # saída
 
