@@ -166,13 +166,14 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 quociente = pixels_pretos // media
 resto = pixels_pretos % media
 
-if resto >= (media/2):
+if resto > (media/2):
     colonias = quociente
-    if resto < (media/2):
-        colonias = quociente - 1    
 else:
     if resto < (media / 2):
         colonias = quociente + 1
+if resto = (media/2):
+    colonias = quociente - 1  
+
 # saída
 
 print(f"Número de colônias estimado: {colonias}")
