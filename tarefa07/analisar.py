@@ -163,6 +163,11 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 # estima colônias
 colonias = pixels_pretos // media
 
+if (colonias % media) == 0:
+    colonias = colonias
+else:
+    colonias += 1 
+
 # saída
 
 print(f"Número de colônias estimado: {colonias}")
