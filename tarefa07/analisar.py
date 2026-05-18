@@ -100,7 +100,7 @@ def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
 
             distancia2 = dx * dx + dy * dy
 
-            if distancia2 < raio * raio:
+            if distancia2 <= raio * raio:
 
                 indice = i * largura + j
 
@@ -164,7 +164,11 @@ pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 
 # estima colônias
 quociente = pixels_pretos // media
+resto = pixels_pretos % media
 
+if resto < (media/2):
+    quociente2 = quociente
+    colonias = quociente + 1
 # saída
 
 print(f"Número de colônias estimado: {colonias}")
