@@ -88,7 +88,7 @@ def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
     pretos = 0
 
     for i in range(altura):
-        dy = altura - i - y
+        dy = altura - 1 - i - y
 
         for j in range(largura):
             dx = j - x
