@@ -1,0 +1,8 @@
+CARREGAR-ARQUIVO: dados/artigos3.json
+ALTERAR-PALAVRAS: 301; mecânica quântica, emaranhamento
+INSERIR-ARTIGO: 400; Gravidade Quântica; Renato; 2024; buracos negros; 302
+REMOVER-ARTIGO: 303
+GRAVAR-ARQUIVO: saidas/artigos3_alterado.out.json
+ALTERAR-REFERENCIAS: 302; 400, 301
+INSERIR-ARTIGO: 400; Outro; autor; 2020; teste;
+GRAVAR-ARQUIVO: saidas/artigos3_final.out.json

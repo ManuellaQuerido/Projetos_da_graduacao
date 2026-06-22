@@ -1,0 +1,88 @@
+[
+  {
+    "id": 101,
+    "titulo": "Compiladores Modernos: Otimização de Código",
+    "autores": [
+      "Ada Lovelace",
+      "Charles Babbage"
+    ],
+    "palavras-chave": [
+      "Compiladores",
+      "Linguagens de Programação",
+      "Otimização"
+    ],
+    "ano": 2023,
+    "referencias": [
+      205,
+      309
+    ]
+  },
+  {
+    "id": 102,
+    "titulo": "Processamento de Linguagem Natural com Transformers",
+    "autores": [
+      "Alan Turing",
+      "Grace Hopper"
+    ],
+    "palavras-chave": [
+      "Inteligência Artificial",
+      "PLN",
+      "Transformers"
+    ],
+    "ano": 2024,
+    "referencias": [
+      100,
+      103,
+      104
+    ]
+  },
+  {
+    "id": 103,
+    "titulo": "Segurança em Aplicações Web",
+    "autores": [
+      "Ada Lovelace"
+    ],
+    "palavras-chave": [
+      "Cibersegurança",
+      "Criptografia",
+      "Web"
+    ],
+    "ano": 2022,
+    "referencias": [
+      204
+    ]
+  },
+  {
+    "id": 104,
+    "titulo": "Blockchain e Contratos Inteligentes",
+    "autores": [
+      "Satoshi Nakamoto",
+      "Ada Lovelace"
+    ],
+    "palavras-chave": [
+      "Blockchain",
+      "Criptomoedas",
+      "Segurança"
+    ],
+    "ano": 2023,
+    "referencias": [
+      102,
+      205,
+      777
+    ]
+  },
+  {
+    "id": 100,
+    "titulo": "Computação Quântica",
+    "autores": [
+      "Pedro"
+    ],
+    "palavras-chave": [
+      "Quântica"
+    ],
+    "ano": 2025,
+    "referencias": [
+      101
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+CARREGAR-ARQUIVO: dados/artigos2.json
+INSERIR-ARTIGO: 100; Computação Quântica; Pedro Silva; 2025; quântica, algoritmos; 101
+ALTERAR-REFERENCIAS: 102; 100, 103, 104
+REMOVER-ARTIGO: 205
+GRAVAR-ARQUIVO: saidas/artigos2_temp.out.json
+ALTERAR-PALAVRAS: 101; compiladores, otimização
+INSERIR-ARTIGO: 100; Duplicado; Autor; 2022; teste;
+GRAVAR-ARQUIVO: saidas/artigos2_final.out.json

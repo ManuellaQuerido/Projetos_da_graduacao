@@ -1,0 +1,8 @@
+CARREGAR-ARQUIVO: dados/artigos1.json
+INSERIR-ARTIGO: 999; Sistemas Recomendação; Ana Costa; 2024; aprendizado de máquina, recomendação; 112342, 2234
+INSERIR-ARTIGO: 112342; Deep Learning para Visão; João Silva, Maria Souza; 2023; visão computacional, aprendizado; 23433
+REMOVER-ARTIGO: 112342
+ALTERAR-PALAVRAS: 999; recomendação, inteligência artificial
+ALTERAR-REFERENCIAS: 999; 50923032
+INSERIR-ARTIGO: 999; Outro Título; Autor X; 2022; teste; 123
+GRAVAR-ARQUIVO: saidas/artigos1_mod.out.json

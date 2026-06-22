@@ -1,0 +1,91 @@
+[
+  {
+    "id": 401,
+    "titulo": "Imunoterapia no Tratamento do Câncer",
+    "autores": [
+      "James Allison",
+      "Tasuku Honjo"
+    ],
+    "palavras-chave": [
+      "Câncer",
+      "Imunoterapia",
+      "Oncologia"
+    ],
+    "ano": 2024,
+    "referencias": [
+      402,
+      9991
+    ]
+  },
+  {
+    "id": 402,
+    "titulo": "Doenças Neurodegenerativas: Alzheimer e Parkinson",
+    "autores": [
+      "Alois Alzheimer",
+      "James Parkinson"
+    ],
+    "palavras-chave": [
+      "Alzheimer",
+      "Neurologia",
+      "Parkinson"
+    ],
+    "ano": 2023,
+    "referencias": [
+      403
+    ]
+  },
+  {
+    "id": 403,
+    "titulo": "Medicina Regenerativa com Células-Tronco",
+    "autores": [
+      "Shinya Yamanaka",
+      "John Gurdon"
+    ],
+    "palavras-chave": [
+      "Células-Tronco",
+      "Medicina Regenerativa",
+      "Terapia Gênica"
+    ],
+    "ano": 2025,
+    "referencias": [
+      111,
+      401,
+      404
+    ]
+  },
+  {
+    "id": 404,
+    "titulo": "Vacinas de mRNA: Revolução na Imunologia",
+    "autores": [
+      "Katalin Karikó",
+      "Drew Weissman"
+    ],
+    "palavras-chave": [
+      "Imunologia",
+      "Vacinas",
+      "mRNA"
+    ],
+    "ano": 2022,
+    "referencias": [
+      402,
+      405
+    ]
+  },
+  {
+    "id": 405,
+    "titulo": "Epidemiologia de Doenças Infecciosas Emergentes",
+    "autores": [
+      "John Snow"
+    ],
+    "palavras-chave": [
+      "Doenças Infecciosas",
+      "Epidemiologia",
+      "Saúde Pública"
+    ],
+    "ano": 2021,
+    "referencias": [
+      404,
+      6666
+    ]
+  }
+]

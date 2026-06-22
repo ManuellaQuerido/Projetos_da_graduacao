@@ -1,0 +1,83 @@
+[
+  {
+    "id": 999,
+    "titulo": "Sistemas Recomendação",
+    "autores": [
+      "Ana Costa"
+    ],
+    "palavras-chave": [
+      "inteligência artificial",
+      "recomendação"
+    ],
+    "ano": 2024,
+    "referencias": [
+      50923032
+    ]
+  },
+  {
+    "id": 2234,
+    "titulo": "Redes Neurais e Aprendizado",
+    "autores": [
+      "Alan Turing",
+      "João Silva"
+    ],
+    "palavras-chave": [
+      "Algoritmos",
+      "Inteligência Artificial"
+    ],
+    "ano": 2022,
+    "referencias": [
+      9239484,
+      50923032
+    ]
+  },
+  {
+    "id": 23433,
+    "titulo": "Sistemas de Bancos de Dados Distribuídos",
+    "autores": [
+      "Grace Hopper",
+      "Alan Turing"
+    ],
+    "palavras-chave": [
+      "Algoritmos",
+      "Bancos de Dados"
+    ],
+    "ano": 2021,
+    "referencias": [
+      50923032
+    ]
+  },
+  {
+    "id": 9239484,
+    "titulo": "Segurança em Redes de Computadores",
+    "autores": [
+      "João Silva"
+    ],
+    "palavras-chave": [
+      "Algoritmos",
+      "Redes de Computadores",
+      "Segurança da Informação"
+    ],
+    "ano": 2022,
+    "referencias": [
+      2234,
+      112342
+    ]
+  },
+  {
+    "id": 50923032,
+    "titulo": "Ética na Computação",
+    "autores": [
+      "Maria Souza"
+    ],
+    "palavras-chave": [
+      "Inteligência Artificial",
+      "Ética"
+    ],
+    "ano": 2022,
+    "referencias": [
+      112342,
+      9239484
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+CARREGAR-ARQUIVO: dados/artigos1.json
+BUSCAR-PALAVRAS: Algoritmos
+INSERIR-ARTIGO: 9999;Compressão de Dados;João Silva;2024;Compressão,Algoritmos;
+BUSCAR-PALAVRAS: Algoritmos
+REMOVER-ARTIGO: 23433
+BUSCAR-PALAVRAS: Algoritmos
+ALTERAR-PALAVRAS: 2234;Redes Neurais,Deep Learning
+BUSCAR-PALAVRAS: Algoritmos
+BUSCAR-PALAVRAS: Redes Neurais
+BUSCAR-PALAVRAS: Deep Learning

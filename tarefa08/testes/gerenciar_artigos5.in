@@ -1,0 +1,12 @@
+CARREGAR-ARQUIVO: dados/artigos5.json
+ALTERAR-REFERENCIAS: 501; 502, 503, 504
+INSERIR-ARTIGO: 600; Bioinformática; Carla; 2024; genômica, algoritmos; 501, 505
+REMOVER-ARTIGO: 505
+GRAVAR-ARQUIVO: saidas/artigos5_backup.out.json
+ALTERAR-PALAVRAS: 600; bioinformática, aprendizado de máquina
+INSERIR-ARTIGO: 600; Duplicado; autor; 2020; teste;
+REMOVER-ARTIGO: 600
+ALTERAR-REFERENCIAS: 999; 600
+REMOVER-ARTIGO: 503
+INSERIR-ARTIGO: 700; Ecologia Molecular; Paula; 2025; ecologia, evolução; 504, 600
+GRAVAR-ARQUIVO: saidas/artigos5_final.out.json

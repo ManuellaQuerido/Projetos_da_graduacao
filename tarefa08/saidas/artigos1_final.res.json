@@ -1,0 +1,70 @@
+[
+  {
+    "id": 112342,
+    "titulo": "Algoritmos de Ordenação Eficientes",
+    "autores": [
+      "João Silva",
+      "Maria Souza"
+    ],
+    "palavras-chave": [
+      "Algoritmos",
+      "Estruturas de Dados"
+    ],
+    "ano": 2023,
+    "referencias": [
+      23433,
+      234344
+    ]
+  },
+  {
+    "id": 2234,
+    "titulo": "Redes Neurais e Aprendizado",
+    "autores": [
+      "Alan Turing",
+      "João Silva"
+    ],
+    "palavras-chave": [
+      "Aprendizado Profundo",
+      "IA",
+      "Redes Neurais"
+    ],
+    "ano": 2022,
+    "referencias": [
+      9239484,
+      50923032
+    ]
+  },
+  {
+    "id": 9239484,
+    "titulo": "Segurança em Redes de Computadores",
+    "autores": [
+      "João Silva"
+    ],
+    "palavras-chave": [
+      "Algoritmos",
+      "Redes de Computadores",
+      "Segurança da Informação"
+    ],
+    "ano": 2022,
+    "referencias": [
+      2234,
+      112342
+    ]
+  },
+  {
+    "id": 50923032,
+    "titulo": "Ética na Computação",
+    "autores": [
+      "Maria Souza"
+    ],
+    "palavras-chave": [
+      "Inteligência Artificial",
+      "Ética"
+    ],
+    "ano": 2022,
+    "referencias": [
+      999,
+      2234
+    ]
+  }
+]

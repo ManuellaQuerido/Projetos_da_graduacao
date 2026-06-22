@@ -1,0 +1,16 @@
+CARREGAR-ARQUIVO: dados/artigos6.json
+INSERIR-ARTIGO: 800; Finanças Comportamentais; Kahneman, Thaler; 2025; psicologia, finanças; 601, 604
+ALTERAR-PALAVRAS: 800; psicologia econômica, tomada de decisão
+REMOVER-ARTIGO: 602
+GRAVAR-ARQUIVO: saidas/artigos6_1.out.json
+ALTERAR-REFERENCIAS: 603; 800, 605, 801
+INSERIR-ARTIGO: 801; Criptomoedas e Regulação; Satoshi; 2024; blockchain, regulação; 602, 800
+REMOVER-ARTIGO: 602
+ALTERAR-PALAVRAS: 999; Inválido
+GRAVAR-ARQUIVO: saidas/artigos6_2.out.json
+INSERIR-ARTIGO: 800; Novo; autor; 2020; teste;
+REMOVER-ARTIGO: 800
+ALTERAR-REFERENCIAS: 801; 600
+INSERIR-ARTIGO: 802; Sustentabilidade Corporativa; Ana; 2023; esg; 605, 801
+REMOVER-ARTIGO: 603
+GRAVAR-ARQUIVO: saidas/artigos6_final.out.json

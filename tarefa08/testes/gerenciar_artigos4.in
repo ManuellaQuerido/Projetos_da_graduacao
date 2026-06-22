@@ -1,0 +1,9 @@
+CARREGAR-ARQUIVO: dados/artigos4.json
+INSERIR-ARTIGO: 500; Terapia Gênica Avançada; Ana Clara; 2025; terapia gênica, crispr; 403
+ALTERAR-PALAVRAS: 401; imunoterapia, câncer
+REMOVER-ARTIGO: 402
+GRAVAR-ARQUIVO: saidas/artigos4_1.out.json
+ALTERAR-REFERENCIAS: 404; 500, 401
+INSERIR-ARTIGO: 500; Duplicado; autor; 2020; teste;
+REMOVER-ARTIGO: 500
+GRAVAR-ARQUIVO: saidas/artigos4_final.out.json

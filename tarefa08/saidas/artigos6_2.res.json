@@ -1,0 +1,107 @@
+[
+  {
+    "id": 601,
+    "titulo": "Economia Comportamental e Vieses de Decisão",
+    "autores": [
+      "Daniel Kahneman",
+      "Richard Thaler"
+    ],
+    "palavras-chave": [
+      "Economia Comportamental",
+      "Finanças",
+      "Psicologia"
+    ],
+    "ano": 2024,
+    "referencias": [
+      602,
+      9999
+    ]
+  },
+  {
+    "id": 603,
+    "titulo": "Desigualdade de Renda e Crescimento Econômico",
+    "autores": [
+      "Thomas Piketty",
+      "Esther Duflo"
+    ],
+    "palavras-chave": [
+      "Desenvolvimento",
+      "Desigualdade",
+      "Macroeconomia"
+    ],
+    "ano": 2025,
+    "referencias": [
+      605,
+      800,
+      801
+    ]
+  },
+  {
+    "id": 604,
+    "titulo": "Mercados Financeiros e Eficiência Informacional",
+    "autores": [
+      "Eugene Fama",
+      "Robert Shiller"
+    ],
+    "palavras-chave": [
+      "Econometria",
+      "Finanças",
+      "Mercados"
+    ],
+    "ano": 2022,
+    "referencias": [
+      777
+    ]
+  },
+  {
+    "id": 605,
+    "titulo": "Economia do Clima e Sustentabilidade",
+    "autores": [
+      "Nicholas Stern"
+    ],
+    "palavras-chave": [
+      "Mudanças Climáticas",
+      "Políticas Públicas",
+      "Sustentabilidade"
+    ],
+    "ano": 2023,
+    "referencias": [
+      601,
+      603,
+      8888
+    ]
+  },
+  {
+    "id": 800,
+    "titulo": "Finanças Comportamentais",
+    "autores": [
+      "Kahneman",
+      "Thaler"
+    ],
+    "palavras-chave": [
+      "psicologia econômica",
+      "tomada de decisão"
+    ],
+    "ano": 2025,
+    "referencias": [
+      601,
+      604
+    ]
+  },
+  {
+    "id": 801,
+    "titulo": "Criptomoedas e Regulação",
+    "autores": [
+      "Satoshi"
+    ],
+    "palavras-chave": [
+      "blockchain",
+      "regulação"
+    ],
+    "ano": 2024,
+    "referencias": [
+      602,
+      800
+    ]
+  }
+]
