@@ -7,6 +7,7 @@ pode utilizar um objeto do tipo SimpleNamespace, como no exemplo abaixo.
 """
 
 import json
+from collections import defaultdict
 from types import SimpleNamespace
 
 
@@ -14,9 +15,9 @@ def criar_colecao():
     colecao = SimpleNamespace()
 
     colecao.artigos = {}
-    colecao.citacoes = {}
-    colecao.palavras_artigos = {}
-    colecao.aut_contagem = {}
+    colecao.citacoes = defaultdict(set)
+    colecao.palavras_artigos = defaultdict(set)
+    colecao.aut_contagem = defaultdict(int)
 
     return colecao
 
@@ -24,7 +25,9 @@ def criar_colecao():
 def obter_nome_artigo(colecao, id_artigo):
     if id_artigo in colecao.artigos:
         return colecao.artigos[id_artigo]["titulo"]
+    
     return None
+
 
 def normalizar_palavra(palavra):
     lista = []
@@ -32,17 +35,12 @@ def normalizar_palavra(palavra):
     for palavra in palavra:
         if palavra != "" and palavra not in lista:
             lista.append(palavra)
-        
-    for i in range(len(lista)):
-        menor = i
-
-        for j in range (i + 1, len(lista)):
-            if lista[j] < lista[menor]:
-                menor = j
-        lista[i], lista[menor] = lista[menor], lista[i]
-        
+    
+    lista.sort()
+    
     return lista
     
+
 def carregar_arquivo(colecao, nome_arquivo):
     with open(nome_arquivo) as arquivo:
         lista_artigos = json.load(arquivo)
