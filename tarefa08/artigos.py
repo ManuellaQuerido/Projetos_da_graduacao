@@ -7,21 +7,24 @@ pode utilizar um objeto do tipo SimpleNamespace, como no exemplo abaixo.
 """
 
 import json
-from collections import defaultdict
 from types import SimpleNamespace
 
 
 def criar_colecao():
     colecao = SimpleNamespace()
+
     colecao.artigos = {}
-    colecao.citacoes = defaultdict(list)
-    colecao.palavras_artigos = defaultdict(set)
+    colecao.citacoes = {}
+    colecao.palavras_artigos = {}
     colecao.aut_contagem = {}
+    
     return colecao
 
 
 def obter_nome_artigo(colecao, id_artigo):
     pass
+
+def normalizar_palavra(palavra):
 
 
 def carregar_arquivo(colecao, nome_arquivo):
