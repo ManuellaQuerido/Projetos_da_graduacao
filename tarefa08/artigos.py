@@ -24,3 +24,23 @@ def criar_colecao():
 
     return colecao
 
+
+def obter_nome_artigo(colecao, id_artigo):
+
+    if id_artigo in colecao.artigos:
+        return colecao.artigos[id_artigo]["titulo"]
+
+    return None
+
+
+def normalizar_palavras(palavras):
+
+    lista = []
+
+    for palavra in palavras:
+        if palavra != "" and palavra not in lista:
+            lista.append(palavra)
+
+    lista.sort()
+
+    return lista
