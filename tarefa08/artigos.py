@@ -44,3 +44,34 @@ def normalizar_palavras(palavras):
     lista.sort()
 
     return lista
+
+
+def normalizar_referencias(referencias):
+
+    lista = []
+
+    for referencia in referencias:
+        if referencia not in lista:
+            lista.append(referencia)
+
+    lista.sort()
+
+    return lista
+
+
+def remover_indices(colecao, id_artigo):
+
+    artigo = colecao.artigos[id_artigo]
+
+    for autor in set(artigo["autores"]):
+
+        colecao.autor_contagem[autor] -= 1
+
+        if colecao.autor_contagem[autor] == 0:
+            del colecao.autor_contagem[autor]
+
+    for palavra in artigo["palavras"]:
+        colecao.palavra_artigos[palavra].discard(id_artigo)
+
+    for referencia in artigo["referencias"]:
+        colecao.citacoes[referencia].discard(id_artigo)
