@@ -88,16 +88,28 @@ def obter_principais_autores(colecao):
             autores.append(autor)
 
     autores.sort()
-    
+
     return maior, autores
 
 
 def obter_referencias_orfas(colecao):
-    pass
+    referencias = []
 
+    for referencia in colecao.citacoes:
+
+        if len(colecao.citacoes[referencia]) > 0:
+            if referencia not in colecao.artigos:
+                referencias.append(referencia)
+    
+    referencias.sort()
+
+    return referencias
 
 def buscar_citacoes(colecao, id_artigo):
-    pass
+    if id_artigo in colecao.citacoes:
+        return colecao.citacoes[id_artigo]
+    
+    return set()
 
 
 def buscar_palavras(colecao, consulta):
@@ -122,8 +134,21 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
 
 def gravar_arquivo(colecao, nome_arquivo):
     # FIXME: prepare uma lista de arquivos no formato do arquivo JSON
-    lista_artigos = ...
-    ...
+    lista_artigos = []
+    
+    for id_artigo in colecao.artigos:
+        artigo = colecao.artigos[id_artigo]
+
+        dados = {
+            "id": id_artigo,
+            "titulo": artigo["titulo"],
+            "autores": artigo["autores"],
+            "ano": artigo["ano"],
+            "palavras-chave": artigo["palavras"],
+            "referencias": artigo["referencias"],
+        }
+        lista_artigos.append(dados)
+        
 
     with open(nome_arquivo, "w") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
