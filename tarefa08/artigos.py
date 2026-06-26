@@ -75,3 +75,74 @@ def remover_indices(colecao, id_artigo):
 
     for referencia in artigo["referencias"]:
         colecao.citacoes[referencia].discard(id_artigo)
+
+
+def adicionar_indices(colecao, id_artigo, autores, palavras, referencias):
+
+    for autor in set(autores):
+
+        if autor not in colecao.autor_contagem:
+            colecao.autor_contagem[autor] = 1
+        else:
+            colecao.autor_contagem[autor] += 1
+
+    for palavra in palavras:
+        colecao.palavra_artigos[palavra].add(id_artigo)
+
+    for referencia in referencias:
+        colecao.citacoes[referencia].add(id_artigo)
+
+
+def definir_artigo(
+    colecao,
+    id_artigo,
+    titulo,
+    autores,
+    ano,
+    palavras,
+    referencias,
+):
+
+    if id_artigo in colecao.artigos:
+
+        remover_indices(colecao, id_artigo)
+
+        del colecao.artigos[id_artigo]
+
+    palavras = normalizar_palavras(palavras)
+    referencias = normalizar_referencias(referencias)
+
+    colecao.artigos[id_artigo] = {
+        "titulo": titulo,
+        "autores": list(autores),
+        "palavras": palavras,
+        "ano": ano,
+        "referencias": referencias,
+    }
+
+    adicionar_indices(
+        colecao,
+        id_artigo,
+        autores,
+        palavras,
+        referencias,
+    )
+
+
+def carregar_arquivo(colecao, nome_arquivo):
+
+    with open(nome_arquivo, encoding="utf-8") as arquivo:
+        lista_artigos = json.load(arquivo)
+
+    for artigo in lista_artigos:
+
+        definir_artigo(
+            colecao,
+            artigo["id"],
+            artigo["titulo"],
+            artigo["autores"],
+            artigo["ano"],
+            artigo["palavras-chave"],
+            artigo["referencias"],
+        )
+
