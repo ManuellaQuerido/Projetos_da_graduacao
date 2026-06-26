@@ -136,7 +136,20 @@ def buscar_palavras(colecao, consulta):
 
 
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
-    pass
+   
+    if id_artigo in colecao.artigos:
+        return False
+    
+    definir_artigo(
+        colecao,
+        id_artigo,
+        titulo,
+        autores,
+        ano,
+        palavras,
+        referencias
+    )
+    return True
 
 
 def remover_artigo(colecao, id_artigo):
@@ -144,6 +157,8 @@ def remover_artigo(colecao, id_artigo):
         return False
     
     remover_indices(colecao, id_artigo)
+
+    return True
 
 
 
