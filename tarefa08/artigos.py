@@ -7,6 +7,7 @@ pode utilizar um objeto do tipo SimpleNamespace, como no exemplo abaixo.
 """
 
 import json
+from collections import defaultdict
 from types import SimpleNamespace
 
 
