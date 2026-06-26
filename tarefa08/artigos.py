@@ -113,7 +113,26 @@ def buscar_citacoes(colecao, id_artigo):
 
 
 def buscar_palavras(colecao, consulta):
-    pass
+    resultado = set()
+
+    for grupo in consulta:
+
+        primeiro = True 
+        encontrados = set()
+
+        for palavra in grupo:
+            if palavra not in colecao.palavra_artigos:
+                encontrados = set()
+                break
+
+            if primeiro:
+                encontrados = set(colecao.palavras_artigos[palavra])
+                primeiro = False
+            else:
+                encontrados = encontrados.intersection(colecao.palavra_artigos[palavra])
+
+        resultado = resultado.union(encontrados)
+    return resultado
 
 
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
@@ -121,7 +140,11 @@ def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referenci
 
 
 def remover_artigo(colecao, id_artigo):
-    pass
+    if id_artigo in colecao.artigos:
+        return False
+    
+    remover_indices(colecao, id_artigo)
+
 
 
 def alterar_palavras(colecao, id_artigo, palavras_novas):
@@ -148,7 +171,7 @@ def gravar_arquivo(colecao, nome_arquivo):
             "referencias": artigo["referencias"],
         }
         lista_artigos.append(dados)
-        
+
 
     with open(nome_arquivo, "w") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
