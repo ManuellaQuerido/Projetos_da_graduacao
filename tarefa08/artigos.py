@@ -6,5 +6,21 @@ A coleção é representada por um objeto SimpleNamespace com quatro atributos:
 - palavra_artigos: guarda os artigos de cada palavra-chave.
 - autor_contagem: guarda a quantidade de artigos de cada autor.
 
-Essas estruturas são usadas para facilitar as buscas e consultas da coleção.
 """
+
+import json
+from collections import defaultdict
+from types import SimpleNamespace
+
+
+def criar_colecao():
+
+    colecao = SimpleNamespace()
+
+    colecao.artigos = {}
+    colecao.citacoes = defaultdict(set)
+    colecao.palavra_artigos = defaultdict(set)
+    colecao.autor_contagem = {}
+
+    return colecao
+
