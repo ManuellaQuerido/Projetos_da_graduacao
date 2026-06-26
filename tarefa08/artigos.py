@@ -17,15 +17,21 @@ def criar_colecao():
     colecao.citacoes = {}
     colecao.palavras_artigos = {}
     colecao.aut_contagem = {}
-    
+
     return colecao
 
 
 def obter_nome_artigo(colecao, id_artigo):
-    pass
+    if id_artigo in colecao.artigos:
+        return colecao.artigos[id_artigo]["titulo"]
+    return None
 
 def normalizar_palavra(palavra):
+    lista = []
 
+    for palavra in palavra:
+        if palavra != "" and palavra not in lista:
+            lista.append(palavra)
 
 def carregar_arquivo(colecao, nome_arquivo):
     with open(nome_arquivo) as arquivo:
