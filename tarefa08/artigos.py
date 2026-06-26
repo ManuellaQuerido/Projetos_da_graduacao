@@ -12,11 +12,11 @@ from types import SimpleNamespace
 
 
 def criar_colecao():
-    # FIXME: modifique conforme a sua descrição acima
     colecao = SimpleNamespace()
-    colecao.dado1 = ...
-    colecao.dado2 = ...
-    ...
+    colecao.artigos = {}
+    colecao.citacoes = defaultdict(list)
+    colecao.palavras_artigos = defaultdict(set)
+    colecao.aut_contagem = {}
     return colecao
 
 
