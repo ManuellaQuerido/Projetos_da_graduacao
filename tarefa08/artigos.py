@@ -37,28 +37,59 @@ def normalizar_palavra(palavra):
             lista.append(palavra)
     
     lista.sort()
-    
+
     return lista
     
 
 def carregar_arquivo(colecao, nome_arquivo):
     with open(nome_arquivo) as arquivo:
         lista_artigos = json.load(arquivo)
-
+    
     # FIXME: carregue a lista de artigos lidos na sua coleção
-    ...
+    
+    for artigo in lista_artigos:
+
+        definir_artigo(
+            artigo["id"],
+            artigo["titulo"],
+            artigo["autores"],
+            artigo["ano"],
+            artigo["palavras"],
+            artigo["referencias"],
+        )
 
 
 def obter_numero_artigos(colecao):
-    pass
+
+    return len(colecao.artigos)
 
 
 def obter_palavras(colecao):
-    pass
+    palavras = []
+
+    for palavras in colecao.palavras_artigos:
+        if len(colecao.palavras_artigos[palavras]) > 0:
+            palavras.append(palavras)
+    
+    palavras.sort()
+
+    return palavras
 
 
 def obter_principais_autores(colecao):
-    pass
+    if len(colecao.aut_contagem) == 0:
+        return 0, []
+    
+    maior = max(colecao.aut_contagem.values())
+
+    autores = []
+    for autor in colecao.aut_contagem:
+        if colecao.aut_contagem[autor] == maior:
+            autores.append(autor)
+
+    autores.sort()
+    
+    return maior, autores
 
 
 def obter_referencias_orfas(colecao):
