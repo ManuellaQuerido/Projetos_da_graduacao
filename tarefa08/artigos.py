@@ -270,4 +270,4 @@ def gravar_arquivo(colecao, nome_arquivo):
 
 
     with open(nome_arquivo, "w") as arquivo:
-        json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
+        json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False) 
