@@ -50,11 +50,12 @@ def carregar_arquivo(colecao, nome_arquivo):
     for artigo in lista_artigos:
 
         definir_artigo(
+            colecao,
             artigo["id"],
             artigo["titulo"],
             artigo["autores"],
             artigo["ano"],
-            artigo["palavras"],
+            artigo["palavras-chave"],
             artigo["referencias"],
         )
 
@@ -126,7 +127,7 @@ def buscar_palavras(colecao, consulta):
                 break
 
             if primeiro:
-                encontrados = set(colecao.palavras_artigos[palavra])
+                encontrados = set(colecao.palavra_artigos[palavra])
                 primeiro = False
             else:
                 encontrados = encontrados.intersection(colecao.palavra_artigos[palavra])
@@ -153,7 +154,7 @@ def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referenci
 
 
 def remover_artigo(colecao, id_artigo):
-    if id_artigo in colecao.artigos:
+    if id_artigo not in colecao.artigos:
         return False
     
     remover_indices(colecao, id_artigo)
@@ -163,11 +164,38 @@ def remover_artigo(colecao, id_artigo):
 
 
 def alterar_palavras(colecao, id_artigo, palavras_novas):
-    pass
+    if id_artigo not in colecao.artigos:
+        return False
+    
+    artigo = colecao.artigos[id_artigo]
 
+    for palavra in artigo["palavras"]:
+        colecao.palavras_artigos[palavra].discard(id_artigo)
+
+    palavra = normalizar_palavra(palavras_novas)
+    artigo["palavras"] = palavra
+
+    for palavra in palavra:
+        colecao.palavras_artigos[palavra].add(id_artigo)
+    return True
 
 def alterar_referencias(colecao, id_artigo, referencias_novas):
-    pass
+    if id_artigo not in colecao.artigos:
+        return False
+    
+    artigo = colecao.artigos[id_artigo]
+
+    for referencia in artigo["referencias"]:
+        colecao.citacoes[referencia].discard(id_artigo)
+
+    referencias =  normalizar_referencias(referencias_novas)
+
+    artigo["referencias"] = referencias
+
+    for referencia in referencias:
+        colecao.citacoes[referencia].add(id_artigo)
+    
+    return True
 
 
 def gravar_arquivo(colecao, nome_arquivo):
