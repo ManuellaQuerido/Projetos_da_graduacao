@@ -1,5 +1,4 @@
-"""
-FIXME: Descreva AQUI sucinta e objetivamente como você irá representar a coleção
+"""FIXME: Descreva AQUI sucinta e objetivamente como você irá representar a coleção
 de artigos. Reveja as instruções no enunciado da tarefa. Todos os dados da
 coleção de artigos são passados para as funções por meio de um único parâmetro
 colecao. Se sua coleção precisar guardar tipos distintos de dados, então você
@@ -11,28 +10,44 @@ from types import SimpleNamespace
  
  
 def criar_colecao():
-    # FIXME: modifique conforme a sua descrição acima
+
     colecao = SimpleNamespace()
-    colecao.dado1 = ...
-    colecao.dado2 = ...
-    ...
+    
+    colecao.id_a = [] # id_artigo
+    colecao.ano = []
+    colecao.ref = [] # referencias
+    colecao.p = [] # palavras
+    colecao.aut = [] # autores
+    colecao.tit = [] # títulos
+
     return colecao
  
  
 def obter_nome_artigo(colecao, id_artigo):
-    pass
+
+    if id_artigo in colecao.id_a:
+        posicao = colecao.id_a.index(id_artigo)
+        return colecao.titulo[posicao]
+    
+    return None
  
  
 def carregar_arquivo(colecao, nome_arquivo):
     with open(nome_arquivo) as arquivo:
         lista_artigos = json.load(arquivo)
- 
-    # FIXME: carregue a lista de artigos lidos na sua coleção
-    ...
- 
+
+        # FIXME: carregue a lista de artigos lidos na sua coleção
+        
+        for artigo in lista_arquivos:
+            colecao.id_a.append(artigo["id"])
+            colecao.ano.append(artigo["ano"])
+            colecao.ref.append(artigo["referencias"])
+            colecao.p.append(artigo["palavras-chave"])
+            colecao.aut.append(artigo["autores"])
+            colecao.tit.append(artigo["titulo"])
  
 def obter_numero_artigos(colecao):
-    pass
+    return len(colecao.id_a)
  
  
 def obter_palavras(colecao):
