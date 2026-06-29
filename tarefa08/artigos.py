@@ -62,11 +62,41 @@ def obter_palavras(colecao):
  
 
 def obter_principais_autores(colecao):
-    pass
+    contagem = {}
+
+    for lista in colecao.aut:
+        for autor in lista:
+            if autor not in contagem:
+                contagem[autor] = 1
+            else:
+                contage[autor] += 1
+    
+    if len(contagem) == 0:
+        return 0, []
+    maior = max(contagem.values())
+
+    principais = []
+
+    for autor in contagem:
+        if contagem[autor] == maior:
+            principais.append(autor)
+
+    principais.sort()
+    return maior, principais
  
  
 def obter_referencias_orfas(colecao):
-    pass
+    referencias = []
+
+    for lista in colecao.ref:
+        for referencia in lista:
+            if referencia not in colecao.id_a:
+                if referencia not in referencias:
+                    referencias.append(referencia)
+    
+    referencias.sort()
+    return referencias
+
  
  
 def buscar_citacoes(colecao, id_artigo):
