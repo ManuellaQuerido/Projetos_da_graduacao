@@ -1,0 +1,4 @@
+Palco 1: City_and_Colour, Linkin_Park, Joji, The_Offspring, Fleetwood_Mac, Def_Leppard, Deep_Purple, Molejo, Ludmilla, Dennis_DJ, Glittertind, Steve_Miller, Olodum, Shaggy, Kenny_Rogers, Keith_Urban, Carrie_Underwood, BLACKPINK, J_Balvin, Maluma, Karol_G, Genesis, Cher, Yes, Jethro_Tull, Rush, My_Bloody_Valentine (1320 minutos)
+Palco 2: Blondie, Soundgarden, Rage_Against_the_Machine, Jack_White, Weezer, Baby_Metal, Sepultura, System_of_a_Down, Korn, Rammstein, Nightwish, Radiohead, Oasis (1286 minutos)
+Palco 3: Blur, Pulp, Muse, Coldplay, The_Strokes, The_White_Stripes, The_Killers, Kings_of_Leon, The_xx, Imagine_Dragons (1278 minutos)
+Duração do festival: 1320 minutos
