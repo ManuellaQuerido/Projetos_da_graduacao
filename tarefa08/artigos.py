@@ -69,7 +69,7 @@ def obter_principais_autores(colecao):
             if autor not in contagem:
                 contagem[autor] = 1
             else:
-                contage[autor] += 1
+                contagem[autor] += 1
     
     if len(contagem) == 0:
         return 0, []
@@ -98,13 +98,23 @@ def obter_referencias_orfas(colecao):
     return referencias
 
  
- 
 def buscar_citacoes(colecao, id_artigo):
-    pass
+    citacoes = set()
+
+    for i range(len(colecao.id_a)):
+        if id_artigo in colecao.ref[i]:
+            citacoes.add(colecao.id_a[i])
+    
+    return citacoes
  
  
 def buscar_palavras(colecao, consulta):
-    pass
+    palavras = set()
+
+    for i in range(len(colecao.id_a)):
+        for grupo in consulta:
+            encontrou = True
+            
  
  
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
