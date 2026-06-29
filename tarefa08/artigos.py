@@ -12,7 +12,7 @@ from types import SimpleNamespace
 def criar_colecao():
 
     colecao = SimpleNamespace()
-    
+
     colecao.id_a = [] # id_artigo
     colecao.ano = []
     colecao.ref = [] # referencias
@@ -35,10 +35,8 @@ def obter_nome_artigo(colecao, id_artigo):
 def carregar_arquivo(colecao, nome_arquivo):
     with open(nome_arquivo) as arquivo:
         lista_artigos = json.load(arquivo)
-
-        # FIXME: carregue a lista de artigos lidos na sua coleção
         
-        for artigo in lista_arquivos:
+        for artigo in lista_artigos:
             colecao.id_a.append(artigo["id"])
             colecao.ano.append(artigo["ano"])
             colecao.ref.append(artigo["referencias"])
@@ -51,9 +49,18 @@ def obter_numero_artigos(colecao):
  
  
 def obter_palavras(colecao):
-    pass
+    palavras = []
+
+    for lista in colecao.p:
+        for palavra in lista:
+            if palavra not in palavras:
+                palavras.append(palavra)
+    
+    palavras.sort()
+
+    return palavras
  
- 
+
 def obter_principais_autores(colecao):
     pass
  
