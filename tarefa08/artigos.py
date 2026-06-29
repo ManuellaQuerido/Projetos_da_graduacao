@@ -101,7 +101,7 @@ def obter_referencias_orfas(colecao):
 def buscar_citacoes(colecao, id_artigo):
     citacoes = set()
 
-    for i range(len(colecao.id_a)):
+    for i in range(len(colecao.id_a)):
         if id_artigo in colecao.ref[i]:
             citacoes.add(colecao.id_a[i])
     
@@ -115,6 +115,15 @@ def buscar_palavras(colecao, consulta):
         for grupo in consulta:
             encontrou = True
             
+            for palavra in grupo:
+                if palavra not in colecao.p[i]:
+                    encontrou = False
+                    break
+            
+            if encontrou:
+                resultado.add(colecao.id_a[i])
+    
+    return resultado
  
  
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
