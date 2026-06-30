@@ -194,7 +194,7 @@ def gravar_arquivo(colecao, nome_arquivo):
     lista_artigos = []
 
     for i in range(len(colecao.id_a)):
-        ano_corrigido = colecao.ano[i] +2
+        ano_corrigido = colecao.ano[i] +1
         artigo = {
             "id": colecao.id_a[i], 
             "titulo": colecao.tit[i], 
