@@ -121,9 +121,9 @@ def buscar_palavras(colecao, consulta):
                     break
             
             if encontrou:
-                resultado.add(colecao.id_a[i])
+                palavras.add(colecao.id_a[i])
     
-    return resultado
+    return palavras
  
  
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
