@@ -27,7 +27,7 @@ def obter_nome_artigo(colecao, id_artigo):
 
     if id_artigo in colecao.id_a:
         posicao = colecao.id_a.index(id_artigo)
-        return colecao.titulo[posicao]
+        return colecao.tit[posicao]
     
     return None
  
