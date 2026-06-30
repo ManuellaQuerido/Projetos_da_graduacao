@@ -40,7 +40,7 @@ def carregar_arquivo(colecao, nome_arquivo):
             colecao.id_a.append(artigo["id"])
             colecao.ano.append(artigo["ano"])
             colecao.ref.append(artigo["referencias"])
-            colecao.p.append(artigo["palavras"])
+            colecao.p.append(artigo["palavras-chave"])
             colecao.aut.append(artigo["autores"])
             colecao.tit.append(artigo["titulo"])
  
@@ -185,7 +185,7 @@ def gravar_arquivo(colecao, nome_arquivo):
             "titulo": colecao.tit[i], 
             "autores": colecao.aut[i], 
             "ano": colecao.ano[i], 
-            "palavras": colecao.p[i], 
+            "palavras-chave": colecao.p[i], 
             "referencias": colecao.ref[i]
         }
 
