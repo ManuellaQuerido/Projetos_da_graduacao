@@ -1,8 +1,5 @@
-"""FIXME: Descreva AQUI sucinta e objetivamente como você irá representar a coleção
-de artigos. Reveja as instruções no enunciado da tarefa. Todos os dados da
-coleção de artigos são passados para as funções por meio de um único parâmetro
-colecao. Se sua coleção precisar guardar tipos distintos de dados, então você
-pode utilizar um objeto do tipo SimpleNamespace, como no exemplo abaixo.
+"""A coleção é representada por um objeto SimpleNamespace com listas para 
+armazenar ids, titulos, autores, palavras-chave, anos e referências dos artigos
 """
  
 import json
@@ -194,7 +191,6 @@ def gravar_arquivo(colecao, nome_arquivo):
     lista_artigos = []
 
     for i in range(len(colecao.id_a)):
-        colecao.ano[i] += 1
         artigo = {
             "id": colecao.id_a[i], 
             "titulo": colecao.tit[i], 
