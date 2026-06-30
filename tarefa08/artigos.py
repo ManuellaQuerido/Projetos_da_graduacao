@@ -40,7 +40,7 @@ def carregar_arquivo(colecao, nome_arquivo):
             colecao.id_a.append(artigo["id"])
             colecao.ano.append(artigo["ano"])
             colecao.ref.append(artigo["referencias"])
-            colecao.p.append(artigo["palavras-chave"])
+            colecao.p.append(artigo["palavras"])
             colecao.aut.append(artigo["autores"])
             colecao.tit.append(artigo["titulo"])
  
