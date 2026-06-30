@@ -192,6 +192,6 @@ def gravar_arquivo(colecao, nome_arquivo):
         lista_artigos.append(artigo)
 
  
-    with open(nome_arquivo, "w") as arquivo:
+    with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
  
