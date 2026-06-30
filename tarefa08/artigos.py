@@ -127,25 +127,63 @@ def buscar_palavras(colecao, consulta):
  
  
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
-    pass
+    if id_artigo in colecao.id_a:
+        return False
+    else:
+        colecao.id_a.append(id_artigo)
+        colecao.tit.append(titulo)
+        colecao.aut.append(autores)
+        colecao.ano.append(ano)
+        colecao.p.append(palavras)
+        colecao.ref.append(referencias)
+
+    return True    
  
  
 def remover_artigo(colecao, id_artigo):
-    pass
+    if id_artigo not in colecao.id_a:
+        return False 
+
+    posicao = colecao.id_a.index(id_artigo)
+
+    colecao.id_a.pop(posicao)
+    colecao.tit.pop(posicao)
+    colecao.aut.pop(posicao)
+    colecao.ano.pop(posicao)
+    colecao.p.pop(posicao)
+    colecao.ref.pop(posicao)    
+
+    return True
  
  
 def alterar_palavras(colecao, id_artigo, palavras_novas):
-    pass
- 
+    if id_artigo not in colecao.id_a:
+        return False
+
+    posicao = colecao.id_a.index(id_artigo)
+    colecao.p[posicao] = palavras_novas
+
+    return True
+
  
 def alterar_referencias(colecao, id_artigo, referencias_novas):
-    pass
- 
+    if id_artigo nor in colecao.id_a:
+        return False
+
+    posicao = colecao.id_a.index(id_artigo)
+    colecao.ref[posicao] = referencias_novas
+
+    return True
  
 def gravar_arquivo(colecao, nome_arquivo):
     # FIXME: prepare uma lista de arquivos no formato do arquivo JSON
-    lista_artigos = ...
-    ...
+    lista_artigos = []
+
+    for i in range(len(colecao.id_a)):
+        artigo = {"id": colecao.id_a[i], "titulo": colecao.tit[i], "autores": colecao.aut[i], "ano": colecao.ano[i], "palavra-chave": colecao.p[i], "referencias": colecao.ref[i]}
+
+        lista_artigos.append(artigo)
+        
  
     with open(nome_arquivo, "w") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
