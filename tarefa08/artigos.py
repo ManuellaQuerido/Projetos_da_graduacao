@@ -185,7 +185,7 @@ def gravar_arquivo(colecao, nome_arquivo):
             "titulo": colecao.tit[i], 
             "autores": colecao.aut[i], 
             "ano": colecao.ano[i], 
-            "palavra-chave": colecao.p[i], 
+            "palavras": colecao.p[i], 
             "referencias": colecao.ref[i]
         }
 
