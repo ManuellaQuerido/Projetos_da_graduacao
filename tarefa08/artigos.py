@@ -189,6 +189,8 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
 def gravar_arquivo(colecao, nome_arquivo):
     # FIXME: prepare uma lista de arquivos no formato do arquivo JSON
     lista_artigos = []
+    indices = sorted(range(len(colecao.id_a)),
+                    key=lambda i: colecao.id_a[i])
 
     for i in range(len(colecao.id_a)):
         artigo = {
