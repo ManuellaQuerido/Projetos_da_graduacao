@@ -161,7 +161,15 @@ def alterar_palavras(colecao, id_artigo, palavras_novas):
         return False
 
     posicao = colecao.id_a.index(id_artigo)
-    colecao.p[posicao] = palavras_novas
+
+    lista = []
+
+    for palavra in palavras_novas:
+        if palavra not in lista:
+            lista.append(palavra)
+    lista.sort()
+    colecao.p[posicao] = lista    
+
     return True
 
  
@@ -170,7 +178,15 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
         return False
 
     posicao = colecao.id_a.index(id_artigo)
-    colecao.ref[posicao] = referencias_novas
+    
+    lista = []
+
+    for referencia in referencias_novas:
+        if referencia not in lista:
+            lista.append(referencia)
+    lista.sort()
+    colecao.ref[posicao] = lista
+
     return True
  
 def gravar_arquivo(colecao, nome_arquivo):
