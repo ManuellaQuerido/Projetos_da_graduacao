@@ -167,7 +167,7 @@ def alterar_palavras(colecao, id_artigo, palavras_novas):
 
  
 def alterar_referencias(colecao, id_artigo, referencias_novas):
-    if id_artigo nor in colecao.id_a:
+    if id_artigo not in colecao.id_a:
         return False
 
     posicao = colecao.id_a.index(id_artigo)
@@ -183,7 +183,7 @@ def gravar_arquivo(colecao, nome_arquivo):
         artigo = {"id": colecao.id_a[i], "titulo": colecao.tit[i], "autores": colecao.aut[i], "ano": colecao.ano[i], "palavra-chave": colecao.p[i], "referencias": colecao.ref[i]}
 
         lista_artigos.append(artigo)
-        
+
  
     with open(nome_arquivo, "w") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
