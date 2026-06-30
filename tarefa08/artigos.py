@@ -192,7 +192,7 @@ def gravar_arquivo(colecao, nome_arquivo):
     indices = sorted(range(len(colecao.id_a)),
                     key=lambda i: colecao.id_a[i])
 
-    for i in range(len(colecao.id_a)):
+    for i in indices:
         artigo = {
             "id": colecao.id_a[i], 
             "titulo": colecao.tit[i], 
