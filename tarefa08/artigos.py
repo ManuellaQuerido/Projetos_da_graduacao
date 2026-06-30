@@ -122,7 +122,7 @@ def buscar_palavras(colecao, consulta):
             
             if encontrou:
                 palavras.add(colecao.id_a[i])
-    
+                break
     return palavras
  
  
