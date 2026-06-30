@@ -180,7 +180,14 @@ def gravar_arquivo(colecao, nome_arquivo):
     lista_artigos = []
 
     for i in range(len(colecao.id_a)):
-        artigo = {"id": colecao.id_a[i], "titulo": colecao.tit[i], "autores": colecao.aut[i], "ano": colecao.ano[i], "palavra-chave": colecao.p[i], "referencias": colecao.ref[i]}
+        artigo = {
+            "id": colecao.id_a[i], 
+            "titulo": colecao.tit[i], 
+            "autores": colecao.aut[i], 
+            "ano": colecao.ano[i], 
+            "palavra-chave": colecao.p[i], 
+            "referencias": colecao.ref[i]
+        }
 
         lista_artigos.append(artigo)
 
