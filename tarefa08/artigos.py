@@ -129,13 +129,13 @@ def buscar_palavras(colecao, consulta):
 def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referencias):
     if id_artigo in colecao.id_a:
         return False
-    else:
-        colecao.id_a.append(id_artigo)
-        colecao.tit.append(titulo)
-        colecao.aut.append(autores)
-        colecao.ano.append(ano)
-        colecao.p.append(palavras)
-        colecao.ref.append(referencias)
+    
+    colecao.id_a.append(id_artigo)
+    colecao.tit.append(titulo)
+    colecao.aut.append(autores)
+    colecao.ano.append(ano)
+    colecao.p.append(palavras)
+    colecao.ref.append(referencias)
 
     return True    
  
