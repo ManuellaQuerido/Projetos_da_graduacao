@@ -189,6 +189,18 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
 def gravar_arquivo(colecao, nome_arquivo):
     # FIXME: prepare uma lista de arquivos no formato do arquivo JSON
     lista_artigos = []
+    id_autor = colecao.id_a
+    títulos = colecao.tit
+    autores = colecao.aut
+    ano = colecao.ano
+    palavras = colecao.p
+    referencias = colecao.ref
+
+    for i in range(len(palavras)):
+        palavras[i].sort()
+    for i in range(len(referencias)):
+        referencias[i].sort()
+
     indices = sorted(range(len(colecao.id_a)),
                     key=lambda i: colecao.id_a[i])
 
