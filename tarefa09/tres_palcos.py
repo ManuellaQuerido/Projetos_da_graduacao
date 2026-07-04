@@ -3,7 +3,7 @@ def main():
     shows = []
     duracao = []
 
-    for i in range(n):
+    for _ in range(n):
         linha = input().split()
         nome = linha[0]
         duracao_show = int(linha[1])
@@ -24,14 +24,12 @@ def main():
             palco3_duracao = prefix_sum[n] - prefix_sum[j]
 
             max_duracao = max(palco1_duracao, palco2_duracao, palco3_duracao)
-
             score = (max_duracao, -i, -(j - i))
 
             if score < melhor_score:
                 melhor_score = score
                 melhor_config = (i, j)
 
-    
     i, j = melhor_config
 
     palco1_shows = shows[:i]
@@ -42,12 +40,11 @@ def main():
     palco2_duracao = prefix_sum[j] - prefix_sum[i]
     palco3_duracao = prefix_sum[n] - prefix_sum[j]
 
-    max_duracao = melhor_score[]
+    max_duracao = melhor_score[0]
 
     print(f"Palco 1: {', '.join(palco1_shows)} ({palco1_duracao} minutos)")
     print(f"Palco 2: {', '.join(palco2_shows)} ({palco2_duracao} minutos)")
     print(f"Palco 3: {', '.join(palco3_shows)} ({palco3_duracao} minutos)")
-
-    print(f"Duração do festival: {melhor_max} minutos")
+    print(f"Duração do festival: {max_duracao} minutos")
 
 main()
