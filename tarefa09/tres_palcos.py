@@ -28,3 +28,22 @@ def main():
             if (max_duracao < melhor_max or (max_duracao == melhor_max and i > melhor_config[0]) or (max_duracao == max_duracao and i == melhor_config[0] and (j - i) > (melhor_config[1] - melhor_config[0]))):
                 melhor_max = max_duracao
                 melhor_config = (i, j)
+
+    
+    i, j = melhor_config
+
+    palco1_shows = shows[:i]
+    palco2_shows = shows[i:j]
+    palco3_shows = shows[j:]
+
+    palco1_duracao = prefix_sum[i]
+    palco2_duracao = prefix_sum[j] - prefix_sum[i]
+    palco3_duracao = prefix_sum[n] - prefix_sum[j]
+
+    print(f"Palco 1: {', '.join(palco1_shows)} ({palco1_duracao} minutos)")
+    print(f"Palco 2: {', '.join(palco2_shows)} ({palco2_duracao} minutos)")
+    print(f"Palco 3: {', '.join(palco3_shows)} ({palco3_duracao} minutos)")
+
+    print(f"Duração do festival: {melhor_max} minutos")
+
+main()
