@@ -197,7 +197,7 @@ def gravar_arquivo(colecao, nome_arquivo):
     referencias = colecao.ref
 
     for i in range(len(palavras)):
-        palavras[i].sort()
+        palavras[i].sort() 
     for i in range(len(referencias)):
         referencias[i].sort()
 
