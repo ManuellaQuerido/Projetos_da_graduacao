@@ -28,5 +28,30 @@ def main():
 
             if estilo_count[estilo_d] == 0:
                 estilos_presentes += 1
-                
+
             estilo_count[estilo_d] += 1
+
+        while estilos_presentes == len(estilos_exigidos):
+            tamanho = direita - esquerda + 1
+
+            if tamanho < melhor_tamanho:
+                melhor_tamanho = tamanho
+                melhor_inicio = esquerda
+                melhor_fim = direita + 1
+
+            nome_e, estilo_e = shows[esquerda]
+            if estilo_e in estilos_exigidos:
+                estilo_count[estilo_e]
+                if estilo_count[estilo_e] == 0:
+                    estilos_presentes -= 1
+            
+            esquerda += 1
+    
+    palavra_show = "show" if malhor_tamanho == 1 else "shows"
+    print(f"Menor trecho tem {melhor_tamanho} {palavra_show}:")
+
+    for i in range(melhor_inicio, melhor_fim):
+        nome, estilo = shows[i]
+        print(f"- {nome} ({estilo})")
+
+main()
