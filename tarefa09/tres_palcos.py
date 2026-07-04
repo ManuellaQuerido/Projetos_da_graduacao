@@ -25,8 +25,10 @@ def main():
 
             max_duracao = max(palco1_duracao, palco2_duracao, palco3_duracao)
 
-            if (max_duracao < melhor_max or (max_duracao == melhor_max and i > melhor_config[0]) or (max_duracao == max_duracao and i == melhor_config[0] and (j - i) > (melhor_config[1] - melhor_config[0]))):
-                melhor_max = max_duracao
+            score = (max_duracao, -i, -(j - i))
+
+            if score < melhor_score:
+                melhor_score = score
                 melhor_config = (i, j)
 
     
@@ -39,6 +41,8 @@ def main():
     palco1_duracao = prefix_sum[i]
     palco2_duracao = prefix_sum[j] - prefix_sum[i]
     palco3_duracao = prefix_sum[n] - prefix_sum[j]
+
+    max_duracao = max(palco1_duracao, palco2_duracao, palco3_duracao)
 
     print(f"Palco 1: {', '.join(palco1_shows)} ({palco1_duracao} minutos)")
     print(f"Palco 2: {', '.join(palco2_shows)} ({palco2_duracao} minutos)")
