@@ -50,7 +50,7 @@ def carregar_arquivo(colecao, nome_arquivo):
                 if referencia not in colecao.citacoes:
                     colecao.citacoes[referencia] = set()
 
-                    colecao.citacoes[referencia].add(artigo["id"])
+                colecao.citacoes[referencia].add(artigo["id"])
 
 
 def obter_numero_artigos(colecao):
@@ -82,6 +82,7 @@ def obter_principais_autores(colecao):
     
     if len(contagem) == 0:
         return 0, []
+    
     maior = max(contagem.values())
 
     principais = []
@@ -91,6 +92,7 @@ def obter_principais_autores(colecao):
             principais.append(autor)
 
     principais.sort()
+
     return maior, principais
  
  
@@ -104,6 +106,7 @@ def obter_referencias_orfas(colecao):
                     referencias.append(referencia)
     
     referencias.sort()
+    
     return referencias
 
  
