@@ -1,5 +1,7 @@
-"""A coleção é representada por um objeto SimpleNamespace com listas para 
-armazenar ids, titulos, autores, palavras-chave, anos e referências dos artigos
+"""A coleção é representada por um objeto SimpleNamespace contendo listas para
+armazenar ids, títulos, autores, palavras-chave, anos e referências dos artigos.
+Além disso, possui um dicionário que associa cada artigo citado ao conjunto de
+artigos que o citam.
 """
  
 import json
@@ -200,7 +202,7 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
 
     for referencia in colecao.ref[posicao]:
         if referencia in colecao.citacoes:
-            colecao.citacoes[referencia].remove(id_artigo):
+            colecao.citacoes[referencia].remove(id_artigo)
             
             if len(colecao.citacoes[referencia]) == 0:
                 colecao.citacoes.pop(referencia)
