@@ -17,12 +17,11 @@ def criar_colecao():
     colecao.aut = [] # autores
     colecao.tit = [] # títulos
 
-    # dicionário para def buscar_citacoes()
     colecao.citacoes = {}
 
     return colecao
  
- 
+
 def obter_nome_artigo(colecao, id_artigo):
 
     if id_artigo in colecao.id_a:
@@ -43,13 +42,7 @@ def carregar_arquivo(colecao, nome_arquivo):
             colecao.p.append(artigo["palavras-chave"])
             colecao.aut.append(artigo["autores"])
             colecao.tit.append(artigo["titulo"])
-
-            for ref in artigo["referencias"]:
-                if ref not in colecao.citacoes:
-                    colecao.citacoes[ref] = set()
-                colecao.citacoes[ref].add(artigo["id"])
-
-
+ 
 def obter_numero_artigos(colecao):
     return len(colecao.id_a)
  
@@ -105,7 +98,11 @@ def obter_referencias_orfas(colecao):
 
  
 def buscar_citacoes(colecao, id_artigo):
-    return colecao.citacoes.get(id_artigo, set())
+    citacoes = set()
+
+    for i in range(len(colecao.id_a)):
+        if id_artigo in colecao.ref[i]:
+            citacoes.add(colecao.id_a[i])
     
     return citacoes
  
@@ -224,3 +221,5 @@ def gravar_arquivo(colecao, nome_arquivo):
  
     with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
+
+# Tentativa de consertar erro - bot
