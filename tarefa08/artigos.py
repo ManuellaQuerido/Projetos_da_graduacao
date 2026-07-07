@@ -256,5 +256,3 @@ def gravar_arquivo(colecao, nome_arquivo):
  
     with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
         json.dump(lista_artigos, arquivo, indent=2, ensure_ascii=False)
-
-# Tentativa de consertar erro - bot
