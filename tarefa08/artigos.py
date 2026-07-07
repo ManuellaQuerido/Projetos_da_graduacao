@@ -197,14 +197,29 @@ def alterar_referencias(colecao, id_artigo, referencias_novas):
         return False
 
     posicao = colecao.id_a.index(id_artigo)
-    
-    lista = []
 
+    for referencia in colecao.ref[posicao]:
+        if referencia in colecao.citacoes:
+            colecao.citacoes[referencia].remove(id_artigo):
+            
+            if len(colecao.citacoes[referencia]) == 0:
+                colecao.citacoes.pop(referencia)
+
+    lista = []
+    
     for referencia in referencias_novas:
         if referencia not in lista:
             lista.append(referencia)
+
     lista.sort()
+    
     colecao.ref[posicao] = lista
+
+    for referencia in lista:
+        if referencia not in colecao.citacoes:
+            colecao.citacoes[referencia] = set()
+        
+        colecao.citacoes[referencia].add(id_artigo)
 
     return True
  
