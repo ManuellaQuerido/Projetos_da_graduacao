@@ -106,18 +106,12 @@ def obter_referencias_orfas(colecao):
                     referencias.append(referencia)
     
     referencias.sort()
-    
+
     return referencias
 
  
 def buscar_citacoes(colecao, id_artigo):
-    citacoes = set()
-
-    for i in range(len(colecao.id_a)):
-        if id_artigo in colecao.ref[i]:
-            citacoes.add(colecao.id_a[i])
-    
-    return citacoes
+    return colecao.citacoes.get(id_artigo, set())
  
  
 def buscar_palavras(colecao, consulta):
@@ -149,6 +143,12 @@ def inserir_artigo(colecao, id_artigo, titulo, autores, ano, palavras, referenci
     colecao.p.append(palavras)
     colecao.ref.append(referencias)
 
+    for referencia in referencias:
+        if referencia not in colecao.citacoes:
+            colecao.citacoes[referencia] = set()
+        
+        colecao.citacoes[referencia].add(id_artigo)
+
     return True    
  
  
@@ -157,6 +157,13 @@ def remover_artigo(colecao, id_artigo):
         return False 
 
     posicao = colecao.id_a.index(id_artigo)
+
+    for referencia in colecao.ref[posicao]:
+        if referencia in colecao.citacoes:
+            colecao.citacoes[referencia].remove(id_artigo)
+
+            if len(colecao.citacoes[referencia]) == 0:
+                colecao.citacoes.pop(referencia)
 
     colecao.id_a.pop(posicao)
     colecao.tit.pop(posicao)
