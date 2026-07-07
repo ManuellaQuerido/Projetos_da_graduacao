@@ -26,6 +26,7 @@ def obter_nome_artigo(colecao, id_artigo):
 
     if id_artigo in colecao.id_a:
         posicao = colecao.id_a.index(id_artigo)
+        
         return colecao.tit[posicao]
     
     return None
@@ -36,13 +37,22 @@ def carregar_arquivo(colecao, nome_arquivo):
         lista_artigos = json.load(arquivo)
         
         for artigo in lista_artigos:
+            
             colecao.id_a.append(artigo["id"])
             colecao.ano.append(artigo["ano"])
             colecao.ref.append(artigo["referencias"])
             colecao.p.append(artigo["palavras-chave"])
             colecao.aut.append(artigo["autores"])
             colecao.tit.append(artigo["titulo"])
- 
+
+            for referencia in artigo["referencias"]:
+                
+                if referencia not in colecao.citacoes:
+                    colecao.citacoes[referencia] = set()
+
+                    colecao.citacoes[referencia].add(artigo["id"])
+
+
 def obter_numero_artigos(colecao):
     return len(colecao.id_a)
  
