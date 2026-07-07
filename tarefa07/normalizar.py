@@ -1,114 +1,56 @@
-def ler_pixels(linhas):
+from funcoes import ler_pixels, achar_menor_maior, normalizar, contar
+def main():
+    
+    entrada = input()
+    saida = input()
 
-    pixels = []
+    arq = open(entrada, "r")
+    novo_arq = open(saida, "w")
 
-    for i in range(4, len(linhas)):
+    linhas = []
 
-        valores = linhas[i].split()
+    for linha in arq:
+        linhas.append(linha)
 
-        for v in valores:
-            pixels.append(int(v))
+    tipo = linhas[0]
+    comentario = linhas[1]
+    tamanho = linhas[2]
 
-    return pixels
+    partes = tamanho.split()
 
+    largura = int(partes[0])
+    altura = int(partes[1])
 
-def achar_menor_maior(pixels):
+    pixels = ler_pixels(linhas)
 
-    menor = pixels[0]
-    maior = pixels[0]
+    menor, maior = achar_menor_maior(pixels)
 
-    for p in pixels:
+    pretos1, brancos1 = contar(pixels)
 
-        if p < menor:
-            menor = p
+    novos = normalizar(pixels, menor, maior)
 
-        if p > maior:
-            maior = p
+    pretos2, brancos2 = contar(novos)
 
-    return menor, maior
+    # escreve arquivo
+    print("P2", file=novo_arq)
+    print(comentario, end="", file=novo_arq)
+    print(tamanho, end="", file=novo_arq)
+    print("255", file=novo_arq)
 
+    indice = 0
 
-def normalizar(pixels, menor, maior):
+    for i in range(altura):
 
-    novos = []
+        for j in range(largura):
 
-    for p in pixels:
+            print(novos[indice], end=" ", file=novo_arq)
 
-        if maior == menor:
-            valor = 0
+            indice += 1
 
-        else:
-            valor = ((p - menor) * 255) // (maior - menor)
+        print(file=novo_arq)
 
-        novos.append(valor)
+    # saída
+    print(f"{entrada}: {pretos1} pixels pretos e {brancos1} pixels brancos")
+    print(f"{saida}: {pretos2} pixels pretos e {brancos2} pixels brancos")
 
-    return novos
-
-
-def contar(pixels):
-
-    pretos = 0
-    brancos = 0
-
-    for p in pixels:
-
-        if p == 0:
-            pretos += 1
-
-        if p == 255:
-            brancos += 1
-
-    return pretos, brancos
-
-
-entrada = input()
-saida = input()
-
-arq = open(entrada, "r")
-novo_arq = open(saida, "w")
-
-linhas = []
-
-for linha in arq:
-    linhas.append(linha)
-
-tipo = linhas[0]
-comentario = linhas[1]
-tamanho = linhas[2]
-
-partes = tamanho.split()
-
-largura = int(partes[0])
-altura = int(partes[1])
-
-pixels = ler_pixels(linhas)
-
-menor, maior = achar_menor_maior(pixels)
-
-pretos1, brancos1 = contar(pixels)
-
-novos = normalizar(pixels, menor, maior)
-
-pretos2, brancos2 = contar(novos)
-
-# escreve arquivo
-print("P2", file=novo_arq)
-print(comentario, end="", file=novo_arq)
-print(tamanho, end="", file=novo_arq)
-print("255", file=novo_arq)
-
-indice = 0
-
-for i in range(altura):
-
-    for j in range(largura):
-
-        print(novos[indice], end=" ", file=novo_arq)
-
-        indice += 1
-
-    print(file=novo_arq)
-
-# saída
-print(f"{entrada}: {pretos1} pixels pretos e {brancos1} pixels brancos")
-print(f"{saida}: {pretos2} pixels pretos e {brancos2} pixels brancos")
+main()

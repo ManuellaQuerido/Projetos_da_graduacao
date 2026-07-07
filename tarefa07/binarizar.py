@@ -1,156 +1,62 @@
-def ler_pixels(linhas):
+from funcoes import ler_pixels, achar_menor_maior, normalizar, binarizar, contar
+def main():
 
-    pixels = []
+    entrada = input()
+    saida = input()
 
-    for i in range(4, len(linhas)):
+    dados = input().split()
 
-        valores = linhas[i].split()
+    janela = int(dados[0])
+    limiar = int(dados[1])
+    fator = float(dados[2])
 
-        for v in valores:
-            pixels.append(int(v))
+    arq = open(entrada, "r")
+    novo_arq = open(saida, "w")
 
-    return pixels
+    linhas = []
 
+    for linha in arq:
+        linhas.append(linha)
 
-def achar_menor_maior(pixels):
+    comentario = linhas[1]
+    tamanho = linhas[2]
 
-    menor = pixels[0]
-    maior = pixels[0]
+    partes = tamanho.split()
 
-    for p in pixels:
+    largura = int(partes[0])
+    altura = int(partes[1])
 
-        if p < menor:
-            menor = p
+    pixels = ler_pixels(linhas)
 
-        if p > maior:
-            maior = p
+    pretos1, brancos1 = contar(pixels)
 
-    return menor, maior
+    menor, maior = achar_menor_maior(pixels)
 
+    normalizada = normalizar(pixels, menor, maior)
 
-def normalizar(pixels, menor, maior):
+    binaria = binarizar(normalizada, largura, altura, janela, limiar, fator)
 
-    novos = []
-
-    for p in pixels:
-
-        if maior == menor:
-            valor = 0
-
-        else:
-            valor = ((p - menor) * 255) // (maior - menor)
-
-        novos.append(valor)
-
-    return novos
+    pretos2, brancos2 = contar(binaria)
 
 
-def contar(pixels):
+    print("P2", file=novo_arq)
+    print(comentario, end="", file=novo_arq)
+    print(tamanho, end="", file=novo_arq)
+    print("255", file=novo_arq)
 
-    pretos = 0
-    brancos = 0
-
-    for p in pixels:
-
-        if p == 0:
-            pretos += 1
-
-        if p == 255:
-            brancos += 1
-
-    return pretos, brancos
-
-
-def binarizar(pixels, largura, altura, janela, limiar, fator):
-
-    resultado = []
-
-    raio = janela // 2
+    indice = 0
 
     for i in range(altura):
 
         for j in range(largura):
 
-            contagem = 0
+            print(binaria[indice], end=" ", file=novo_arq)
 
-            for di in range(-raio, raio + 1):
+            indice += 1
 
-                for dj in range(-raio, raio + 1):
+        print(file=novo_arq)
 
-                    ni = i + di
-                    nj = j + dj
-                    
-                    if ni >= 0 and ni < altura and nj >= 0 and nj < largura:
+    print(f"{entrada}: {pretos1} pixels pretos e {brancos1} pixels brancos")
+    print(f"{saida}: {pretos2} pixels pretos e {brancos2} pixels brancos")  
 
-                        indice = ni * largura + nj
-
-                        if pixels[indice] <= limiar:
-                            contagem += 1
-
-            total = janela * janela
-
-            if contagem >= fator * total:
-                resultado.append(0)
-
-            else:
-                resultado.append(255)
-
-    return resultado
-
-entrada = input()
-saida = input()
-
-dados = input().split()
-
-janela = int(dados[0])
-limiar = int(dados[1])
-fator = float(dados[2])
-
-arq = open(entrada, "r")
-novo_arq = open(saida, "w")
-
-linhas = []
-
-for linha in arq:
-    linhas.append(linha)
-
-comentario = linhas[1]
-tamanho = linhas[2]
-
-partes = tamanho.split()
-
-largura = int(partes[0])
-altura = int(partes[1])
-
-pixels = ler_pixels(linhas)
-
-pretos1, brancos1 = contar(pixels)
-
-menor, maior = achar_menor_maior(pixels)
-
-normalizada = normalizar(pixels, menor, maior)
-
-binaria = binarizar(normalizada, largura, altura, janela, limiar, fator)
-
-pretos2, brancos2 = contar(binaria)
-
-
-print("P2", file=novo_arq)
-print(comentario, end="", file=novo_arq)
-print(tamanho, end="", file=novo_arq)
-print("255", file=novo_arq)
-
-indice = 0
-
-for i in range(altura):
-
-    for j in range(largura):
-
-        print(binaria[indice], end=" ", file=novo_arq)
-
-        indice += 1
-
-    print(file=novo_arq)
-
-print(f"{entrada}: {pretos1} pixels pretos e {brancos1} pixels brancos")
-print(f"{saida}: {pretos2} pixels pretos e {brancos2} pixels brancos")  
+main()

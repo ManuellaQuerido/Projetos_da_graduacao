@@ -1,172 +1,71 @@
-#funções iguais a binarizar.py
-def ler_pixels(linhas):
+from funcoes import ler_pixels, achar_menor_maior, normalizar, binarizar, contar_disco
 
-    pixels = []
+def main():
 
-    for i in range(4, len(linhas)):
+    entrada = input()
 
-        valores = linhas[i].split()
+    dados = input().split()
 
-        for v in valores:
-            pixels.append(int(v))
+    janela = int(dados[0])
+    limiar = int(dados[1])
+    fator = float(dados[2])
 
-    return pixels
+    dados_disco = input().split()
 
+    x = float(dados_disco[0])
+    y = float(dados_disco[1])
+    raio = float(dados_disco[2])
 
-def achar_menor_maior(pixels):
+    media = int(input())
 
-    menor = pixels[0]
-    maior = pixels[0]
+    # abre arquivo
 
-    for p in pixels:
+    arq = open(entrada, "r")
 
-        if p < menor:
-            menor = p
+    linhas = []
 
-        if p > maior:
-            maior = p
+    for linha in arq:
+        linhas.append(linha)
 
-    return menor, maior
+    # largura e altura
 
+    tamanho = linhas[2].split()
 
-def normalizar(pixels, menor, maior):
+    largura = int(tamanho[0])
+    altura = int(tamanho[1])
 
-    novos = []
+    # lê pixels
 
-    for p in pixels:
+    pixels = ler_pixels(linhas)
 
-        if maior == menor:
-            valor = 0
+    # normaliza
 
-        else:
-            valor = ((p - menor) * 255) // (maior - menor)
+    menor, maior = achar_menor_maior(pixels)
 
-        novos.append(valor)
+    normalizada = normalizar(pixels, menor, maior)
 
-    return novos
+    # binariza
 
+    binaria = binarizar(normalizada, largura, altura, janela, limiar, fator)
 
-def binarizar(pixels, largura, altura, janela, limiar, fator):
+    # conta pretos dentro do disco
 
-    resultado = []
+    pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
 
-    raio = janela // 2
+    # estima colônias
+    colonias = pixels_pretos // media
 
-    for i in range(altura):
+    # saída
 
-        for j in range(largura):
+    print(f"Número de colônias estimado: {colonias}")
 
-            contagem = 0
+    if colonias < 30:
+        print("Placa inadequada, dilua menos a amostra.")
 
-            for di in range(-raio, raio + 1):
+    elif colonias > 300:
+        print("Placa inadequada, dilua mais a amostra.")
 
-                for dj in range(-raio, raio + 1):
+    else:
+        print("Placa adequada para contagem.")
 
-                    ni = i + di
-                    nj = j + dj
-
-                    if ni >= 0 and ni < altura and nj >= 0 and nj < largura:
-
-                        indice = ni * largura + nj
-
-                        if pixels[indice] <= limiar:
-                            contagem += 1
-
-            total = janela * janela
-
-            if contagem >= fator * total:
-                resultado.append(0)
-
-            else:
-                resultado.append(255)
-
-    return resultado
-
-
-def contar_disco(imagem, largura, altura, x, y, raio): #função adicionada
-
-    pretos = 0
-
-    for i in range(altura):
-        dy = altura - 1 - i - y
-
-        for j in range(largura):
-            dx = j - x
-
-            if dx ** 2 + dy ** 2 <= raio * raio:
-
-                indice = i * largura + j
-
-                if imagem[indice] == 0:
-                    pretos += 1
-
-    return pretos
-
-
-# programa principal
-
-entrada = input()
-
-dados = input().split()
-
-janela = int(dados[0])
-limiar = int(dados[1])
-fator = float(dados[2])
-
-dados_disco = input().split()
-
-x = float(dados_disco[0])
-y = float(dados_disco[1])
-raio = float(dados_disco[2])
-
-media = int(input())
-
-# abre arquivo
-
-arq = open(entrada, "r")
-
-linhas = []
-
-for linha in arq:
-    linhas.append(linha)
-
-# largura e altura
-
-tamanho = linhas[2].split()
-
-largura = int(tamanho[0])
-altura = int(tamanho[1])
-
-# lê pixels
-
-pixels = ler_pixels(linhas)
-
-# normaliza
-
-menor, maior = achar_menor_maior(pixels)
-
-normalizada = normalizar(pixels, menor, maior)
-
-# binariza
-
-binaria = binarizar(normalizada, largura, altura, janela, limiar, fator)
-
-# conta pretos dentro do disco
-
-pixels_pretos = contar_disco(binaria, largura, altura, x, y, raio)
-
-# estima colônias
-colonias = pixels_pretos // media
-
-# saída
-
-print(f"Número de colônias estimado: {colonias}")
-
-if colonias < 30:
-    print("Placa inadequada, dilua menos a amostra.")
-
-elif colonias > 300:
-    print("Placa inadequada, dilua mais a amostra.")
-
-else:
-    print("Placa adequada para contagem.")
+main()
