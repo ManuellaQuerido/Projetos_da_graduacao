@@ -17,6 +17,9 @@ def criar_colecao():
     colecao.aut = [] # autores
     colecao.tit = [] # títulos
 
+    # dicionário para def buscar_citacoes()
+    colecao.citacoes = {}
+
     return colecao
  
  
