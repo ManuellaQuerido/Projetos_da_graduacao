@@ -6,10 +6,10 @@ def busca_binária(sequencia, x):
 
     if sequencia[meio] == x:
         return True
-    
+
 
 def main():
-    sequencia = list(map(input().strip().split()))
+    sequencia = list(map(int, input().split()))
     x = int(input())
 
     resultado = busca_binária(sequencia, x)
