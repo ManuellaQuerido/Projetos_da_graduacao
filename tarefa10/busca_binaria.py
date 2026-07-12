@@ -1,15 +1,19 @@
 def busca_binária(sequencia, x):
-    if len(sequencia) == 0:
-        return False
+    
+    if len(sequencia) == 0: # Caso base para lista vazia
+        return 0
+
+    if len(sequencia) == 1: # Caso base para lista com uma entrada
+        if sequencia[0] == x:
+            return 1
+        return 0
 
     meio = len(sequencia) // 2
 
-    if sequencia[meio] == x:
-        return True
-    elif x < sequencia[meio]:
-        return busca_binária(sequencia[:meio], x)
-    else:
-        return busca_binária(sequencia[meio + 1:], x)
+    prim_metade = busca_binária(sequencia[:meio], x)
+    seg_metade = busca_binária(sequencia[meio:], x)
+
+    return prim_metade + seg_metade
 
 def main():
     sequencia = list(map(int, input().split()))
