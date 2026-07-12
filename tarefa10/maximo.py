@@ -9,7 +9,6 @@ def maximo(lista, n):
     else:
         return maior
 
-
 def main():
     lista = list(map(int, input().split()))
     n = len(lista)
