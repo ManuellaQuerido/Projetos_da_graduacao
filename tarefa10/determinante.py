@@ -34,7 +34,7 @@ def main():
     n = int(input())
     matriz = []
     for i in range(n):
-        linha = list(map(int, input().split()))
+        linha = list(map(float, input().split()))
         matriz.append(linha)
 
     resultado = det(matriz)
