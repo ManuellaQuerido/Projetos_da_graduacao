@@ -14,9 +14,9 @@ def sequencia(n, memo=None):
         if n == 3:
             return 3
     memo[n] = (
-        sequencia(n - 1)
-        + 2 * sequencia(n - 2)
-        + 3 * sequencia(n - 3)
+        sequencia(n - 1, memo)
+        + 2 * sequencia(n - 2, memo)
+        + 3 * sequencia(n - 3, memo)
         )
     return memo[n]
 
