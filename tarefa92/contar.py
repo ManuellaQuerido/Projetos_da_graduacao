@@ -1,20 +1,17 @@
+"""
+Entrada: A matriz da imagem e a posição (linha = i, coluna = j).
+Saída: Todos os pixels da região conectada são pintados de branco.
+
+Casos básicos:
+    - posição fora da imagem;
+    - pixel branco.
+
+Caso geral: Pinta o pixel atual de branco e reduz o problema para
+as quatro regiões vizinhas (cima, baixo, esquerda e direita).
+"""
+
+
 def marcar(imagem, i, j):
-    """
-    Entrada:
-        A matriz da imagem e a posição (linha = i, coluna = j).
-
-    Saída:
-        Todos os pixels da região conectada são pintados de branco.
-
-    Casos básicos:
-        - posição fora da imagem;
-        - pixel branco.
-
-    Caso geral:
-        Pinta o pixel atual de branco e reduz o problema para
-        as quatro regiões vizinhas (cima, baixo, esquerda e direita).
-    """
-
 
     if i < 0 or i >= len(imagem):
         return
