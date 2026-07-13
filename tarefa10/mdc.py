@@ -4,12 +4,11 @@ def mdc(a, b):
         return a
 
     else:
-        quociente = a % b
-        return mdc(b, quociente)
+        resto = a % b
+        return mdc(b, resto)
 
 def main():
-    a = map(int, input().split())
-    b = map(int, input().split())
+    a, b = map(int, input().split())
 
     resultado = mdc(a, b)
     print(resultado)
