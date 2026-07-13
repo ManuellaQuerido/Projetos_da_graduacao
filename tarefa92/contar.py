@@ -2,7 +2,7 @@
 Entrada: A matriz da imagem e a posição (linha = i, coluna = j).
 Saída: Todos os pixels da região conectada são pintados de branco.
 
-Casos básicos:
+Casos base:
     - posição fora da imagem;
     - pixel branco.
 
