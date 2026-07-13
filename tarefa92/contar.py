@@ -1,27 +1,16 @@
-def contar_disco(imagem): #função adicionada
+def marcar(imagem, linha, coluna):
+    """
+    Entrada:
+        A matriz da imagem e a posição (linha, coluna).
 
-    pretos = 0
+    Saída:
+        Todos os pixels da região conectada são pintados de branco.
 
-    if imagem[indice] == 0:
-        pretos += 1
+    Casos básicos:
+        - posição fora da imagem;
+        - pixel branco.
 
-    return pretos
-
-def main():
-    entrada = input()
-    arquivo = open(entrada, "r")
-    linhas = []
-    for linha in arquivo:
-        linhas.append(linha)
-    
-    # conta pretos dentro do disco
-
-    pixels_pretos = contar_disco(imagem)
-
-    # estima colônias
-    colonias = pixels_pretos // media
-
-    resultado = colonias
-    print(f"A imagem tem {resultado} colônias")
-
-main()
+    Caso geral:
+        Pinta o pixel atual de branco e reduz o problema para
+        as quatro regiões vizinhas (cima, baixo, esquerda e direita).
+    """
