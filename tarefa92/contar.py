@@ -50,3 +50,31 @@ def main():
             
             for palavra in palavras_da_linha:
                 conteudo.append(palavra)
+
+    largura = int(conteudo[1])
+    altura = int(conteudo[2])
+    
+    dados_pixels = conteudo[4:]
+
+    pixels_inteiros = []
+    for p in dados_pixels:
+        pixels_inteiros.append(int(p))
+
+    imagem = []
+    for i in range(altura):
+        inicio = i * largura
+        fim = inicio + largura
+        linha_matriz = pixels_inteiros[inicio:fim]
+        imagem.append(linha_matriz)
+
+    total_colonias = 0
+    for i in range(altura):
+        for j in range(largura):
+            if imagem[i][j] == 0:
+                total_colonias += 1
+                marcar(imagem, i, j)
+
+    print(f"A imagem tem {total_colonias} colônias.")
+
+
+main()
