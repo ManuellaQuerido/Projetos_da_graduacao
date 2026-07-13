@@ -21,7 +21,7 @@ def det(matriz):
         m2 = float(matriz[0][1] * matriz[1][0])
 
         return m1 - m2
-    
+
     resultado = 0.0
     for j in range(n):
         menor = menor_comple(matriz, 0, j)
