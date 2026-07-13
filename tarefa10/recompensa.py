@@ -2,7 +2,7 @@ def recompensa(n, x, jogadas_rest=None, memo=None):
     if memo is None:
         memo = {}
 
-    if jogadas_rest in memo:
+    if jogadas_rest is None:
         jogadas_rest = n  
 
     if (x, jogadas_rest) in memo:
@@ -20,14 +20,14 @@ def recompensa(n, x, jogadas_rest=None, memo=None):
         elif x - lado == 0:
             probabilidade_total += (1/6)
 
-        memo[(x, jogadas_rest)] = probabilidade_total
-        return probabilidade_total
+    memo[(x, jogadas_rest)] = probabilidade_total
+    return probabilidade_total
 
 def main():
 
     n, x = map(int, input().split())
 
     resultado = recompensa(n, x)
-    print(f"{resultado:.3d}")
+    print(f"{resultado:.3f}")
 
 main()
