@@ -19,17 +19,15 @@ def det(matriz):
     if n == 2:          # Caso base -> matriz 2x2
         m1 = float(matriz[0][0] * matriz [1][1])
         m2 = float(matriz[0][1] * matriz[1][0])
-        
-        M = m1 - m2
-        
-        return M
+
+        return m1 - m2
     
-    det = 0.0
+    resultado = 0.0
     for j in range(n):
         menor = menor_comple(matriz, 0, j)
         cofator = ((-1) ** (0 + j)) * det(menor)
-        det += matriz[0][j] * cofator
-    return det
+        resultado += matriz[0][j] * cofator
+    return resultado
 
 
 def main():
@@ -37,7 +35,7 @@ def main():
     matriz = []
     for i in range(n):
         linha = list(map(int, input().split()))
-        matriz.append(lista)
+        matriz.append(linha)
 
     resultado = det(matriz)
     print(f"{resultado:.2f}")    
