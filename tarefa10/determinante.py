@@ -1,4 +1,4 @@
-def menor_cofator(matriz, i, j):
+def menor_comple(matriz, i, j):
     n = len(matriz)
     menor = []
     for linha in range(n):
@@ -11,6 +11,25 @@ def menor_cofator(matriz, i, j):
     return menor
 
 def det(matriz):
+    n = len(matriz)
+
+    if n == 1:          # Caso base -> matriz 1x1
+        return float(matriz[0][0])
+    
+    if n == 2:          # Caso base -> matriz 2x2
+        m1 = float(matriz[0][0] * matriz [1][1])
+        m2 = float(matriz[0][1] * matriz[1][0])
+        
+        M = m1 - m2
+        
+        return M
+    
+    det = 0.0
+    for j in range(n):
+        menor = menor_comple(matriz, 0, j)
+        cofator = ((-1) ** (0 + j)) * det(menor)
+        det += matriz[0][j] * cofator
+    return det
 
 
 def main():
