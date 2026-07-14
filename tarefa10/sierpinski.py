@@ -39,7 +39,7 @@ def main():
     
     n = int(input())
 
-    matriz = sierpinski_formatado(n)
+    matriz = sierpinski(n)
 
     for linha in matriz:
         print(linha)
