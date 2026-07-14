@@ -35,6 +35,16 @@ def quick_sort(lista):
 
 
 def main():
+    
+    numeros = list(map(int, input().split()))
+    
+    quick_sort(numeros)
+
+    for i in range(len(numeros)):
+        if i == len(numeros) - 1:
+            print(numeros[i])
+        else:
+            print(numeros[i], end=" ")
 
 
 main()
