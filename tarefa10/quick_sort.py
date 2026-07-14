@@ -1,4 +1,5 @@
 def particionar(lista, esq, dir):
+    
     pivo = lista[esq]
     i = esq + 1
     j = dir
@@ -13,4 +14,27 @@ def particionar(lista, esq, dir):
 
     lista[esq], lista[j] = lista[j], lista[esq]
     return j
-                            
+
+
+def quick_sort_rec(lista, esq, dir):
+    
+    if esq >= dir:
+        return
+    
+    pos_pivo = particionar(lista, esq, dir)
+
+    quick_sort_rec(lista, esq, pos_pivo - 1)
+    quick_sort_rec(lista, pos_pivo + 1, dir)
+
+
+def quick_sort(lista):
+
+    if len(lista) > 0:
+        quick_sort_rec(lista, 0, len(lista) - 1)
+    return lista
+
+
+def main():
+
+
+main()
