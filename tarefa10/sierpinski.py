@@ -36,7 +36,12 @@ def desenhar(matriz, n, linha, coluna):
 
 
 def main():
+    
+    n = int(input())
 
+    matriz = sierpinski_formatado(n)
 
+    for linha in matriz:
+        print(linha)
 
 main()
