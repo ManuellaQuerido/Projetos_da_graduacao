@@ -1,0 +1,6 @@
+*.out
+__pycache__
+
+tarefa07/**/*.pgm
+
+tarefa08/**/*.out.json
