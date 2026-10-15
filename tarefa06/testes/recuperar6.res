@@ -1,9 +1,0 @@
-12h15,11,dinossauro,89.50
-12h15,22,dinossauro,89.50
-12h15,33,dinossauro,89.50
-12h15,44,dinossauro,89.50
-12h15,55,dinossauro,89.50
-12h15,66,dinossauro,89.50
-12h15,77,dinossauro,89.50
-12h15,88,dinossauro,89.50
-12h15,99,dinossauro,89.50
