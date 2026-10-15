@@ -1,0 +1,36 @@
+# ESP-IDF build
+build/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Ninja
+.ninja_deps
+.ninja_log
+
+# VS Code
+.vscode/
+
+# CLion
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# ESP-IDF generated
+sdkconfig.old
+
+# Git
+*.orig
