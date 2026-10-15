@@ -2,57 +2,69 @@
 
 Repositório pessoal para organizar exercícios, estudos e trabalhos desenvolvidos durante a graduação em Engenharia de Computação na Unicamp.
 
-> Este repositório é voltado principalmente ao acompanhamento do aprendizado. Os códigos podem estar em desenvolvimento e não representam necessariamente soluções finais ou revisadas.
+Este espaço funciona como arquivo acadêmico e registro de aprendizagem. Os códigos podem estar incompletos ou em desenvolvimento; confira as instruções de cada atividade antes de executar qualquer arquivo.
 
-## Conteúdo
+## Disciplina: MC102 — Algoritmos e Programação de Computadores
 
-### MC102 — Algoritmos e Programação de Computadores
+As pastas `tarefa00` a `tarefa10`, além de `tarefa91` e `tarefa92`, agrupam atividades, soluções em desenvolvimento e arquivos de apoio da disciplina.
 
-Os diretórios `tarefa00` a `tarefa10`, além de `tarefa91` e `tarefa92`, reúnem exercícios e arquivos de apoio da disciplina.
+Dependendo da tarefa, você poderá encontrar:
 
-Cada tarefa pode conter:
-- programas em Python;
-- enunciados ou anotações em Markdown;
+- programas e scripts;
+- enunciados e anotações em Markdown;
 - arquivos de entrada e saídas esperadas para testes;
-- scripts de teste fornecidos para verificar os programas.
+- scripts de teste e outros materiais de apoio.
 
-Consulte o diretório de cada tarefa para ver os arquivos disponíveis e as instruções específicas.
+### Como navegar
 
-## Como executar os programas
+1. Abra a pasta da tarefa desejada.
+2. Leia os enunciados ou arquivos `.md`, quando existirem.
+3. Confira os comentários e as entradas esperadas pelo programa.
+4. Execute os testes somente conforme as instruções da atividade.
 
-Os exercícios em Python podem ser executados com Python 3. Por exemplo, a partir da raiz do repositório:
+## Executar programas
+
+Alguns exercícios usam Python 3. Quando um programa não depender de arquivos ou de uma entrada específica, ele pode ser executado com:
+
+```bash
+python3 caminho/do/arquivo.py
+```
+
+Por exemplo, para um arquivo chamado `bomdia.py` na pasta `tarefa00`:
 
 ```bash
 python3 tarefa00/bomdia.py
 ```
 
-O comando acima é apenas um exemplo; alguns exercícios esperam dados pela entrada padrão ou exigem arquivos de entrada específicos. Confira o código e os arquivos de teste da tarefa antes de executar.
+Esse comando é apenas um exemplo: alguns exercícios leem dados pela entrada padrão ou exigem arquivos de entrada. Verifique o enunciado e o código antes de executar.
 
-## Organização
+## Estrutura atual
 
 ```text
 Projetos_da_graduacao/
 ├── tarefa00/
 ├── tarefa01/
 ├── tarefa02/
+├── tarefa03/
 ├── ...
 ├── tarefa10/
 ├── tarefa91/
 ├── tarefa92/
+├── trabalhos_mc102/  # referência Git aninhada; revisar separadamente
 ├── .gitignore
 └── README.md
 ```
 
-A pasta `trabalhos_mc102` também aparece no histórico do repositório como uma referência Git aninhada. Ela será revisada separadamente para garantir que os arquivos sejam navegáveis no GitHub e que nenhum histórico ou trabalho seja perdido.
+A pasta `trabalhos_mc102` está registrada como uma referência Git aninhada (submódulo), e não como uma pasta comum navegável. Ela precisa ser revisada antes de qualquer alteração estrutural, para preservar os arquivos e o histórico existentes.
 
 ## Boas práticas
 
-- Manter cada exercício na pasta correspondente.
-- Usar nomes de arquivos claros e consistentes.
-- Não versionar senhas, tokens, arquivos de ambiente ou dados pessoais.
-- Evitar incluir arquivos temporários, caches e saídas geradas automaticamente.
-- Registrar alterações com mensagens de commit descritivas.
+- Mantenha cada atividade na pasta correspondente.
+- Prefira nomes de arquivos descritivos e consistentes.
+- Não versione senhas, tokens, arquivos `.env` ou dados pessoais.
+- Evite incluir caches, arquivos temporários e resultados gerados automaticamente, salvo quando fizerem parte dos testes da atividade.
+- Faça commits pequenos, com mensagens que expliquem a alteração.
 
-## Observação acadêmica
+## Uso acadêmico
 
-Este repositório documenta meu processo de aprendizagem. Se você também estiver cursando uma disciplina, use os materiais de forma responsável e siga as regras de colaboração e entrega definidas pela equipe docente.
+Este repositório registra meu processo de aprendizagem. Caso você também esteja cursando uma disciplina, use os materiais de forma responsável e siga as regras de colaboração e entrega definidas pela equipe docente.
