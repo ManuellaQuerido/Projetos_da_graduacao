@@ -83,13 +83,6 @@ Projetos_da_graduacao/
 
 A pasta `trabalhos_mc102/` concentra os arquivos da disciplina, evitando manter cópias das tarefas diretamente na raiz do repositório. Os projetos em `projetos/` ficam em diretórios separados; seus históricos Git originais não são incorporados ao histórico deste repositório.
 
-## Boas práticas
-
-- Mantenha cada atividade dentro da pasta correspondente em `trabalhos_mc102/`.
-- Use nomes de arquivos claros e consistentes.
-- Não inclua senhas, tokens, chaves privadas, arquivos `.env` ou dados pessoais.
-- Evite adicionar caches, arquivos temporários e resultados gerados automaticamente que não sejam necessários.
-- Faça commits com mensagens que descrevam as alterações.
 
 ## Uso acadêmico
 
