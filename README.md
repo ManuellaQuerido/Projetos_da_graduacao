@@ -37,6 +37,28 @@ python3 trabalhos_mc102/tarefa00/bomdia.py
 
 O caminho acima é apenas um exemplo. O arquivo e a forma de execução variam conforme a atividade; consulte o enunciado e o código antes de executar.
 
+## Outros projetos da graduação
+
+Além dos exercícios de MC102, este repositório reúne projetos de programação e sistemas embarcados desenvolvidos durante a graduação.
+
+### [Processo_Trainee-Conpec](projetos/Processo_Trainee-Conpec/)
+
+Projeto relacionado ao processo trainee da Conpec, com uma entrega em TypeScript e arquivos para uma interface web.
+
+### [LoRaWAN](projetos/LoRaWAN/)
+
+Projeto de comunicação LoRaWAN com ESP32, utilizando ESP-IDF e RadioLib, com foco na ativação OTAA.
+
+### [LW](projetos/LW/)
+
+Outra versão do projeto LoRaWAN com ESP32 e RadioLib. Mantida separadamente para preservar as diferenças entre as versões.
+
+### [LoRa_SmartCampus](projetos/LoRa_SmartCampus/)
+
+Projeto Smart Campus da Unicamp voltado à estimativa de distância até um gateway LoRa, utilizando informações de RSSI e filtragem dos valores medidos.
+
+Consulte o README e os arquivos de configuração de cada projeto antes de compilar ou executar o código. Os projetos LoRaWAN podem exigir configurações específicas de hardware, região de frequência e rede.
+
 ## Estrutura do repositório
 
 ```text
@@ -50,17 +72,22 @@ Projetos_da_graduacao/
 │   ├── tarefa91/
 │   ├── tarefa92/
 │   └── README.md
+├── projetos/
+│   ├── Processo_Trainee-Conpec/
+│   ├── LoRaWAN/
+│   ├── LW/
+│   └── LoRa_SmartCampus/
 ├── .gitignore
 └── README.md
 ```
 
-A pasta `trabalhos_mc102/` concentra os arquivos da disciplina, evitando manter cópias das tarefas diretamente na raiz do repositório.
+A pasta `trabalhos_mc102/` concentra os arquivos da disciplina, evitando manter cópias das tarefas diretamente na raiz do repositório. Os projetos em `projetos/` ficam em diretórios separados; seus históricos Git originais não são incorporados ao histórico deste repositório.
 
 ## Boas práticas
 
 - Mantenha cada atividade dentro da pasta correspondente em `trabalhos_mc102/`.
 - Use nomes de arquivos claros e consistentes.
-- Não inclua senhas, tokens, arquivos `.env` ou dados pessoais.
+- Não inclua senhas, tokens, chaves privadas, arquivos `.env` ou dados pessoais.
 - Evite adicionar caches, arquivos temporários e resultados gerados automaticamente que não sejam necessários.
 - Faça commits com mensagens que descrevam as alterações.
 
