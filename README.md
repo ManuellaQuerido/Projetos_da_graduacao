@@ -2,69 +2,68 @@
 
 Repositório pessoal para organizar exercícios, estudos e trabalhos desenvolvidos durante a graduação em Engenharia de Computação na Unicamp.
 
-Este espaço funciona como arquivo acadêmico e registro de aprendizagem. Os códigos podem estar incompletos ou em desenvolvimento; confira as instruções de cada atividade antes de executar qualquer arquivo.
+Este espaço funciona como arquivo acadêmico e registro de aprendizagem. Os códigos podem estar incompletos ou em desenvolvimento; confira os enunciados e as instruções de cada atividade antes de executar qualquer arquivo.
 
 ## Disciplina: MC102 — Algoritmos e Programação de Computadores
 
-As pastas `tarefa00` a `tarefa10`, além de `tarefa91` e `tarefa92`, agrupam atividades, soluções em desenvolvimento e arquivos de apoio da disciplina.
+Os materiais da disciplina estão reunidos na pasta **[`trabalhos_mc102/`](trabalhos_mc102/)**. As atividades estão organizadas por pasta, de acordo com a numeração das tarefas.
 
-Dependendo da tarefa, você poderá encontrar:
+### Atividades disponíveis
 
-- programas e scripts;
+- `tarefa00` a `tarefa10`
+- `tarefa91`
+- `tarefa92`
+
+Conforme a atividade, as pastas podem conter:
+
+- programas e scripts em Python;
 - enunciados e anotações em Markdown;
-- arquivos de entrada e saídas esperadas para testes;
-- scripts de teste e outros materiais de apoio.
+- arquivos de apoio necessários para executar os exercícios.
 
 ### Como navegar
 
-1. Abra a pasta da tarefa desejada.
-2. Leia os enunciados ou arquivos `.md`, quando existirem.
-3. Confira os comentários e as entradas esperadas pelo programa.
-4. Execute os testes somente conforme as instruções da atividade.
+1. Abra a pasta [`trabalhos_mc102/`](trabalhos_mc102/).
+2. Escolha a pasta da tarefa desejada.
+3. Leia o enunciado e as instruções disponíveis antes de executar o código.
+4. Verifique se o programa precisa de entrada pelo terminal ou de arquivos específicos.
 
-## Executar programas
+### Executar um programa
 
-Alguns exercícios usam Python 3. Quando um programa não depender de arquivos ou de uma entrada específica, ele pode ser executado com:
-
-```bash
-python3 caminho/do/arquivo.py
-```
-
-Por exemplo, para um arquivo chamado `bomdia.py` na pasta `tarefa00`:
+Os exercícios que utilizam Python 3 podem ser executados pelo terminal com:
 
 ```bash
-python3 tarefa00/bomdia.py
+python3 trabalhos_mc102/tarefa00/bomdia.py
 ```
 
-Esse comando é apenas um exemplo: alguns exercícios leem dados pela entrada padrão ou exigem arquivos de entrada. Verifique o enunciado e o código antes de executar.
+O caminho acima é apenas um exemplo. O arquivo e a forma de execução variam conforme a atividade; consulte o enunciado e o código antes de executar.
 
-## Estrutura atual
+## Estrutura do repositório
 
 ```text
 Projetos_da_graduacao/
-├── tarefa00/
-├── tarefa01/
-├── tarefa02/
-├── tarefa03/
-├── ...
-├── tarefa10/
-├── tarefa91/
-├── tarefa92/
-├── trabalhos_mc102/  # referência Git aninhada; revisar separadamente
+├── trabalhos_mc102/
+│   ├── tarefa00/
+│   ├── tarefa01/
+│   ├── tarefa02/
+│   ├── ...
+│   ├── tarefa10/
+│   ├── tarefa91/
+│   ├── tarefa92/
+│   └── README.md
 ├── .gitignore
 └── README.md
 ```
 
-A pasta `trabalhos_mc102` está registrada como uma referência Git aninhada (submódulo), e não como uma pasta comum navegável. Ela precisa ser revisada antes de qualquer alteração estrutural, para preservar os arquivos e o histórico existentes.
+A pasta `trabalhos_mc102/` concentra os arquivos da disciplina, evitando manter cópias das tarefas diretamente na raiz do repositório.
 
 ## Boas práticas
 
-- Mantenha cada atividade na pasta correspondente.
-- Prefira nomes de arquivos descritivos e consistentes.
-- Não versione senhas, tokens, arquivos `.env` ou dados pessoais.
-- Evite incluir caches, arquivos temporários e resultados gerados automaticamente, salvo quando fizerem parte dos testes da atividade.
-- Faça commits pequenos, com mensagens que expliquem a alteração.
+- Mantenha cada atividade dentro da pasta correspondente em `trabalhos_mc102/`.
+- Use nomes de arquivos claros e consistentes.
+- Não inclua senhas, tokens, arquivos `.env` ou dados pessoais.
+- Evite adicionar caches, arquivos temporários e resultados gerados automaticamente que não sejam necessários.
+- Faça commits com mensagens que descrevam as alterações.
 
 ## Uso acadêmico
 
-Este repositório registra meu processo de aprendizagem. Caso você também esteja cursando uma disciplina, use os materiais de forma responsável e siga as regras de colaboração e entrega definidas pela equipe docente.
+Este repositório registra meu processo de aprendizagem. Os materiais são destinados ao estudo pessoal; respeite as regras de colaboração, autoria e entrega estabelecidas pela equipe docente.
